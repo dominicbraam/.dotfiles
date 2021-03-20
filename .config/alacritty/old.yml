@@ -1,0 +1,25 @@
+import:
+        - ~/.config/alacritty/dracula.yml
+
+font:
+  normal:
+    family: Source Code Pro
+    style: Medium
+
+  bold:
+    family: Source Code Pro
+    style: Bold
+
+  italic:
+    family: Source Code Pro
+    style: Italic
+
+  bold_italic:
+    family: Source Code Pro
+    style: Bold Italic
+
+  size: 11
+
+background_opacity: 1
+
+draw_bold_text_with_bright_colors: true

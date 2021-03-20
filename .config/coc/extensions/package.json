@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "coc-css": ">=1.2.6",
+    "coc-emmet": ">=1.1.6",
+    "coc-highlight": ">=1.2.7",
+    "coc-html": ">=1.4.1",
+    "coc-phpls": ">=2.2.0",
+    "coc-python": ">=1.2.13",
+    "coc-spell-checker": ">=1.2.0"
+  }
+}

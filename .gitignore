@@ -11,3 +11,6 @@
 .config/pylint.d
 .config/QrProject.conf
 .config/vlc
+dwm/.git
+dmenu/.git
+dwmbar/.git

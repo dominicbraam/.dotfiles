@@ -25,6 +25,7 @@ sync.sh
 .config/terminator
 .config/QtProject.conf
 .config/vlc
+.config/zsh/.zcompdump
 .config/zoomus.conf
 dwm/.git
 dmenu/.git

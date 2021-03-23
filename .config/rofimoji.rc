@@ -1,4 +1,0 @@
-action = type
-files = [emojis]
-typer = wtype
-files = all

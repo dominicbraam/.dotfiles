@@ -1,0 +1,266 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+background = #11121D
+#background = #00
+foreground = #A0A8CD
+content-background = #2b2f37
+blue = #7199EE
+cyan = #38A89D
+green =  #A0E8A2
+orange = #d19a66
+red =  #e06c75
+yellow = #D4B261
+purple = #A485DD
+light-gray = #565c64
+
+[bar/dominicbar]
+tray-position = right
+monitor = DP-2
+width =  100%
+height = 20
+padding-left = 1
+padding-right = 1
+background = ${colors.background}
+foreground = ${colors.foreground}
+bottom = false
+border-top-size = 6
+border-bottom-size = 6
+border-top-color = ${colors.background}
+border-bottom-color = ${colors.background}
+line-size = 5
+wm-restack = bspwm
+modules-left = bspwm
+modules-center = xwindow
+modules-right =  pulseaudio cpu temperature temperature-gpu mem  wlan time  powermenu
+font-0 = Hack Nerd Font:style=Bold:pixelsize=11;2
+font-1 = JetBrainsMono Nerd Font:size=11;2
+font-2 = Material Design Icons:style=Bold:size=11;2
+font-3 = unifont:fontformat=truetype:size=10:antialias=true;
+
+[bar/dominicbar-secondary]
+tray-position = right
+monitor = DP-3
+width =  100%
+height = 20
+padding-left = 1
+padding-right = 1
+background = ${colors.background}
+foreground = ${colors.foreground}
+bottom = false
+border-top-size = 6
+border-bottom-size = 6
+border-top-color = ${colors.background}
+border-bottom-color = ${colors.background}
+line-size = 5
+wm-restack = bspwm
+modules-left = bspwm
+modules-center = xwindow
+modules-right =  time
+font-0 = Hack Nerd Font:style=Bold:pixelsize=11;2
+font-1 = JetBrainsMono Nerd Font:size=11;2
+font-2 = Material Design Icons:style=Bold:size=11;2
+font-3 = unifont:fontformat=truetype:size=10:antialias=true;
+
+
+[module/round-left]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = ${colors.content-background}
+
+[module/round-right]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = ${colors.content-background}
+
+[module/temperature]
+type = internal/temperature
+ramp-0 = "󰜗"
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input
+thermal-zone = 0
+warn-temperature = 70
+format = <ramp><label>
+format-warn = <ramp><label-warn>
+label = %temperature-c%
+label-warn = %temperature-c%
+ramp-foreground = ${colors.blue}
+format-padding = 1
+
+[module/temperature-gpu]
+type = internal/temperature
+ramp-0 = "󰜗"
+hwmon-path = /sys/devices/pci0000:00/0000:00:03.1/0000:07:00.0/0000:08:00.0/0000:09:00.0/hwmon/hwmon5/temp1_input
+thermal-zone = 0
+warn-temperature = 70
+format = <ramp><label>
+format-warn = <ramp><label-warn>
+label = %temperature-c%
+label-warn = %temperature-c%
+ramp-foreground = ${colors.blue}
+format-padding = 1
+
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = true
+inline-mode = true
+enable-click = true
+enable-scroll = true
+reverse-scroll = false
+format = <label-state>
+
+ws-icon-0 = 1;%{F#ff9b93}
+ws-icon-1 = 2;%{F#4BB1A7}
+ws-icon-2 = 3;%{F#4BB1A7}
+ws-icon-3 = 4;%{F#4BB1A7}
+ws-icon-4 = 5;%{F#A3BE8C}阮
+ws-icon-5 = 6;%{F#81A1C1}ﭮ
+ws-icon-6 = 7;%{F#72C7D1}金
+ws-icon-7 = 8;%{F#B888E2}
+ws-icon-8 = 9;%{F#C7C18B}
+ws-icon-9 = 0;%{F#AE8785}
+
+label-separator = ""
+label-separator-background = ${colors.content-background}
+label-focused = %icon% %name%
+label-focused-foreground = ${colors.foreground}
+label-focused-underline =  ${colors.light-gray}
+label-focused-padding = 1
+#label-focused-background = ${colors.content-background}
+label-occupied = %icon% %name%
+label-occupied-foreground = ${colors.light-gray}
+#label-occupied-background = ${colors.content-background}
+label-occupied-padding = 1
+label-empty = ""
+label-empty-foreground =   ${colors.foreground}
+label-empty-padding = 1
+label-empty-background = ${colors.content-background}
+label-urgent = %icon% %name%
+label-urgent-foreground = ${colors.cyan}
+label-urgent-background = ${colors.content-background}
+label-urgent-padding = 1
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <ramp-volume> <label-volume>
+format-muted = <label-muted>
+label-volume = %percentage%%
+label-muted = " "
+label-volume-foreground = ${colors.foreground}
+format-muted-foreground = ${colors.foreground}
+format-muted-padding = 1
+format-muted-background = ${colors.content-background}
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-foreground = ${colors.cyan}
+ramp-headphones-0 = 
+ramp-headphones-foreground = ${colors.cyan}
+format-padding = 1
+
+[module/time]
+type = internal/date
+interval = 60
+format = <label>
+#format-background = ${colors.content-background}
+date = %{F#888e96}󰥔 %H:%M%{F-}
+time-alt = %{F#7199EE}󰃭 %a, %b %d%{F-}
+label = %date%%time%
+format-padding = 1
+
+[module/mem]
+type = custom/script
+exec = printf "%.1f\n" $(echo $(free -m | sed -n 's/^Mem:\s\+[0-9]\+\s\+\([0-9]\+\)\s.\+/\1/p')/1024 | bc -l)
+format = <label>
+format-prefix = " "
+label = "%output%GB"
+format-prefix-foreground = ${colors.orange}
+format-padding = 1
+
+[module/cpu]
+type = internal/cpu
+interval = 2.5
+format = <label>
+format-prefix = " "
+label = "%percentage:02%%"
+format-prefix-foreground = ${colors.purple}
+format-padding = 2
+
+[module/powermenu]
+type = custom/text
+content =""
+content-padding = 1
+click-left = bspc quit &
+content-foreground =  ${colors.red}
+
+[module/wlan]
+type = internal/network
+interface = wlp6s0
+interval = 10.0
+format-connected = <label-connected>
+label-connected = "󰤪 "
+label-connected-foreground = ${colors.green}
+format-padding = 1
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ADP1
+full-at = 98
+format-charging = <ramp-capacity> <label-charging>
+label-charging = %percentage:2%%
+format-charging-padding = 1
+format-charging-foreground = ${colors.foreground}
+format-discharging = <ramp-capacity> <label-discharging>
+label-discharging = %percentage%%
+format-discharging-foreground = ${colors.foreground}
+format-full-prefix = "  "
+format-full-prefix-foreground = ${colors.green}
+format-foreground = ${colors.foreground}
+format-background = ${colors.content-background}
+label-discharging-foreground = ${colors.foreground}
+ramp-capacity-foreground =  ${colors.green}
+label-charging-foreground = ${colors.foreground}
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-2 = " "
+animation-charging-3 = " "
+animation-charging-4 = " "
+animation-charging-foreground = ${colors.red}
+animation-charging-framerate = 910
+format-discharging-padding = 1
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format = <label>
+format-prefix = " "
+label = %percentage:2%%
+format-prefix-foreground = ${colors.yellow}
+format-padding = 1
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+; vim:ft=dosini

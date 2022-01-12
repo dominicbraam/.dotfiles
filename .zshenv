@@ -1,1 +1,1 @@
-export ZDOTDIR="$HOME/.config/zsh/"
+/home/dominic/.zshenv

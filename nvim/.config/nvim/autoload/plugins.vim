@@ -28,4 +28,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim'
 
+	" Lazygit
+	Plug 'kdheepak/lazygit.nvim'
+
 call plug#end()

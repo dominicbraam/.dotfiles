@@ -27,5 +27,8 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " Toggle terminal
 nnoremap <leader>tt <cmd>ToggleTerm direction=float<cr>
 
+" Lazygit
+nnoremap <leader>lg <cmd>LazyGit<cr>
+
 " Execute programs
- nnoremap <leader>xp <cmd>py3f %<CR>
+nnoremap <leader>xp <cmd>py3f %<CR>

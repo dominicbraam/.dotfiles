@@ -11,6 +11,10 @@ super + Return
 super + @space
     rofi -show drun
 
+# emoji launcher
+super + ctrl + @space
+    rofi -show emoji -modi emoji
+
 # file mananger
 super + shift + Return
     pcmanfm

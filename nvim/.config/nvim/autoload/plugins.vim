@@ -17,6 +17,8 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'arcticicestudio/nord-vim'
 	Plug 'tiagovla/tokyodark.nvim'
 	" Plug 'ghifarit53/tokyonight-vim'
+	
+	Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
 	" To get terminal within neovim
 	Plug 'akinsho/toggleterm.nvim'

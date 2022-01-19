@@ -17,10 +17,12 @@
 ;==========================================================
 
 [colors]
-background = #11121D
+#background = #11121D
+background = #001E1E28
 #background = #00
 foreground = #A0A8CD
-content-background = #2b2f37
+#content-background = #2b2f37
+content-background = #11121D
 blue = #7199EE
 cyan = #38A89D
 green =  #A0E8A2
@@ -29,28 +31,29 @@ red =  #e06c75
 yellow = #D4B261
 purple = #A485DD
 light-gray = #565c64
+empty = #00000000
 
 [bar/dominicbar]
 tray-position = right
 monitor = DP-2
 width =  100%
-height = 20
+height = 30
 padding-left = 1
 padding-right = 1
 background = ${colors.background}
 foreground = ${colors.foreground}
 bottom = false
-border-top-size = 6
-border-bottom-size = 6
+border-top-size = 7
+border-bottom-size = 7
 border-top-color = ${colors.background}
 border-bottom-color = ${colors.background}
 line-size = 5
 wm-restack = bspwm
-modules-left = bspwm
-modules-center = xwindow
-modules-right =  pulseaudio cpu temperature temperature-gpu mem  wlan time  powermenu
+modules-left = round-left bspwm round-right
+modules-center = round-left xwindow round-right
+modules-right =  round-left pulseaudio cpu temperature temperature-gpu mem  wlan time round-right  powermenu
 font-0 = Hack Nerd Font:style=Bold:pixelsize=11;2
-font-1 = JetBrainsMono Nerd Font:size=11;2
+font-1 = JetBrainsMono Nerd Font:size=19;4
 font-2 = Material Design Icons:style=Bold:size=11;2
 font-3 = unifont:fontformat=truetype:size=10:antialias=true;
 
@@ -58,23 +61,23 @@ font-3 = unifont:fontformat=truetype:size=10:antialias=true;
 tray-position = right
 monitor = DP-3
 width =  100%
-height = 20
+height = 30
 padding-left = 1
 padding-right = 1
 background = ${colors.background}
 foreground = ${colors.foreground}
 bottom = false
-border-top-size = 6
-border-bottom-size = 6
+border-top-size = 7
+border-bottom-size = 7
 border-top-color = ${colors.background}
 border-bottom-color = ${colors.background}
 line-size = 5
 wm-restack = bspwm
-modules-left = bspwm
-modules-center = xwindow
-modules-right =  time
+modules-left = round-left bspwm round-right
+modules-center = round-left xwindow round-right
+modules-right =  round-left time round-right
 font-0 = Hack Nerd Font:style=Bold:pixelsize=11;2
-font-1 = JetBrainsMono Nerd Font:size=11;2
+font-1 = JetBrainsMono Nerd Font:size=19;4
 font-2 = Material Design Icons:style=Bold:size=11;2
 font-3 = unifont:fontformat=truetype:size=10:antialias=true;
 
@@ -100,6 +103,7 @@ format-warn = <ramp><label-warn>
 label = %temperature-c%
 label-warn = %temperature-c%
 ramp-foreground = ${colors.blue}
+format-background = ${colors.content-background}
 format-padding = 1
 
 [module/temperature-gpu]
@@ -113,6 +117,7 @@ format-warn = <ramp><label-warn>
 label = %temperature-c%
 label-warn = %temperature-c%
 ramp-foreground = ${colors.blue}
+format-background = ${colors.content-background}
 format-padding = 1
 
 [module/bspwm]
@@ -154,6 +159,8 @@ label-urgent = %icon% %name%
 label-urgent-foreground = ${colors.cyan}
 label-urgent-background = ${colors.content-background}
 label-urgent-padding = 1
+format-background = ${colors.content-background}
+
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -162,16 +169,17 @@ format-muted = <label-muted>
 label-volume = %percentage%%
 label-muted = " "
 label-volume-foreground = ${colors.foreground}
+format-volume-background = ${colors.content-background}
 format-muted-foreground = ${colors.foreground}
 format-muted-padding = 1
-format-muted-background = ${colors.content-background}
+format-muted-background = ${colors.light-gray}
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 ramp-volume-foreground = ${colors.cyan}
 ramp-headphones-0 = 
 ramp-headphones-foreground = ${colors.cyan}
-format-padding = 1
+format-padding = 5
 
 [module/time]
 type = internal/date
@@ -181,6 +189,7 @@ format = <label>
 date = %{F#888e96}󰥔 %H:%M%{F-}
 time-alt = %{F#7199EE}󰃭 %a, %b %d%{F-}
 label = %date%%time%
+format-background = ${colors.content-background}
 format-padding = 1
 
 [module/mem]
@@ -190,6 +199,7 @@ format = <label>
 format-prefix = " "
 label = "%output%GB"
 format-prefix-foreground = ${colors.orange}
+format-background = ${colors.content-background}
 format-padding = 1
 
 [module/cpu]
@@ -198,6 +208,7 @@ interval = 2.5
 format = <label>
 format-prefix = " "
 label = "%percentage:02%%"
+format-background = ${colors.content-background}
 format-prefix-foreground = ${colors.purple}
 format-padding = 2
 
@@ -224,6 +235,7 @@ adapter = ADP1
 full-at = 98
 format-charging = <ramp-capacity> <label-charging>
 label-charging = %percentage:2%%
+label-background = ${colors.content-background}
 format-charging-padding = 1
 format-charging-foreground = ${colors.foreground}
 format-discharging = <ramp-capacity> <label-discharging>
@@ -262,5 +274,11 @@ format-padding = 1
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
+format-background = ${colors.content-background}
+
+[module/gap]
+type = custom/text
+content = "  "
+content-background = ${colors.empty}
 
 ; vim:ft=dosini

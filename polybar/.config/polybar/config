@@ -76,7 +76,7 @@ line-size = 5
 wm-restack = bspwm
 modules-left = round-left bspwm round-right
 modules-center = round-left xwindow round-right
-modules-right =  time
+modules-right =  round-left pulseaudio  time
 font-0 = Hack Nerd Font:style=Bold:pixelsize=11;2
 font-1 = JetBrainsMono Nerd Font:size=19;4
 font-2 = Material Design Icons:style=Bold:size=11;2
@@ -199,7 +199,7 @@ time-alt = %{F#7199EE}󰃭 %a, %b %d%{F-}
 label = "%date%%time%"
 label-foreground = ${colors.content-background}
 label-background = ${colors.accent}
-format-padding = 1
+format-padding = 0
 
 [module/mem]
 type = custom/script
@@ -230,7 +230,7 @@ content-foreground =  ${colors.red}
 
 [module/wlan]
 type = internal/network
-interface = wlp6s0
+interface = eno1
 interval = 10.0
 format-connected = <label-connected>
 label-connected = "󰤪 "

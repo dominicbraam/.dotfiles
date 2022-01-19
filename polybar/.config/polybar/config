@@ -23,6 +23,7 @@ background = #001E1E28
 foreground = #A0A8CD
 #content-background = #2b2f37
 content-background = #11121D
+accent = #96CDFB
 blue = #7199EE
 cyan = #38A89D
 green =  #A0E8A2
@@ -51,7 +52,7 @@ line-size = 5
 wm-restack = bspwm
 modules-left = round-left bspwm round-right
 modules-center = round-left xwindow round-right
-modules-right =  round-left pulseaudio cpu temperature temperature-gpu mem  wlan time round-right  powermenu
+modules-right =  round-left pulseaudio cpu temperature temperature-gpu mem time
 font-0 = Hack Nerd Font:style=Bold:pixelsize=11;2
 font-1 = JetBrainsMono Nerd Font:size=19;4
 font-2 = Material Design Icons:style=Bold:size=11;2
@@ -75,7 +76,7 @@ line-size = 5
 wm-restack = bspwm
 modules-left = round-left bspwm round-right
 modules-center = round-left xwindow round-right
-modules-right =  round-left time round-right
+modules-right =  time
 font-0 = Hack Nerd Font:style=Bold:pixelsize=11;2
 font-1 = JetBrainsMono Nerd Font:size=19;4
 font-2 = Material Design Icons:style=Bold:size=11;2
@@ -185,11 +186,19 @@ format-padding = 5
 type = internal/date
 interval = 60
 format = <label>
-#format-background = ${colors.content-background}
+
+format-prefix = %{T3}%{T-}
+format-prefix-foreground = ${colors.accent}
+format-prefix-background = ${colors.content-background}
+
+format-suffix = %{T3}%{T-}
+format-suffix-foreground = ${colors.accent}
+
 date = %{F#888e96}󰥔 %H:%M%{F-}
 time-alt = %{F#7199EE}󰃭 %a, %b %d%{F-}
-label = %date%%time%
-format-background = ${colors.content-background}
+label = "%date%%time%"
+label-foreground = ${colors.content-background}
+label-background = ${colors.accent}
 format-padding = 1
 
 [module/mem]

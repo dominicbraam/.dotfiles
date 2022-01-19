@@ -12,7 +12,7 @@ pgrep -x sxhkd >/dev/null || sxhkd &
 bspc monitor DP-2 -d 1 2 3 4 5
 bspc monitor DP-3 -d 6 7 8 9 0
 
-bspc config top_padding 30
+bspc config top_padding 0
 
 bspc config window_gap 10
 

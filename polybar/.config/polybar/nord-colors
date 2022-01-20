@@ -5,6 +5,7 @@ content-background = #2E3440
 background = #001E1E28
 buffer = #4c566a
 foreground = #D8DEE9
+accent = #D8DEE9
 nord6 = #ECEFF4
 nord7 = #8FBCBB
 nord8 = #88C0D0

@@ -13,3 +13,4 @@ warning = #D08770
 notify = #EBCB8B
 success = #A3BE8C
 function = #B48EAD
+empty = #00000000

@@ -34,6 +34,9 @@ purple = #A485DD
 light-gray = #565c64
 empty = #00000000
 
+[global-wm]
+include-file = nord-colors
+
 [bar/dominicbar]
 tray-position = right
 monitor = DP-2

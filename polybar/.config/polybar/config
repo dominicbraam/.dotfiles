@@ -17,7 +17,7 @@
 ;==========================================================
 
 [global-wm]
-include-file = nord-colors
+include-file = catppuccin
 
 [bar/dominicbar]
 tray-position = right

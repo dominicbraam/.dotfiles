@@ -169,6 +169,7 @@ ramp-volume-2 = 
 ramp-volume-foreground = ${colors.cyan}
 ramp-headphones-0 = 
 ramp-headphones-foreground = ${colors.cyan}
+click-right = exec pavucontrol &
 format-padding = 5
 
 [module/time]

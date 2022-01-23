@@ -37,7 +37,7 @@ line-size = 5
 wm-restack = bspwm
 modules-left = round-left bspwm round-right
 modules-center = round-left xwindow round-right
-modules-right =  round-left pulseaudio cpu temperature temperature-gpu mem time
+modules-right =  round-left pulseaudio battery-headset cpu temperature temperature-gpu mem time
 font-0 = Hack Nerd Font:style=Bold:pixelsize=11;2
 font-1 = JetBrainsMono Nerd Font:size=19;4
 font-2 = Material Design Icons:style=Bold:size=11;2
@@ -171,6 +171,16 @@ ramp-headphones-0 = 
 ramp-headphones-foreground = ${colors.cyan}
 click-right = exec pavucontrol &
 format-padding = 5
+
+[module/battery-headset]
+type = custom/script
+exec = headsetcontrol -b | grep Battery | awk '{print $2}'
+format = <label>
+format-prefix = "  "
+label = "%output%"
+format-prefix-foreground = ${colors.orange}
+format-background = ${colors.content-background}
+format-padding = 1
 
 [module/time]
 type = internal/date

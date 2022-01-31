@@ -5,7 +5,13 @@ set showtabline=2
 set updatetime=300
 set clipboard=unnamedplus
 syntax enable
-set tabstop=4 softtabstop=4
+set autoindent
+set noexpandtab
+set tabstop=4
+" set softtabstop=4
+set shiftwidth=4
+set list
+set listchars=tab:→\ ,nbsp:·,trail:· ",eol:¬
 " colorscheme dracula
 
 set termguicolors

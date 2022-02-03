@@ -198,7 +198,7 @@ format-padding = 5
 
 [module/battery-headset]
 type = custom/script
-exec = headsetcontrol -b | grep Battery | awk '{print $2}'
+exec = $HOME/.config/polybar/scripts/headset-bat.sh
 format = <label>
 format-prefix = "  "
 label = "%output%"

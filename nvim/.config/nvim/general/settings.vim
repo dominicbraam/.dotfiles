@@ -13,13 +13,14 @@ set shiftwidth=4
 set list
 set listchars=tab:→\ ,nbsp:·,trail:· ",eol:¬
 " colorscheme dracula
-
-set termguicolors
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
 colorscheme catppuccin
 
+set termguicolors
+" let g:tokyonight_style = 'night' " available: night, storm
+" let g:tokyonight_enable_italic = 1
+
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='base16'
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:python3_host_prog = '/bin/python3'

@@ -36,7 +36,7 @@ border-bottom-color = ${colors.background}
 line-size = 5
 wm-restack = bspwm
 modules-left = round-left bspwm round-right
-modules-center = round-left xwindow round-right
+# modules-center = round-left xwindow round-right
 modules-right =  round-left pulseaudio battery-headset cpu temperature temperature-gpu mem time
 font-0 = Hack Nerd Font:style=Bold:pixelsize=11;2
 font-1 = JetBrainsMono Nerd Font:size=19;4
@@ -60,7 +60,7 @@ border-bottom-color = ${colors.background}
 line-size = 5
 wm-restack = bspwm
 modules-left = round-left bspwm round-right
-modules-center = round-left xwindow round-right
+# modules-center = round-left xwindow round-right
 modules-right =  round-left pulseaudio  time
 font-0 = Hack Nerd Font:style=Bold:pixelsize=11;2
 font-1 = JetBrainsMono Nerd Font:size=19;4

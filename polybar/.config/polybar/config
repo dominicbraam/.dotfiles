@@ -84,8 +84,8 @@ border-bottom-color = ${colors.background}
 line-size = 5
 wm-restack = bspwm
 modules-left = round-left bspwm round-right
-modules-center = round-left xwindow round-right
-modules-right =  round-left pulseaudio battery-headset cpu temperature battery mem time
+# modules-center = round-left xwindow round-right
+modules-right =  round-left pulseaudio battery-headset cpu temperature mem battery time
 font-0 = Hack Nerd Font:style=Bold:pixelsize=13;2
 font-1 = JetBrainsMono Nerd Font:size=25;6
 font-2 = Material Design Icons:style=Bold:size=11;2
@@ -121,9 +121,9 @@ format-padding = 1
 [module/temperature-gpu]
 type = internal/temperature
 ramp-0 = "󰜗"
-hwmon-path = /sys/devices/pci0000:00/0000:00:03.1/0000:07:00.0/0000:08:00.0/0000:09:00.0/hwmon/hwmon6/temp1_input
+hwmon-path = /sys/devices/pci0000:00/0000:00:03.1/0000:07:00.0/0000:08:00.0/0000:09:00.0/hwmon/hwmon5/temp1_input
 thermal-zone = 0
-warn-temperature = 70
+warn-temperature = 75
 format = <ramp><label>
 format-warn = <ramp><label-warn>
 label = %temperature-c%
@@ -208,7 +208,7 @@ format-padding = 1
 
 [module/time]
 type = internal/date
-interval = 60
+interval = 5
 format = <label>
 
 format-prefix = %{T3}%{T-}
@@ -263,7 +263,7 @@ format-padding = 1
 
 [module/battery]
 type = internal/battery
-battery = BAT1
+battery = BAT0
 adapter = ADP1
 full-at = 98
 format-charging = <ramp-capacity> <label-charging>

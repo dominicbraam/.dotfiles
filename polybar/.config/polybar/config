@@ -121,7 +121,7 @@ format-padding = 1
 [module/temperature-gpu]
 type = internal/temperature
 ramp-0 = "󰜗"
-hwmon-path = /sys/devices/pci0000:00/0000:00:03.1/0000:07:00.0/0000:08:00.0/0000:09:00.0/hwmon/hwmon5/temp1_input
+hwmon-path = /sys/devices/pci0000:00/0000:00:03.1/0000:07:00.0/0000:08:00.0/0000:09:00.0/hwmon/hwmon6/temp1_input
 thermal-zone = 0
 warn-temperature = 75
 format = <ramp><label>

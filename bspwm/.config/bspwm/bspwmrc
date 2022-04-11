@@ -28,15 +28,20 @@ bspc config borderless_monocle true
 bspc config split_ratio 0.50
 bspc config gapless_monocle false
 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
+bspc rule -a gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^4'
+bspc rule -a Cider desktop='^4' follow=on
+bspc rule -a discord desktop='^9' follow=on
+bspc rule -a mpv desktop='^4' follow=on
+bspc rule -a Pavucontrol state=floating sticky=on
+bspc rule -a openrgb state=floating sticky=on
 
 # custom configs
 bspc config pointer_modifier mod1
 bspc config pointer_action1 move
 bspc config pointer_action2 resize_side
 bspc config pointer_action2 resize_corner
-bspc config focus_follows_pointer true
+bspc config focus_follows_pointer false
+
+# launch programs
+$HOME/.dotfiles/custom_scripts/launch_at_start.sh &

@@ -50,8 +50,6 @@ nm-applet &
 # wallpaper
 nitrogen --restore &
 
-nmcli device modify eno1 ipv4.ignore-auto-dns yes
-
 #Status bar
 # ~/.config/dwm-bar/bar.sh &
 # dwmbar &

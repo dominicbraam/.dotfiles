@@ -9,4 +9,6 @@ done
 
 # launch stuff
 discord &
+bspc rule -a Surf -o desktop='^10' state=tiled follow=off && /usr/bin/surf http://assistant.home:8123 &
+bspc rule -a Surf -o desktop='^10' state=tiled follow=off && /usr/bin/surf http://pi1.home/admin &
 # bspc rule -a Alacritty -o desktop='^2' follow=on && /usr/bin/alacritty -e btop &

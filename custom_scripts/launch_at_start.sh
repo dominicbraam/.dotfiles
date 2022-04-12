@@ -9,4 +9,4 @@ done
 
 # launch stuff
 discord &
-bspc rule -a Alacritty -o desktop='^2' follow=on && /usr/bin/alacritty -e btop &
+# bspc rule -a Alacritty -o desktop='^2' follow=on && /usr/bin/alacritty -e btop &

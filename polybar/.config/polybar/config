@@ -37,7 +37,7 @@ line-size = 5
 wm-restack = bspwm
 modules-left = round-left bspwm round-right
 # modules-center = round-left xwindow round-right
-modules-right =  round-left pulseaudio battery-headset cpu temperature temperature-gpu mem time
+modules-right =  round-left pulseaudio battery-headset cpu temperature temperature-gpu mem time powermenu
 font-0 = Hack Nerd Font:style=Bold:pixelsize=11;2
 font-1 = JetBrainsMono Nerd Font:size=19;4
 font-2 = Material Design Icons:style=Bold:size=11;2
@@ -251,7 +251,8 @@ format-padding = 2
 type = custom/text
 content =""
 content-padding = 1
-click-left = bspc quit &
+click-left = $HOME/.config/rofi/bin/powermenu
+click-right = bspc quit &
 content-foreground =  ${colors.red}
 
 [module/wlan]

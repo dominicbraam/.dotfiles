@@ -32,13 +32,13 @@ export VISUAL='nvim'
 pfetch
 
 # Prompt
-source /usr/share/zsh/plugins/zsh-git-prompt/zshrc.sh
+# source /usr/share/zsh/plugins/zsh-git-prompt/zshrc.sh
 # PS1="[%n@%m]%~$ "
-RPROMPT='$(git_super_status) %B[%F{#f1fa8c}%~%f][%F{#ff5555}%n%f @ %M]%b'
+# RPROMPT='$(git_super_status) %B[%F{#f1fa8c}%~%f][%F{#ff5555}%n%f @ %M]%b'
 # PROMPT='%{$fg[green]%}%B%n%{$reset_color%} in %{$fg[cyan]%}%B%~ %{$reset_color%} > '
 # PROMPT="%F{green}%n%f in %F{cyan}%~%f > "
 # RPROMPT='%w | %T'
-PROMPT='%B%F{#50fa7b}>%f%b '
+# PROMPT='%B%F{#50fa7b}>%f%b '
 # TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
 
 # Aliases
@@ -70,6 +70,9 @@ ZSH_COMMAND_TIME_EXCLUDE=(ls nvim cd)
 
 # Auto suggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# the starship prompt
+eval "$(starship init zsh)"
 
 # Load zsh syntax highlighting. MUST BE LAST THING IN .zshrc
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

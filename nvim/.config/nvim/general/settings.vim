@@ -12,8 +12,8 @@ set tabstop=4
 set shiftwidth=4
 set list
 set listchars=tab:→\ ,nbsp:·,trail:· ",eol:¬
-" colorscheme dracula
-colorscheme catppuccin
+set background=dark " or light if you want light mode
+colorscheme gruvbox
 
 set termguicolors
 " let g:tokyonight_style = 'night' " available: night, storm

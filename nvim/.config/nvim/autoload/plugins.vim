@@ -15,10 +15,11 @@ call plug#begin('~/.config/nvim/plugged')
 
 	" Plug 'dracula/vim', { 'as': 'dracula' }
 	" Plug 'arcticicestudio/nord-vim'
-	Plug 'tiagovla/tokyodark.nvim'
+	" Plug 'tiagovla/tokyodark.nvim'
 	" Plug 'ghifarit53/tokyonight-vim'
-	
-	Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+	" Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+	" Plug 'shaunsingh/solarized.nvim'
+	Plug 'ellisonleao/gruvbox.nvim'
 
 	" To get terminal within neovim
 	Plug 'akinsho/toggleterm.nvim'

@@ -454,7 +454,111 @@ schemes:
       cyan:    '#9aedfe'
       white:   '#e6e6e6'
 
-colors: *catppuccin
+  gruvbox_material_hard_light: &gruvbox_material_hard_light
+    primary:
+      background: '0xf9f5d7'
+      foreground: '0x654735'
+    normal:
+      black:   '0x654735'
+      red:     '0xc14a4a'
+      green:   '0x6c782e'
+      yellow:  '0xb47109'
+      blue:    '0x45707a'
+      magenta: '0x945e80'
+      cyan:    '0x4c7a5d'
+      white:   '0xf2e5bc'
+    bright:
+      black:   '0x654735'
+      red:     '0xc14a4a'
+      green:   '0x6c782e'
+      yellow:  '0xb47109'
+      blue:    '0x45707a'
+      magenta: '0x945e80'
+      cyan:    '0x4c7a5d'
+      white:   '0xf2e5bc'
+
+  gruvbox_material_soft_light: &gruvbox_material_soft_light
+    primary:
+      background: '0xf2e5bc'
+      foreground: '0x654735'
+    normal:
+      black:   '0x654735'
+      red:     '0xc14a4a'
+      green:   '0x6c782e'
+      yellow:  '0xb47109'
+      blue:    '0x45707a'
+      magenta: '0x945e80'
+      cyan:    '0x4c7a5d'
+      white:   '0xe6d5ae'
+    bright:
+      black:   '0x654735'
+      red:     '0xc14a4a'
+      green:   '0x6c782e'
+      yellow:  '0xb47109'
+      blue:    '0x45707a'
+      magenta: '0x945e80'
+      cyan:    '0x4c7a5d'
+      white:   '0xe6d5ae'
+
+  solarized_light: &solarized_light
+    # Default colors
+    primary:
+      background: '0xfdf6e3'
+      foreground: '0x586e75'
+
+    # Normal colors
+    normal:
+      black:   '0x073642'
+      red:     '0xdc322f'
+      green:   '0x859900'
+      yellow:  '0xb58900'
+      blue:    '0x268bd2'
+      magenta: '0xd33682'
+      cyan:    '0x2aa198'
+      white:   '0xeee8d5'
+
+    # Bright colors
+    bright:
+      black:   '0x002b36'
+      red:     '0xcb4b16'
+      green:   '0x586e75'
+      yellow:  '0x657b83'
+      blue:    '0x839496'
+      magenta: '0x6c71c4'
+      cyan:    '0x93a1a1'
+      white:   '0xfdf6e3'
+
+  gruvbox_dark: &gruvbox_dark
+    # Default colors
+    primary:
+      # hard contrast: background = '0x1d2021'
+      background: '0x282828'
+      # soft contrast: background = '0x32302f'
+      foreground: '0xebdbb2'
+
+    # Normal colors
+    normal:
+      black:   '0x282828'
+      red:     '0xcc241d'
+      green:   '0x98971a'
+      yellow:  '0xd79921'
+      blue:    '0x458588'
+      magenta: '0xb16286'
+      cyan:    '0x689d6a'
+      white:   '0xa89984'
+
+    # Bright colors
+    bright:
+      black:   '0x928374'
+      red:     '0xfb4934'
+      green:   '0xb8bb26'
+      yellow:  '0xfabd2f'
+      blue:    '0x83a598'
+      magenta: '0xd3869b'
+      cyan:    '0x8ec07c'
+      white:   '0xebdbb2'
+
+colors: *gruvbox_dark
 
 # Bell
 #

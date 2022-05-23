@@ -37,6 +37,8 @@ bspc rule -a Pavucontrol state=floating sticky=on
 bspc rule -a openrgb state=floating sticky=on
 bspc rule -a Nitrogen state=floating sticky=on
 bspc rule -a Pcmanfm state=floating sticky=on
+bspc rule -a Cider state=floating sticky=on
+bspc rule -a mpv state=floating sticky=on
 
 # custom configs
 bspc config pointer_modifier mod1

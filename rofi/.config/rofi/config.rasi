@@ -8,10 +8,13 @@ configuration {
   drun-display-format: "{icon} {name}";
 }
 
-@theme "/dev/null"
+@theme "~/.config/rofi/gruvbox-dark-soft.rasi"
+/*@theme "/dev/null"*/
 
+/*
+ * This is catpuccin theme -- I think
 * {
-  /* padding: 3px 5px; */
+  padding: 3px 5px;
   background-color: #11121DEE;
   foreground: #A0A8CD;
   prompt: #21222D;
@@ -20,6 +23,7 @@ configuration {
   separator-color: @window-bordercolor;
   selected: #9FBBF3;
 }
+*/
 
 
 window {

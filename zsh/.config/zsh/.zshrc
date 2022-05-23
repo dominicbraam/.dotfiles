@@ -56,6 +56,7 @@ export MYSQL_HISTFILE="$HOME/.cache/mysql/mysql_history"
 export PYTHONHISTORY="$HOME/.cache/python/python_history"
 export LESSHISTFILE="$HOME/.cache/less/lesshst"
 export PYLINTHOME="$HOME/.config/pylint.d"
+export KDEHOME="$HOME/.config/kdehome"
 
 # command exec time
 source /usr/share/zsh/plugins/zsh-command-time/command-time.plugin.zsh

@@ -12,8 +12,17 @@ set tabstop=4
 set shiftwidth=4
 set list
 set listchars=tab:→\ ,nbsp:·,trail:· ",eol:¬
-set background=dark " or light if you want light mode
-colorscheme gruvbox
+" set background=dark " or light if you want light mode
+" colorscheme onedarkpro
+
+lua << EOF
+local onedarkpro = require("onedarkpro")
+onedarkpro.setup({
+theme = "onedark_dark"
+})
+onedarkpro.load()
+
+EOF
 
 set termguicolors
 " let g:tokyonight_style = 'night' " available: night, storm

@@ -65,4 +65,4 @@ set highlight-active-color	"#DDB6F2"
 set render-loading "false"
 set scroll-step 50
 
-include catppuccin
+include SAGA

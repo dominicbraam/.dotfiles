@@ -20,6 +20,7 @@ call plug#begin('~/.config/nvim/plugged')
 	" Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 	" Plug 'shaunsingh/solarized.nvim'
 	Plug 'ellisonleao/gruvbox.nvim'
+	Plug 'olimorris/onedarkpro.nvim'
 
 	" To get terminal within neovim
 	Plug 'akinsho/toggleterm.nvim'
@@ -34,4 +35,4 @@ call plug#begin('~/.config/nvim/plugged')
 	" Lazygit
 	Plug 'kdheepak/lazygit.nvim'
 
-call plug#end()
+	call plug#end()

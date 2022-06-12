@@ -1,107 +1,187 @@
+@theme "~/.config/rofi/SAGA.rasi"
+
+// Main config
 configuration {
-  font: "MonoLisa Medium 12";
-  icon-font: "MonoLisa Medium 15";
-  display-drun: "";
-  display-window: "Windows:";
-  display-ssh: "SSH";
-  show-icons: true;
-  drun-display-format: "{icon} {name}";
+    font:  						"SAGA Heavy 11";
+    fixed-num-lines: 					true;
+    show-icons: 					true;
+    icon-theme:                     "Dracula";
+    sidebar-mode: 					false;
+    scroll-method: 					0;
+    window-format: 					"[{w}] ··· {c} ···   {t}";
+    click-to-exit: 					true;
+    combi-hide-mode-prefix: 				false;
+    display-window: 					"";
+    display-windowcd: 					"";
+    display-run: 					"";
+    display-ssh: 					"";
+    display-drun: 					"";
+    display-combi: 					"";
 }
 
-@theme "~/.config/rofi/gruvbox-dark-soft.rasi"
-/*@theme "/dev/null"*/
-
-/*
- * This is catpuccin theme -- I think
+// bg color
 * {
-  padding: 3px 5px;
-  background-color: #11121DEE;
-  foreground: #A0A8CD;
-  prompt: #21222D;
-  window-bordercolor: #4A5057;
-  color: @foreground;
-  separator-color: @window-bordercolor;
-  selected: #9FBBF3;
+    background-color:             	@background;
 }
-*/
 
-
+// setup
 window {
-  /* background-color: @background-color; */
-  /* transparency: "real"; */
-  /* height: 400px; */
-  width: 500px;
-  border-color: @window-bordercolor;
-  border: 2 ;
-  border-radius: 5px;
-  /* margin: 30px 10px 10px 10px; */
+    border: 						0px;
+    border-color: 					@active-foreground;
+    border-radius: 					10px;
+    padding: 						0;
+    width: 						20%;
+    height:						20%;
 }
 
 prompt {
-  background-color: @prompt;
-  enabled: true;
-  /* text-color: #FFFFFF; */
-  padding: 0px 10px 0px 0px;
+    spacing: 						0;
+    border: 						0;
+    background-color:               @background;
+    font:                           "Iosevka Nerd Font 12";
+    text-color: 					@foreground;
+}
+
+textbox-prompt-colon {
+    expand: 						false;
+    str: 							"";
+    background-color:               @background;
+    text-color: 					inherit;
 }
 
 entry {
-  background-color: @prompt;
-  text-color: #FFFFFF;
-  expand: true;
-  padding: 0.15% 0% 0% 0%;
-  placeholder-color: @foreground;
-  placeholder: "Search";
+    spacing:    					10;
+    background-color:               @background;
+    text-color: 					@foreground;
+}
+
+case-indicator {
+    spacing:    					4;
+    text-color: 					@foreground;
 }
 
 inputbar {
-  children: [ prompt, entry ];
-  background-color: @prompt;
-  border-radius: 6px;
-  expand: false;
-  padding: 10px;
-  margin: 0;
-}
-
-listview {
-  background-color: transparent;
-  padding: 0px 5px 0px 5px;
-  fixed-columns: true;
-  columns: 1;
-  cycle: false;
-  layout: vertical;
-  lines: 10;
+    spacing:    					0px;
+    text-color: 					@foreground;
+    padding:    					20px;
+    background-color:               @background;
+    children: 						[ textbox-prompt-colon,entry,prompt ];
 }
 
 mainbox {
-  children: [ inputbar, listview ];
-  /* background-color: transparent; */
-  padding: 10px;
-  spacing: 10px;
+    border: 						0px;
+    border-color: 					@active-foreground;
+    padding: 						0;
+}
+
+listview {
+    lines:							15;
+    columns:						1;
+    fixed-height: 					0;
+    border: 						0px;
+    border-color: 					@active-foreground;
+    spacing: 						4px;
+    scrollbar: 						false;
+    padding: 						25px;
+}
+
+// element properties
+element-text, element-icon {
+    background-color: #00000000;
+    text-color:       inherit;
 }
 
 element {
-  padding: 5px 2px 5px 2px;
+    border: 						0px;
+    border-radius: 					5px;
+    padding: 						10px;
+}
+element normal.normal {
+    background-color: 				@background;
+    text-color:       				@foreground;
+}
+element normal.urgent {
+    background-color: 				@background;
+    text-color:       				@red;
+}
+element normal.active {
+    background-color: 				@background;
+    text-color:       				@green;
+}
+element selected.normal {
+    background-color: 				@active-foreground;
+    text-color:       				@background;
+}
+element selected.urgent {
+    background-color: 				@background;
+    text-color:       				@red;
+}
+element selected.active {
+    background-color: 				@foreground;
+    text-color:       				@background;
+}
+element alternate.normal {
+    background-color: 				@background;
+    text-color:       				@foreground;
+}
+element alternate.urgent {
+    background-color: 				@background;
+    text-color:       				@foreground;
+}
+element alternate.active {
+    background-color: 				@background;
+    text-color:       				@foreground;
 }
 
+sidebar {
+    border:       					0px;
+    border-color: 					@active-foreground;
+    border-radius: 					0px;
+}
+
+button {
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    background-color:             	@foreground;
+    margin: 						5px;
+    padding: 						5px;
+    text-color: 					@background;
+    border: 						0px;
+    border-radius: 					4px;
+    border-color: 					@foreground;
+}
+
+button selected {
+    background-color:             	@active-foreground;
+    text-color: 					@foreground;
+    border: 						0px;
+    border-radius: 					4px;
+    border-color: 					@foreground;
+}
+
+scrollbar {
+    width:        					4px;
+    border:       					0px;
+    handle-color: 					@foreground;
+    handle-width: 					8px;
+    padding:      					0;
+}
+
+message {
+    border: 						0px;
+    border-color: 					@active-foreground;
+    padding: 						1px;
+}
+
+textbox {
+    text-color: 					@active-foreground;
+}
+
+// if you use icons
 element-icon {
-  size: 25px;
-  border: 0px;
-}
+    size: 24;
+    margin: 0 10px 0 0;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
 
-element-text {
-  expand: true;
-  vertical-align: 0.5;
 }
-
-element-text, element-icon {
-    background-color: inherit;
-    text-color: inherit;
-}
-
-element selected {
-  border-radius: 2px;
-  background-color: @selected;
-  color: @background-color;
-}
-
-/* vim: ft=css

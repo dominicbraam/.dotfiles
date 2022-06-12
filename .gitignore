@@ -3,3 +3,5 @@ dwmbar
 yay
 plugged/
 .zcompdump
+nvim/*
+!nvim/lua/custom

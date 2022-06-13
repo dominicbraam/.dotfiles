@@ -35,9 +35,9 @@ border-top-color = ${colors.background}
 border-bottom-color = ${colors.background}
 line-size = 5
 wm-restack = bspwm
-modules-left = round-left bspwm round-right
+modules-left = round-left bspwm player-mpris-tail round-right
 # modules-center = round-left xwindow round-right
-modules-right =  round-left pulseaudio battery-headset player-mpris-tail updates-pacman-aurhelper cpu temperature temperature-gpu mem time powermenu
+modules-right =  round-left pulseaudio battery-headset updates-pacman-aurhelper cpu temperature temperature-gpu mem time powermenu
 font-0 = Hack Nerd Font:style=Bold:pixelsize=11;2
 font-1 = JetBrainsMono Nerd Font:size=19;4
 font-2 = Material Design Icons:style=Bold:size=11;2
@@ -83,9 +83,9 @@ border-top-color = ${colors.background}
 border-bottom-color = ${colors.background}
 line-size = 5
 wm-restack = bspwm
-modules-left = round-left bspwm round-right
+modules-left = round-left bspwm player-mpris-tail round-right
 # modules-center = round-left xwindow round-right
-modules-right =  round-left pulseaudio battery-headset cpu temperature mem battery time
+modules-right =  round-left pulseaudio battery-headset updates-pacman-aurhelper cpu temperature mem battery time powermenu
 font-0 = Hack Nerd Font:style=Bold:pixelsize=13;2
 font-1 = JetBrainsMono Nerd Font:size=25;6
 font-2 = Material Design Icons:style=Bold:size=11;2

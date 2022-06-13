@@ -1,7 +1,9 @@
 [global]
     monitor = 0
     follow = mouse
-    geometry = "400x5-20+50"
+    width = (0,400)
+    origin = top-right
+    offset = 20x56
     progress_bar = true
     progress_bar_height = 10
     progress_bar_frame_width = 1
@@ -9,13 +11,14 @@
     progress_bar_max_width = 400
     indicate_hidden = yes
     shrink = no
-    transparency = 5
-    notification_height = 0
-    separator_height = 2
-    padding = 8
-    horizontal_padding = 8
+    transparency = 0
+    notification_height = 5
+    separator_height = 1
+    padding = 24
+    horizontal_padding = 24
     text_icon_padding = 0
-    frame_width = 2
+    frame_width = 0
+    outer_frame_width = 10
     frame_color = "#4A5057"
     separator_color = frame
     sort = yes
@@ -35,7 +38,7 @@
     show_indicators = yes
     icon_position = left
     min_icon_size = 0
-    max_icon_size = 32
+    max_icon_size = 100
     icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
     sticky_history = yes
     history_length = 20
@@ -58,20 +61,16 @@
     per_monitor_dpi = false
 
 [urgency_low]
-timeout = 1
-background = "#1d1d27"
-foreground = "#D9E0EE"
-highlight = "#96CDFB"
+   background = "#282828"
+   foreground = "#ebdbb2"
+   frame_color = "#98971a"
 
 [urgency_normal]
-timeout = 4
-background = "#1d1d27"
-foreground = "#D9E0EE"
-highlight = "#96CDFB"
-
+   background = "#282828"
+   foreground = "#ebdbb2"
+   frame_color = "#98971a"
 
 [urgency_critical]
-timeout = 0
-background = "#F28FAD"
-foreground = "#1e1e27"
-highlight = "#1e1e27"
+   background = "#282828"
+   foreground = "#ebdbb2"
+   frame_color = "#cc241d"

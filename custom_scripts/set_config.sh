@@ -4,7 +4,7 @@
 [[ -z "$1" ]] && { echo "Parameter is empty"; echo "(0 = laptop, 1 = PC - dualscreen - hori-vert)" ; exit 1; }
 
 if [ $1 = '0' ]; then
-  echo "Xft.dpi: 140" > $HOME/.dotfiles/Xorg/.config/Xorg/.Xresources
+  echo "Xft.dpi: 150" > $HOME/.dotfiles/Xorg/.config/Xorg/.Xresources
   echo "bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 0" > $HOME/.dotfiles/bspwm/.config/bspwm/device_config
   echo "polybar -r dominicbar-laptop 2>&1 | tee -a /tmp/polybar1.log & disown" > $HOME/.dotfiles/polybar/.config/polybar/device_config
   echo "[device]" > $HOME/.dotfiles/polybar/.config/polybar/device_vars

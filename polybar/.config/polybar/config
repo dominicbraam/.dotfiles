@@ -18,6 +18,7 @@
 
 [global-wm]
 include-file = $HOME/.config/polybar/themes/gruvbox
+include-file = $HOME/.config/polybar/device_vars
 
 [bar/dominicbar]
 tray-position = right
@@ -110,8 +111,7 @@ ramp-1 = 
 ramp-2 = 
 ramp-3 = 
 ramp-4 = 
-hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input
-# hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon5/device/hwmon/hwmon5/temp1_input
+hwmon-path = ${device.hwmon-path}
 thermal-zone = 0
 base-temperature = 40
 warn-temperature = 70

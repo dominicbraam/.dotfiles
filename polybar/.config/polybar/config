@@ -303,6 +303,7 @@ format-discharging-foreground = ${colors.foreground}
 format-discharging-background = ${colors.content-background}
 format-full-prefix = "  "
 format-full-prefix-foreground = ${colors.green}
+format-full-foreground = ${colors.content-background}
 format-foreground = ${colors.foreground}
 format-background = ${colors.content-background}
 label-discharging-foreground = ${colors.foreground}

@@ -3,7 +3,7 @@
     follow = mouse
     width = (0,400)
     origin = top-right
-    offset = 20x56
+    offset = 10x56
     progress_bar = true
     progress_bar_height = 10
     progress_bar_frame_width = 1
@@ -38,7 +38,7 @@
     show_indicators = yes
     icon_position = left
     min_icon_size = 0
-    max_icon_size = 100
+    max_icon_size = 70
     icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
     sticky_history = yes
     history_length = 20

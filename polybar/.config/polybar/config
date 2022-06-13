@@ -17,7 +17,7 @@
 ;==========================================================
 
 [global-wm]
-include-file = $HOME/.config/polybar/SAGA
+include-file = $HOME/.config/polybar/gruvbox
 
 [bar/dominicbar]
 tray-position = right
@@ -103,32 +103,53 @@ content-foreground = ${colors.content-background}
 
 [module/temperature]
 type = internal/temperature
-ramp-0 = "󰜗"
+#ramp-0 = "󰜗"
+# ramp-0 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
 hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input
 # hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon5/device/hwmon/hwmon5/temp1_input
 thermal-zone = 0
+base-temperature = 40
 warn-temperature = 70
-format = <ramp><label>
-format-warn = <ramp><label-warn>
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
 label = %temperature-c%
 label-warn = %temperature-c%
+label-padding-right = 1
 ramp-foreground = ${colors.blue}
+ramp-1-foreground = ${colors.teal}
+ramp-2-foreground = ${colors.lime}
+ramp-3-foreground = ${colors.orange}
+ramp-4-foreground = ${colors.red}
 format-background = ${colors.content-background}
 format-warn-background = ${colors.content-background}
 format-warn-underline = ${colors.red}
-format-padding = 1
+#format-padding = 1
 
 [module/temperature-gpu]
 type = internal/temperature
-ramp-0 = "󰜗"
 hwmon-path = /sys/devices/pci0000:00/0000:00:03.1/0000:07:00.0/0000:08:00.0/0000:09:00.0/hwmon/hwmon6/temp1_input
 thermal-zone = 0
+base-temperature = 40
 warn-temperature = 75
-format = <ramp><label>
-format-warn = <ramp><label-warn>
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
 label = %temperature-c%
 label-warn = %temperature-c%
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
 ramp-foreground = ${colors.blue}
+ramp-1-foreground = ${colors.teal}
+ramp-2-foreground = ${colors.lime}
+ramp-3-foreground = ${colors.orange}
+ramp-4-foreground = ${colors.red}
 format-background = ${colors.content-background}
 format-warn-background = ${colors.content-background}
 format-warn-underline = ${colors.red}
@@ -189,13 +210,13 @@ label-muted = " "
 format-volume-background = ${colors.content-background}
 format-muted-foreground = ${colors.foreground}
 format-muted-padding = 1
-format-muted-background = ${colors.color0}
+format-muted-background = ${colors.red}
 ramp-volume-0 = 
 ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-volume-foreground = ${colors.color3}
+#ramp-volume-2 = 
+ramp-volume-foreground = ${colors.green}
 ramp-headphones-0 = 
-ramp-headphones-foreground = ${colors.color3}
+ramp-headphones-foreground = ${colors.green}
 click-right = exec pavucontrol &
 format-padding = 5
 
@@ -205,7 +226,7 @@ exec = $HOME/.config/polybar/scripts/headset-bat.sh
 format = <label>
 format-prefix = "  "
 label = "%output%"
-format-prefix-foreground = ${colors.foreground}
+format-prefix-foreground = ${colors.blue-gray}
 format-background = ${colors.content-background}
 format-padding = 1
 
@@ -215,17 +236,17 @@ interval = 5
 format = <label>
 
 format-prefix = %{T3}%{T-}
-format-prefix-foreground = ${colors.color1}
+format-prefix-foreground = ${colors.accent}
 format-prefix-background = ${colors.content-background}
 
 format-suffix = %{T3}%{T-}
-format-suffix-foreground = ${colors.color1}
+format-suffix-foreground = ${colors.accent}
 
 date = %{F#888e96}󰥔 %H:%M%{F-}
 time-alt = %{F#7199EE}󰃭 %a, %b %d%{F-}
 label = "%date%%time%"
 label-foreground = ${colors.content-background}
-label-background = ${colors.color1}
+label-background = ${colors.accent}
 format-padding = 0
 
 [module/mem]
@@ -234,7 +255,7 @@ exec = printf "%.1f\n" $(echo $(free -m | sed -n 's/^Mem:\s\+[0-9]\+\s\+\([0-9]\
 format = <label>
 format-prefix = " "
 label = "%output%GB"
-format-prefix-foreground = ${colors.color3}
+format-prefix-foreground = ${colors.orange}
 format-background = ${colors.content-background}
 format-padding = 1
 
@@ -245,7 +266,7 @@ format = <label>
 format-prefix = " "
 label = "%percentage:02%%"
 format-background = ${colors.content-background}
-format-prefix-foreground = ${colors.color4}
+format-prefix-foreground = ${colors.teal}
 format-padding = 2
 
 [module/powermenu]
@@ -254,7 +275,7 @@ content =""
 content-padding = 1
 click-left = $HOME/.config/rofi/bin/powermenu
 click-right = bspc quit &
-content-foreground =  ${colors.color1}
+content-foreground =  ${colors.red}
 
 [module/wlan]
 type = internal/network

@@ -1,0 +1,2 @@
+bspc monitor DP-2 -d 1 2 3 4 5
+bspc monitor DP-3 -d 6 7 8 9 0

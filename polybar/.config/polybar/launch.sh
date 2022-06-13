@@ -4,11 +4,6 @@ killall -q polybar && sleep 2
 
 echo "---" | tee -a /tmp/polybar1.log
 
-# Desktop
-polybar -r dominicbar 2>&1 | tee -a /tmp/polybar1.log & disown
-polybar -r dominicbar-secondary 2>&1 | tee -a /tmp/polybar1.log & disown
-
-# Laptop
-# polybar -r dominicbar-laptop 2>&1 | tee -a /tmp/polybar1.log & disown
+ $HOME/.config/polybar/device_config
 
 echo "Bars launched..."

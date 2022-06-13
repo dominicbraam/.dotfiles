@@ -17,7 +17,7 @@
 ;==========================================================
 
 [global-wm]
-include-file = $HOME/.config/polybar/gruvbox
+include-file = $HOME/.config/polybar/themes/gruvbox
 
 [bar/dominicbar]
 tray-position = right
@@ -83,7 +83,7 @@ border-top-color = ${colors.background}
 border-bottom-color = ${colors.background}
 line-size = 5
 wm-restack = bspwm
-modules-left = round-left bspwm player-mpris-tail round-right
+modules-left = round-left bspwm round-right
 # modules-center = round-left xwindow round-right
 modules-right =  round-left pulseaudio battery-headset player-mpris-tail round-right gap round-left updates-pacman-aurhelper m-gap cpu temperature m-gap temperature-gpu m-gap mem m-gap battery m-gap time powermenu
 font-0 = Hack Nerd Font:style=Bold:pixelsize=13;2
@@ -313,12 +313,15 @@ ramp-capacity-1 = " "
 ramp-capacity-2 = " "
 ramp-capacity-3 = " "
 ramp-capacity-4 = " "
+ramp-capacity-0-background = ${colors.red}
+ramp-capacity-1-background = ${colors.red}
+ramp-capacity-background = ${colors.green}
 animation-charging-0 = " "
 animation-charging-1 = " "
 animation-charging-2 = " "
 animation-charging-3 = " "
 animation-charging-4 = " "
-animation-charging-foreground = ${colors.color1}
+animation-charging-foreground = ${colors.green}
 animation-charging-framerate = 910
 format-discharging-padding = 1
 

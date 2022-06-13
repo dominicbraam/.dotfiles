@@ -1,4 +1,4 @@
-@theme "~/.config/rofi/SAGA.rasi"
+@theme "~/.config/rofi/gruvbox-dark.rasi"
 
 // Main config
 configuration {
@@ -30,8 +30,8 @@ window {
     border-color: 					@active-foreground;
     border-radius: 					10px;
     padding: 						0;
-    width: 						20%;
-    height:						20%;
+    width: 						600px;
+    height:						30%;
 }
 
 prompt {
@@ -109,8 +109,8 @@ element normal.active {
     text-color:       				@green;
 }
 element selected.normal {
-    background-color: 				@active-foreground;
-    text-color:       				@background;
+    background-color: 				@active-background;
+    text-color:       				@active-foreground;
 }
 element selected.urgent {
     background-color: 				@background;

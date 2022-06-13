@@ -591,7 +591,7 @@ schemes:
       - { index: 16, color: '0xF5D0D0' }
       - { index: 17, color: '0x141719' }
 
-colors: *SAGA
+colors: *gruvbox_dark
 
 # Bell
 #

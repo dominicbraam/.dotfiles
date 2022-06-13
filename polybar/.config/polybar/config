@@ -35,9 +35,9 @@ border-top-color = ${colors.background}
 border-bottom-color = ${colors.background}
 line-size = 5
 wm-restack = bspwm
-modules-left = round-left bspwm player-mpris-tail round-right
+modules-left = round-left bspwm round-right
 # modules-center = round-left xwindow round-right
-modules-right =  round-left pulseaudio battery-headset updates-pacman-aurhelper cpu temperature temperature-gpu mem time powermenu
+modules-right =  round-left pulseaudio battery-headset player-mpris-tail round-right gap round-left updates-pacman-aurhelper m-gap cpu m-gap temperature m-gap temperature-gpu m-gap mem m-gap time powermenu
 font-0 = Hack Nerd Font:style=Bold:pixelsize=11;2
 font-1 = JetBrainsMono Nerd Font:size=19;4
 font-2 = Material Design Icons:style=Bold:size=11;2
@@ -85,7 +85,7 @@ line-size = 5
 wm-restack = bspwm
 modules-left = round-left bspwm player-mpris-tail round-right
 # modules-center = round-left xwindow round-right
-modules-right =  round-left pulseaudio battery-headset updates-pacman-aurhelper cpu temperature mem battery time powermenu
+modules-right =  round-left pulseaudio battery-headset player-mpris-tail round-right gap round-left updates-pacman-aurhelper m-gap cpu temperature m-gap temperature-gpu m-gap mem m-gap battery m-gap time powermenu
 font-0 = Hack Nerd Font:style=Bold:pixelsize=13;2
 font-1 = JetBrainsMono Nerd Font:size=25;6
 font-2 = Material Design Icons:style=Bold:size=11;2
@@ -119,7 +119,6 @@ format = <ramp> <label>
 format-warn = <ramp> <label-warn>
 label = %temperature-c%
 label-warn = %temperature-c%
-label-padding-right = 1
 ramp-foreground = ${colors.blue}
 ramp-1-foreground = ${colors.teal}
 ramp-2-foreground = ${colors.lime}
@@ -128,7 +127,7 @@ ramp-4-foreground = ${colors.red}
 format-background = ${colors.content-background}
 format-warn-background = ${colors.content-background}
 format-warn-underline = ${colors.red}
-#format-padding = 1
+format-padding = 1
 
 [module/temperature-gpu]
 type = internal/temperature
@@ -268,6 +267,7 @@ label = "%percentage:02%%"
 label-padding-right = 1.5
 format-background = ${colors.content-background}
 format-prefix-foreground = ${colors.teal}
+# format-padding = 1
 
 [module/powermenu]
 type = custom/text
@@ -291,7 +291,7 @@ type = internal/battery
 battery = BAT0
 adapter = ADP1
 full-at = 98
-format-charging = <ramp-capacity> <label-charging>
+format-charging = <animation-charging> <label-charging>
 label-charging = %percentage:2%%
 label-background = ${colors.content-background}
 format-charging-padding = 1
@@ -341,12 +341,17 @@ type = custom/text
 content = "  "
 content-background = ${colors.empty}
 
+[module/m-gap]
+type = custom/text
+content = ""
+content-background = ${colors.content-background}
+
 [module/updates-pacman-aurhelper]
 type = custom/script
 exec = ~/.config/polybar/scripts/updates-pacman-aurhelper.sh
 interval = 600
 format-background = ${colors.content-background}
-format-padding = 2
+format-padding = 1
 
 [module/player-mpris-tail]
 type = custom/script

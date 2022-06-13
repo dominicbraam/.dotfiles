@@ -37,7 +37,7 @@ line-size = 5
 wm-restack = bspwm
 modules-left = round-left bspwm round-right
 # modules-center = round-left xwindow round-right
-modules-right =  round-left pulseaudio battery-headset cpu temperature temperature-gpu mem time powermenu
+modules-right =  round-left pulseaudio battery-headset player-mpris-tail updates-pacman-aurhelper cpu temperature temperature-gpu mem time powermenu
 font-0 = Hack Nerd Font:style=Bold:pixelsize=11;2
 font-1 = JetBrainsMono Nerd Font:size=19;4
 font-2 = Material Design Icons:style=Bold:size=11;2
@@ -184,10 +184,10 @@ label-focused = %icon% %name%
 label-focused-foreground = ${colors.foreground}
 label-focused-underline =  ${colors.light-gray}
 label-focused-padding = 1
-#label-focused-background = ${colors.content-background}
+label-focused-background = ${colors.accent}
 label-occupied = %icon% %name%
 label-occupied-foreground = ${colors.light-gray}
-#label-occupied-background = ${colors.content-background}
+label-occupied-background = ${colors.content-background}
 label-occupied-padding = 1
 label-empty = ""
 label-empty-foreground =   ${colors.foreground}
@@ -265,9 +265,9 @@ interval = 2.5
 format = <label>
 format-prefix = " "
 label = "%percentage:02%%"
+label-padding-right = 1.5
 format-background = ${colors.content-background}
 format-prefix-foreground = ${colors.teal}
-format-padding = 2
 
 [module/powermenu]
 type = custom/text
@@ -340,5 +340,20 @@ format-background = ${colors.content-background}
 type = custom/text
 content = "  "
 content-background = ${colors.empty}
+
+[module/updates-pacman-aurhelper]
+type = custom/script
+exec = ~/.config/polybar/scripts/updates-pacman-aurhelper.sh
+interval = 600
+format-background = ${colors.content-background}
+format-padding = 2
+
+[module/player-mpris-tail]
+type = custom/script
+exec = ~/.config/polybar/scripts/player-mpris-tail.py -f '{icon} {artist} - {title}'
+tail = true
+click-left = ~/polybar-scripts/player-mpris-tail.py previous &
+click-right = ~/polybar-scripts/player-mpris-tail.py next &
+click-middle = ~/polybar-scripts/player-mpris-tail.py play-pause &
 
 ; vim:ft=dosini

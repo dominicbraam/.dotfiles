@@ -15,6 +15,9 @@ super + @space
 super + ctrl + @space
     rofi -show emoji -modi emoji
 
+super + shift + @space
+    rofi -show calc -modi calc -no-show-match -no-sort
+
 # file mananger
 super + shift + Return
     pcmanfm

@@ -22,6 +22,9 @@ super + shift + Return
 shift + alt + @space
     dmenu
 
+super + m
+    cider
+
 # make sxhkd reload its configuration files:
 alt + Escape
 	pkill -USR1 -x sxhkd

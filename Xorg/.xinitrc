@@ -37,7 +37,7 @@ fi
 sxhkd &
 
 # Desktop
-source $HOME/.dotfiles/Xorg/vert-hori_both1440-vert_left.sh
+source $HOME/.dotfiles/Xorg/hori_both1440.sh
 
 # Laptop
 # xrandr --output eDP1 --mode 2880x1800 &

@@ -34,6 +34,12 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+# to prevent computer from sleeping when idle
+# https://unix.stackexchange.com/questions/556913/prevent-the-computer-from-suspending-when-idle
+xset s off
+xset -dpms
+xset s noblank
+
 sxhkd &
 
 # Desktop

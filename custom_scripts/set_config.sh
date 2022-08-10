@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This serves to change configs based on device
-[[ -z "$1" ]] && { echo "Parameter is empty"; echo "(0 = laptop, 1 = PC - dualscreen - hori-vert)" ; exit 1; }
+[[ -z "$1" ]] && { echo "Parameter is empty"; echo "(0 = laptop, 1 = laptop at work with their display, 2 = PC - dualscreen - hori-vert)" ; exit 1; }
 
 if [ $1 = '0' ]; then
   echo "Xft.dpi: 150" > $HOME/.dotfiles/Xorg/.config/Xorg/.Xresources

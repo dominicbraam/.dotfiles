@@ -9,7 +9,9 @@ if [ $1 = '0' ]; then
   echo "polybar -r dominicbar-laptop 2>&1 | tee -a /tmp/polybar1.log & disown" > $HOME/.dotfiles/polybar/.config/polybar/device_config
   echo "[device]" > $HOME/.dotfiles/polybar/.config/polybar/device_vars
   echo "hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon5/device/hwmon/hwmon5/temp1_input" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
+  chmod +x $HOME/.dotfiles/bspwm/.config/bspwm/device_config
   chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_vars
+  chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_config
 elif [ $1 = '1' ]; then
   echo "Xft.dpi: 150" > $HOME/.dotfiles/Xorg/.config/Xorg/.Xresources
   echo "bspc monitor eDP1 -d 1 2 3 4 5" > $HOME/.dotfiles/bspwm/.config/bspwm/device_config
@@ -18,7 +20,9 @@ elif [ $1 = '1' ]; then
   echo "polybar -r dominicbar-laptop-secondary 2>&1 | tee -a /tmp/polybar1.log & disown" >> $HOME/.dotfiles/polybar/.config/polybar/device_config
   echo "[device]" > $HOME/.dotfiles/polybar/.config/polybar/device_vars
   echo "hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon3/device/hwmon/hwmon5/temp1_input" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
+  chmod +x $HOME/.dotfiles/bspwm/.config/bspwm/device_config
   chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_vars
+  chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_config
 else
   echo "Xft.dpi: 100" > $HOME/.dotfiles/Xorg/.config/Xorg/.Xresources
   echo "bspc monitor DP-2 -d 1 2 3 4 5" > $HOME/.dotfiles/bspwm/.config/bspwm/device_config
@@ -27,7 +31,9 @@ else
   echo "polybar -r dominicbar-secondary 2>&1 | tee -a /tmp/polybar1.log & disown" >> $HOME/.dotfiles/polybar/.config/polybar/device_config
   echo "[device]" > $HOME/.dotfiles/polybar/.config/polybar/device_vars
   echo "hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
+  chmod +x $HOME/.dotfiles/bspwm/.config/bspwm/device_config
   chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_vars
+  chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_config
 fi
 
 ./../polybar/.config/polybar/launch.sh &

@@ -4,11 +4,11 @@
 [[ -z "$1" ]] && { echo "Parameter is empty"; echo "(0 = laptop, 1 = laptop at work with their display, 2 = PC - dualscreen - hori-vert)" ; exit 1; }
 
 if [ $1 = '0' ]; then
-  echo "Xft.dpi: 150" > $HOME/.dotfiles/Xorg/.config/Xorg/.Xresources
-  echo "bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 0" > $HOME/.dotfiles/bspwm/.config/bspwm/device_config
+  echo "Xft.dpi: 100" > $HOME/.dotfiles/Xorg/.config/Xorg/.Xresources
+  echo "bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9 0" > $HOME/.dotfiles/bspwm/.config/bspwm/device_config
   echo "polybar -r dominicbar-laptop 2>&1 | tee -a /tmp/polybar1.log & disown" > $HOME/.dotfiles/polybar/.config/polybar/device_config
   echo "[device]" > $HOME/.dotfiles/polybar/.config/polybar/device_vars
-  echo "hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon5/device/hwmon/hwmon5/temp1_input" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
+  echo "hwmon-path = /sys/devices/platform/thinkpad_hwmon/hwmon/hwmon4/temp1_input" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
   chmod +x $HOME/.dotfiles/bspwm/.config/bspwm/device_config
   chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_vars
   chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_config

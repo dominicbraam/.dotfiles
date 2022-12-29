@@ -43,7 +43,7 @@ xset s noblank
 sxhkd &
 
 # Desktop
-source $HOME/.dotfiles/Xorg/.config/Xorg/hori_both1440.sh
+# source $HOME/.dotfiles/Xorg/.config/Xorg/hori_both1440.sh
 
 # Laptop
 # xrandr --output eDP1 --mode 2880x1800 &
@@ -52,6 +52,7 @@ source $HOME/.dotfiles/Xorg/.config/Xorg/hori_both1440.sh
 picom &
 
 nm-applet &
+blueberry &
 
 # wallpaper
 nitrogen --restore &

@@ -51,6 +51,7 @@ alias br="sudo $HOME/.dotfiles/custom_scripts/dp_brightness.sh"
 # $PATH
 path+=('/home/dominic/.local/bin')
 path+=('/home/dominic/.local/share/gem/ruby/3.0.0/bin')
+path+=('/home/dominic/.local/share/cargo/bin')
 
 # recommended from xdg-ninja
 export XDG_DATA_HOME="$HOME/.local/share"

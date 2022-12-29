@@ -12,6 +12,7 @@ if [ $1 = '0' ]; then
   chmod +x $HOME/.dotfiles/bspwm/.config/bspwm/device_config
   chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_vars
   chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_config
+  bspc wm --restart
 elif [ $1 = '1' ]; then
   echo "Xft.dpi: 150" > $HOME/.dotfiles/Xorg/.config/Xorg/.Xresources
   echo "bspc monitor eDP1 -d 1 2 3 4 5" > $HOME/.dotfiles/bspwm/.config/bspwm/device_config
@@ -23,6 +24,7 @@ elif [ $1 = '1' ]; then
   chmod +x $HOME/.dotfiles/bspwm/.config/bspwm/device_config
   chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_vars
   chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_config
+  bspc wm --restart
 else
   echo "Xft.dpi: 100" > $HOME/.dotfiles/Xorg/.config/Xorg/.Xresources
   echo "bspc monitor DP-2 -d 1 2 3 4 5" > $HOME/.dotfiles/bspwm/.config/bspwm/device_config
@@ -34,6 +36,7 @@ else
   chmod +x $HOME/.dotfiles/bspwm/.config/bspwm/device_config
   chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_vars
   chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_config
+  bspc wm --restart
 fi
 
 ./../polybar/.config/polybar/launch.sh &

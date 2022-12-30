@@ -62,11 +62,12 @@ export XDG_CACHE_HOME="$HOME/.cache"
 # env variables
 export MYSQL_HISTFILE="$HOME/.cache/mysql/mysql_history"
 export PYTHONHISTORY="$HOME/.cache/python/python_history"
-export LESSHISTFILE="$HOME/.cache/less/lesshst"
+export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 export PYLINTHOME="$HOME/.config/pylint.d"
 export KDEHOME="$HOME/.config/kdehome"
 export HISTFILE="${XDG_STATE_HOME}"/bash/history
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
@@ -78,6 +79,7 @@ export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
 export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
 export GOPATH="$XDG_CACHE_HOME"/go
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 

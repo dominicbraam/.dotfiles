@@ -165,7 +165,7 @@ XF86AudioMicMute
     amixer set Capture toggle
 
 XF86MonBrightness{Up,Down}
-    brightnessctl s 25{+,-} && polybar-msg hook mbrightness 1
+    brightnessctl s 10{+,-} && polybar-msg hook mbrightness 1
 
 {Print, alt + Print}
     flameshot {gui, full} -p ~/Pictures/Screenshots

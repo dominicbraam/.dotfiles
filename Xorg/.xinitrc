@@ -51,12 +51,6 @@ sxhkd &
 # Compositor
 picom &
 
-nm-applet &
-blueberry &
-
-# wallpaper
-nitrogen --restore &
-
 #Status bar
 # ~/.config/dwm-bar/bar.sh &
 # dwmbar &

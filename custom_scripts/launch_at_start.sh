@@ -2,7 +2,10 @@
 
 killall -qw discord
 
+# wallpaper manager
 nitrogen --restore &
+
+# network and bluetooth applets
 nm-applet &
 blueman-applet &
 

@@ -37,6 +37,7 @@ window {
 prompt {
     spacing: 						0;
     border: 						0;
+    padding:            0 10px;
     background-color:               @background;
     font:                           "Iosevka Nerd Font 12";
     text-color: 					@foreground;
@@ -44,7 +45,7 @@ prompt {
 
 textbox-prompt-colon {
     expand: 						false;
-    str: 							"App : ";
+    str: 							"";
     background-color:               @background;
     text-color: 					inherit;
 }
@@ -65,7 +66,7 @@ inputbar {
     text-color: 					@foreground;
     padding:    					20px;
     background-color:               @background;
-    children: 						[ textbox-prompt-colon,entry,prompt ];
+    children: 						[ textbox-prompt-colon,prompt,entry ];
 }
 
 mainbox {
@@ -83,7 +84,7 @@ listview {
     border-color: 					@active-foreground;
     spacing: 						4px;
     scrollbar: 						false;
-    padding: 						25px;
+    padding: 						0 25px;
 }
 
 // element properties

@@ -135,7 +135,7 @@ ramp-1 = 
 ramp-2 = 
 ramp-3 = 
 ramp-4 = 
-hwmon-path = ${device.hwmon-path}
+hwmon-path = ${cpu-temp.hwmon-path}
 thermal-zone = 0
 base-temperature = 40
 warn-temperature = 70
@@ -155,7 +155,7 @@ format-padding = 1
 
 [module/temperature-gpu]
 type = internal/temperature
-hwmon-path = /sys/devices/pci0000:00/0000:00:03.1/0000:07:00.0/0000:08:00.0/0000:09:00.0/hwmon/hwmon6/temp1_input
+hwmon-path = ${gpu-temp.hwmon-path}
 thermal-zone = 0
 base-temperature = 40
 warn-temperature = 75

@@ -42,9 +42,12 @@ pfetch
 # TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
 
 # Aliases
-alias ls='ls --color=auto'
-alias la='ls -A'
-alias ll='ls -lh'
+# alias ls='ls --color=auto'
+alias ls='exa --icons --group-directories-first'
+# alias la='ls -A'
+alias la='exa --icons --group-directories-first -a -a'
+# alias ll='ls -lh'
+alias ll='exa --icons --group-directories-first -l -g -h --git'
 alias v='nvim'
 alias br="sudo $HOME/.dotfiles/custom_scripts/dp_brightness.sh"
 alias find='fd'

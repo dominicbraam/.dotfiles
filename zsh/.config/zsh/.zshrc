@@ -29,7 +29,7 @@ export VISUAL='nvim'
 
 # Startup commands
 # neofetch
-pfetch
+# pfetch
 
 # Prompt
 # source /usr/share/zsh/plugins/zsh-git-prompt/zshrc.sh

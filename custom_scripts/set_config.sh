@@ -19,7 +19,7 @@ elif [ $1 = '1' ]; then
   echo "bspc monitor HDMI3 -d 6 7 8 9 0" >> $HOME/.dotfiles/bspwm/.config/bspwm/device_config
   echo "polybar -r dominicbar-laptop 2>&1 | tee -a /tmp/polybar1.log & disown" > $HOME/.dotfiles/polybar/.config/polybar/device_config
   echo "polybar -r dominicbar-laptop-secondary 2>&1 | tee -a /tmp/polybar1.log & disown" >> $HOME/.dotfiles/polybar/.config/polybar/device_config
-  echo "[cpu-temp]" > $HOME/.dotfiles/polybar/.config/polybar/device_vars
+  echo "[cpu-temp]" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
   echo "hwmon-path = /sys/devices/platform/thinkpad_hwmon/hwmon/hwmon4/temp1_input" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
   chmod +x $HOME/.dotfiles/bspwm/.config/bspwm/device_config
   chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_vars

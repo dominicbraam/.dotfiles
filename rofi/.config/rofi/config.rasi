@@ -5,7 +5,7 @@ configuration {
     font:  						"SAGA Heavy 11";
     fixed-num-lines: 					true;
     show-icons: 					true;
-    icon-theme:                     "Dracula";
+    icon-theme:                     "Gruvbox-Material-Dark";
     sidebar-mode: 					false;
     scroll-method: 					0;
     window-format: 					"[{w}] ··· {c} ···   {t}";
@@ -31,7 +31,7 @@ window {
     border-radius: 					10px;
     padding: 						0;
     width: 						600px;
-    height:						30%;
+    height:						600px;
 }
 
 prompt {
@@ -44,7 +44,7 @@ prompt {
 
 textbox-prompt-colon {
     expand: 						false;
-    str: 							"";
+    str: 							"App : ";
     background-color:               @background;
     text-color: 					inherit;
 }
@@ -72,10 +72,11 @@ mainbox {
     border: 						0px;
     border-color: 					@active-foreground;
     padding: 						0;
+    children:           [ inputbar, listview ];
 }
 
 listview {
-    lines:							15;
+    lines:							8;
     columns:						1;
     fixed-height: 					0;
     border: 						0px;

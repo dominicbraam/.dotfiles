@@ -99,6 +99,9 @@ ZSH_COMMAND_TIME_EXCLUDE=(ls nvim cd)
 # Auto suggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Autocomplete
+source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
 # the starship prompt
 eval "$(starship init zsh)"
 

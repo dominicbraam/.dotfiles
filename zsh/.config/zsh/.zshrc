@@ -48,6 +48,7 @@ alias ll='ls -lh'
 alias v='nvim'
 alias br="sudo $HOME/.dotfiles/custom_scripts/dp_brightness.sh"
 alias find='fd'
+alias mydot="cd $HOME/.dotfiles/"
 
 # $PATH
 path+=('/home/dominic/.local/bin')

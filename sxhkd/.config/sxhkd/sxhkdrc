@@ -13,7 +13,7 @@ super + @space
 
 # emoji launcher
 super + ctrl + @space
-    rofi -show emoji -modi emoji
+    rofi -show emoji -modi emoji -kb-custom-1 Ctrl+C
 
 super + shift + @space
     rofi -show calc -modi calc -no-show-match -no-sort
@@ -33,7 +33,7 @@ super + shift + 5
 
 # make sxhkd reload its configuration files:
 alt + Escape
-	pkill -USR1 -x sxhkd
+	pkill -USR1 -x sxhkd && notify-send "sxhkd" "Config reloaded."
 
 #
 # bspwm hotkeys
@@ -41,7 +41,7 @@ alt + Escape
 
 # quit/restart bspwm
 super + shift + {q,r}
-	bspc {quit,wm -r}
+	bspc {quit,wm -r} && notify-send "bspwm" "Restarting..."
 
 # close and kill
 super + {_,ctrol + }q

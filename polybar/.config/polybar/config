@@ -36,13 +36,14 @@ border-top-color = ${colors.background}
 border-bottom-color = ${colors.background}
 line-size = 5
 wm-restack = bspwm
-modules-left = round-left bspwm round-right
+modules-left = round-left m-gap bspwm m-gap round-right
 # modules-center = round-left xwindow round-right
 modules-right =  round-left pulseaudio battery-headset player-mpris-tail round-right gap round-left updates-pacman-aurhelper m-gap cpu m-gap temperature m-gap temperature-gpu m-gap mem m-gap time powermenu
 font-0 = Hack Nerd Font:style=Bold:pixelsize=11;2
 font-1 = JetBrainsMono Nerd Font:size=19;4
 font-2 = Material Design Icons:style=Bold:size=11;2
 font-3 = unifont:fontformat=truetype:size=10:antialias=true;
+font-4 = JoyPixels:style=Bold:size=11;2
 
 [bar/dominicbar-secondary]
 tray-position = right
@@ -84,13 +85,14 @@ border-top-color = ${colors.background}
 border-bottom-color = ${colors.background}
 line-size = 5
 wm-restack = bspwm
-modules-left = round-left bspwm round-right
+modules-left = round-left m-gap user m-gap bspwm round-right
 # modules-center = round-left xwindow round-right
 modules-right =  round-left pulseaudio battery-headset player-mpris-tail round-right gap round-left updates-pacman-aurhelper m-gap cpu temperature m-gap mem m-gap battery m-gap time powermenu
 font-0 = Hack Nerd Font:style=Bold:pixelsize=11;2
 font-1 = JetBrainsMono Nerd Font:size=24;12
 font-2 = Material Design Icons:style=Bold:size=11;2
 font-3 = unifont:fontformat=truetype:size=12:antialias=true;
+font-4 = JoyPixels:style=Regular:scale=11;1
 
 [bar/dominicbar-laptop-secondary]
 tray-position = right
@@ -369,7 +371,7 @@ content-background = ${colors.empty}
 
 [module/m-gap]
 type = custom/text
-content = ""
+content = " "
 content-background = ${colors.content-background}
 
 [module/updates-pacman-aurhelper]
@@ -386,6 +388,13 @@ tail = true
 click-left = ~/.config/polybar/scripts/player-mpris-tail.py previous &
 click-right = ~/.config/polybar/scripts/player-mpris-tail.py next &
 click-middle = ~/.config/polybar/scripts/player-mpris-tail.py play-pause &
+format-background = ${colors.content-background}
+format-padding = 1
+
+[module/user]
+type = custom/script
+exec = ~/.config/polybar/scripts/get_user.sh
+interval = 10
 format-background = ${colors.content-background}
 format-padding = 1
 

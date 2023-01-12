@@ -37,6 +37,7 @@ border-bottom-color = ${colors.background}
 line-size = 5
 wm-restack = bspwm
 modules-left = round-left m-gap bspwm m-gap round-right
+modules-left = round-left m-gap user m-gap bspwm m-gap round-right
 # modules-center = round-left xwindow round-right
 modules-right =  round-left pulseaudio battery-headset player-mpris-tail round-right gap round-left updates-pacman-aurhelper m-gap cpu m-gap temperature m-gap temperature-gpu m-gap mem m-gap time powermenu
 font-0 = Hack Nerd Font:style=Bold:pixelsize=11;2

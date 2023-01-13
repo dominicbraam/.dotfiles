@@ -405,7 +405,6 @@ format = <label>
 [module/user]
 type = custom/script
 exec = ~/.config/polybar/scripts/get_user.sh
-interval = 10
 format-background = ${colors.content-background}
 format-padding = 1
 

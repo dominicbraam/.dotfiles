@@ -377,7 +377,7 @@ content-background = ${colors.content-background}
 [module/updates-pacman-aurhelper]
 type = custom/script
 exec = ~/.config/polybar/scripts/updates-pacman-aurhelper.sh
-interval = 600
+interval = 300
 format-background = ${colors.content-background}
 format-padding = 1
 
@@ -395,7 +395,7 @@ format-padding = 1
 type = custom/script
 tail = true
 exec = ~/.config/polybar/scripts/mic-tog.sh &
-interval = 1
+interval = 2.5
 click-left = pulseaudio-ctl mute-input
 click-right = pavucontrol -t 4 &
 format-background = ${colors.content-background}

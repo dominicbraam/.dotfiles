@@ -112,7 +112,7 @@ line-size = 5
 wm-restack = bspwm
 modules-left = round-left bspwm round-right
 # modules-center = round-left xwindow round-right
-modules-right =  round-left pulseaudio round-right gap round-left battery m-gap time powermenu
+modules-right =  round-left pulseaudio m-gap mic-tog round-right gap round-left battery m-gap time powermenu
 font-0 = Hack Nerd Font:style=Bold:pixelsize=11;2
 font-1 = JetBrainsMono Nerd Font:size=18;4
 font-2 = Material Design Icons:style=Bold:size=11;2

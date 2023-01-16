@@ -96,9 +96,9 @@ font-4 = JoyPixels:style=Regular:scale=11;1
 
 [bar/dominicbar-laptop-secondary]
 tray-position = right
-monitor = HDMI3
+monitor = DP-1
 width =  100%
-height = 40
+height = 30
 padding-left = 1
 padding-right = 1
 background = ${colors.background}
@@ -112,9 +112,9 @@ line-size = 5
 wm-restack = bspwm
 modules-left = round-left bspwm round-right
 # modules-center = round-left xwindow round-right
-modules-right =  round-left pulseaudio battery-headset player-mpris-tail round-right gap round-left updates-pacman-aurhelper m-gap cpu temperature m-gap temperature-gpu m-gap mem m-gap battery m-gap time powermenu
-font-0 = Hack Nerd Font:style=Bold:pixelsize=16;2
-font-1 = JetBrainsMono Nerd Font:size=25;6
+modules-right =  round-left pulseaudio round-right gap round-left battery m-gap time powermenu
+font-0 = Hack Nerd Font:style=Bold:pixelsize=11;2
+font-1 = JetBrainsMono Nerd Font:size=18;4
 font-2 = Material Design Icons:style=Bold:size=11;2
 font-3 = unifont:fontformat=truetype:size=10:antialias=true;
 

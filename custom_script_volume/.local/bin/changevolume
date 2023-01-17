@@ -1,0 +1,29 @@
+#!/bin/bash
+
+function send_notification() {
+	volume=$(awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master))
+	dunstify -a "changevolume" -u low -r "9993" -h int:value:"$volume" -i "~/.dotfiles/custom_script_icons/volume-$1.png" "Volume: ${volume}" -t 2000
+}
+
+case $1 in
+up)
+	# Set the volume on (if it was muted)
+  amixer set Master unmute
+	amixer set Master 5%+
+	send_notification $1
+	;;
+down)
+  amixer set Master unmute
+	amixer set Master 5%-
+	send_notification $1
+	;;
+mute)
+	if $(awk -F"off" '/Left:/ { print $2 }' <(amixer sget Master)); then
+    amixer set Master mute
+		dunstify -i volume-mute -a "changevolume" -t 2000 -r 9993 -u low "Muted"
+	else
+    amixer set Master unmute
+		send_notification up
+	fi
+	;;
+esac

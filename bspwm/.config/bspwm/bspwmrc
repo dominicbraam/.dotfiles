@@ -27,8 +27,8 @@ bspc config ignore_ewmh_focus true # to stop apps like discord to allow for foll
 
 # bspc rule -a gimp desktop='^8' state=floating follow=on
 bspc rule -a Cider desktop='^9' follow=on
-bspc rule -a discord desktop='^4' follow=off
-bspc rule -a Mailspring desktop='^5' follow=off
+bspc rule -a discord desktop='^5' follow=off
+bspc rule -a Mailspring desktop='^9' follow=off
 bspc rule -a Pavucontrol state=floating sticky=on center=true
 bspc rule -a openrgb state=floating sticky=on center=true
 bspc rule -a Nitrogen state=floating sticky=on center=true

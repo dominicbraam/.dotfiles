@@ -9,7 +9,7 @@ BATTERY_LEVEL=`acpi -b | grep "Battery 0" | grep -P -o '[0-9]+(?=%)'`
 
 # Send notifications
 if [ $BATTERY_CHARGING -eq 1 ]; then
-    notify-send "Charging" "${BATTERY_LEVEL}% of battery charged." -u low -i "~/.dotfiles/custom_scripts/battery/icons/battery-charging-outline.png" -t 5000 -r 9991
+    notify-send "Charging" "${BATTERY_LEVEL}% of battery charged." -u low -i "$HOME/.dotfiles/icons/battery-charging-outline.png" -t 5000 -r 9991
 elif [ $BATTERY_CHARGING -eq 0 ]; then
-    notify-send "Discharging" "${BATTERY_LEVEL}% of battery remaining." -u low -i "~/.dotfiles/custom_scripts/battery/icons/battery-arrow-down.png" -t 5000 -r 9991
+    notify-send "Discharging" "${BATTERY_LEVEL}% of battery remaining." -u low -i "$HOME/.dotfiles/icons/battery-arrow-down.png" -t 5000 -r 9991
 fi

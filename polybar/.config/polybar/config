@@ -395,10 +395,11 @@ format-padding = 1
 
 [module/mic-tog]
 type = custom/script
+exec = mic_toggle get_state
 tail = true
-exec = ~/.config/polybar/scripts/mic-tog.sh &
+# exec = ~/.config/polybar/scripts/mic-tog.sh &
 interval = 2.5
-click-left = pulseaudio-ctl mute-input
+click-left = mic_toggle toggle && mic_toggle get_state
 click-right = pavucontrol -t 4 &
 format-background = ${colors.content-background}
 format-padding = 1

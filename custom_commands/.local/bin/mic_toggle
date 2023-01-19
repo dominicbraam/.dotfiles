@@ -1,0 +1,34 @@
+#!/bin/bash
+
+function send_notification() {
+  if $(is_on); then
+    dunstify -i "$HOME/.dotfiles/icons/microphone-outline.png" -a "mic_toggle" -t 500 -r 9993 -u low "Unmuted"
+  else
+    dunstify -i "$HOME/.dotfiles/icons/microphone-off.png" -a "mic_toggle" -t 500 -r 9993 -u low "Muted"
+  fi
+}
+
+function print_state() {
+  if $(is_on); then
+    echo ""
+  else
+    echo ""
+  fi
+}
+
+function is_on() {
+  if [[ $(awk -F"[][]" '/Left:/ { print $4 }' <(amixer sget Capture)) == "off" ]]; then
+    false
+  else
+    true
+  fi
+}
+
+case $1 in
+toggle)
+  amixer set Capture toggle
+	send_notification
+	;;
+get_state)
+  print_state
+esac

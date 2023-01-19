@@ -2,7 +2,7 @@
 
 function send_notification() {
 	volume=$(awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master))
-	dunstify -a "changevolume" -u low -r "9993" -h int:value:"$volume" -i "~/.dotfiles/custom_script_icons/volume-$1.png" "Volume: ${volume}" -t 2000
+	dunstify -a "changevolume" -u low -r "9993" -h int:value:"$volume" -i "$HOME/.dotfiles/icons/volume-$1.png" "Volume: ${volume}" -t 500
 }
 
 case $1 in
@@ -20,7 +20,7 @@ down)
 mute)
 	if $(awk -F"off" '/Left:/ { print $2 }' <(amixer sget Master)); then
     amixer set Master mute
-		dunstify -i volume-mute -a "changevolume" -t 2000 -r 9993 -u low "Muted"
+		dunstify -i "$HOME/.dotfiles/icons/volume-mute.png" -a "changevolume" -t 500 -r 9993 -u low "Muted"
 	else
     amixer set Master unmute
 		send_notification up

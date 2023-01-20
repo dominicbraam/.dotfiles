@@ -40,21 +40,4 @@ xset s off
 xset -dpms
 xset s noblank
 
-sxhkd &
-
-# Desktop
-# source $HOME/.dotfiles/Xorg/.config/Xorg/hori_both1440.sh
-
-# Laptop
-# xrandr --output eDP1 --mode 2880x1800 &
-
-# Compositor
-picom &
-
-#Status bar
-# ~/.config/dwm-bar/bar.sh &
-# dwmbar &
-# ~/Programs/dwm-bar/dwm_bar.sh &
-
-# Execute WM
-exec bspwm -c ~/.config/bspwm/bspwmrc
+$HOME/.dotfiles/custom_scripts/startup.sh

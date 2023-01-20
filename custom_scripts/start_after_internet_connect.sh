@@ -1,20 +1,9 @@
-#!/bin/bash
-
-killall -qw discord
-
-# wallpaper manager
-nitrogen --restore &
-
-# network and bluetooth applets
-nm-applet &
-blueman-applet &
-
 # wait for an internet connection
 while ! wget http://google.com -O- 2>/dev/null | grep -q Lucky; do
   sleep .1
 done
 
-# launch stuff
+# launch stuff after internet connection
 # bspc rule -a discord desktop='^4' follow=off && discord &
 bspc rule -a Mailspring desktop='^9' follow=off && mailspring &
 # bspc rule -a Surf -o desktop='^10' state=tiled follow=off && /usr/bin/surf https://home.dominicbraam.com &

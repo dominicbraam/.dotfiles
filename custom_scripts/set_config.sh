@@ -14,6 +14,8 @@ if [ $1 = '0' ]; then
 
   echo "[cpu-temp]" > $HOME/.dotfiles/polybar/.config/polybar/device_vars
   echo "hwmon-path = /sys/devices/platform/thinkpad_hwmon/hwmon/hwmon4/temp1_input" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
+  echo "[gpu-temp]" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
+  echo "bar-config = ''" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
   chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_vars
 
   echo "[display]" > $HOME/.dotfiles/custom_config/displays
@@ -34,6 +36,8 @@ elif [ $1 = '1' ]; then
 
   echo "[cpu-temp]" > $HOME/.dotfiles/polybar/.config/polybar/device_vars
   echo "hwmon-path = /sys/devices/platform/thinkpad_hwmon/hwmon/hwmon4/temp1_input" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
+  echo "[gpu-temp]" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
+  echo "bar-config = ''" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
   chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_vars
 
   echo "[display]" > $HOME/.dotfiles/custom_config/displays
@@ -57,6 +61,7 @@ else
   echo "hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon4/temp1_input" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
   echo "[gpu-temp]" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
   echo "hwmon-path = /sys/devices/pci0000:00/0000:00:03.1/0000:07:00.0/0000:08:00.0/0000:09:00.0/hwmon/hwmon3/temp1_input" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
+  echo "bar-config = 'temperature-gpu m-gap '" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
   chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_vars
 
   echo "[display]" > $HOME/.dotfiles/custom_config/displays

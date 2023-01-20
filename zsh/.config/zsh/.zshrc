@@ -55,9 +55,9 @@ alias grep='grep --colour=auto'
 alias mydot="cd $HOME/.dotfiles/"
 
 # $PATH
-path+=('/home/dominic/.local/bin')
-path+=('/home/dominic/.local/share/gem/ruby/3.0.0/bin')
-path+=('/home/dominic/.local/share/cargo/bin')
+path+=("$HOME/.local/bin")
+path+=("$HOME/.local/share/gem/ruby/3.0.0/bin")
+path+=("$HOME/.local/share/cargo/bin")
 
 # recommended from xdg-ninja
 export XDG_DATA_HOME="$HOME/.local/share"

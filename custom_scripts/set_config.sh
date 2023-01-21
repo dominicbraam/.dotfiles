@@ -18,6 +18,7 @@ if [ $1 = '0' ]; then
   echo "bar-config = ''" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
   chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_vars
 
+  mkdir -p $HOME/.dotfiles/custom_config
   echo "[display]" > $HOME/.dotfiles/custom_config/displays
   echo "primary = eDP-1" >> $HOME/.dotfiles/custom_config/displays
   chmod +x $HOME/.dotfiles/custom_config/displays
@@ -42,6 +43,7 @@ elif [ $1 = '1' ]; then
   echo "bar-config = ''" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
   chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_vars
 
+  mkdir -p $HOME/.dotfiles/custom_config
   echo "[display]" > $HOME/.dotfiles/custom_config/displays
   echo "primary = DP-1" >> $HOME/.dotfiles/custom_config/displays
   echo "secondary = eDP-1" >> $HOME/.dotfiles/custom_config/displays
@@ -66,6 +68,7 @@ else
   echo "bar-config = 'temperature-gpu m-gap '" >> $HOME/.dotfiles/polybar/.config/polybar/device_vars
   chmod +x $HOME/.dotfiles/polybar/.config/polybar/device_vars
 
+  mkdir -p $HOME/.dotfiles/custom_config
   echo "[display]" > $HOME/.dotfiles/custom_config/displays
   echo "primary = DP-2" >> $HOME/.dotfiles/custom_config/displays
   echo "secondary = DP-3" >> $HOME/.dotfiles/custom_config/displays

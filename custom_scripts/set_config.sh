@@ -22,6 +22,8 @@ if [ $1 = '0' ]; then
   echo "primary = eDP-1" >> $HOME/.dotfiles/custom_config/displays
   chmod +x $HOME/.dotfiles/custom_config/displays
 
+  $HOME/.config/Xorg/layouts/thinkpad_z13-1200p.sh
+
   bspc wm --restart
 elif [ $1 = '1' ]; then
   echo "Xft.dpi: 100" > $HOME/.dotfiles/Xorg/.config/Xorg/.Xresources
@@ -68,6 +70,8 @@ else
   echo "primary = DP-2" >> $HOME/.dotfiles/custom_config/displays
   echo "secondary = DP-3" >> $HOME/.dotfiles/custom_config/displays
   chmod +x $HOME/.dotfiles/custom_config/displays
+
+  $HOME/.config/Xorg/layouts/hori_1440-4k.sh
 
   bspc wm --restart
 fi

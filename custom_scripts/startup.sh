@@ -16,6 +16,7 @@ pgrep -x picom >/dev/null || picom &
 # network and bluetooth applets
 pgrep -x nm-applet >/dev/null || nm-applet &
 pgrep -x blueman-applet >/dev/null || blueman-applet &
+pgrep -x bitwarden-desktop >/dev/null || bitwarden-desktop &
 
 # bar
 # $HOME/.config/polybar/launch.sh &

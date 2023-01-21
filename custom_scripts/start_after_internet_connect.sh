@@ -8,3 +8,6 @@ done
 bspc rule -a Mailspring desktop='^9' follow=off && mailspring &
 # bspc rule -a Surf -o desktop='^10' state=tiled follow=off && /usr/bin/surf https://home.dominicbraam.com &
 # bspc rule -a Surf -o desktop='^10' state=tiled follow=off && /usr/bin/surf https://pihole.local.dominicbraam.com &
+
+# check for updates in .dotfiles
+$HOME/.dotfiles/custom_scripts/check_dotfiles_updates.sh

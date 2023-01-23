@@ -49,6 +49,8 @@ elif [ $1 = '1' ]; then
   echo "secondary = eDP-1" >> $HOME/.dotfiles/custom_config/displays
   chmod +x $HOME/.dotfiles/custom_config/displays
 
+  $HOME/.config/Xorg/layouts/work-display_z13.sh
+
   bspc wm --restart
 else
   echo "Xft.dpi: 100" > $HOME/.dotfiles/Xorg/.config/Xorg/.Xresources

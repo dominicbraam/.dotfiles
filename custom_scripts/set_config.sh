@@ -23,7 +23,8 @@ if [ $1 = '0' ]; then
   echo "primary = eDP-1" >> $HOME/.dotfiles/custom_config/displays
   chmod +x $HOME/.dotfiles/custom_config/displays
 
-  $HOME/.config/Xorg/layouts/thinkpad_z13-1200p.sh
+  echo "$HOME/.config/Xorg/layouts/thinkpad_z13-1200p.sh" > $HOME/.config/Xorg/.display_res
+  chmod +x $HOME/.config/Xorg/.display_res
 
   bspc wm --restart
 elif [ $1 = '1' ]; then
@@ -49,7 +50,8 @@ elif [ $1 = '1' ]; then
   echo "secondary = eDP-1" >> $HOME/.dotfiles/custom_config/displays
   chmod +x $HOME/.dotfiles/custom_config/displays
 
-  $HOME/.config/Xorg/layouts/work-display_z13.sh
+  echo "$HOME/.config/Xorg/layouts/work-display_z13.sh" > $HOME/.config/Xorg/.display_res
+  chmod +x $HOME/.config/Xorg/.display_res
 
   bspc wm --restart
 else
@@ -76,7 +78,8 @@ else
   echo "secondary = DP-3" >> $HOME/.dotfiles/custom_config/displays
   chmod +x $HOME/.dotfiles/custom_config/displays
 
-  $HOME/.config/Xorg/layouts/hori_1440-4k.sh
+  echo "$HOME/.config/Xorg/layouts/hori_1440-4k.sh" > $HOME/.config/Xorg/.display_res
+  chmod +x $HOME/.config/Xorg/.display_res
 
   bspc wm --restart
 fi

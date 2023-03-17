@@ -3,7 +3,6 @@ dwmbar
 yay
 plugged/
 .zcompdump
-nvim/.config/nvim
 Xorg/.config/Xorg/.Xresources
 bspwm/.config/bspwm/device_config
 btop/.config/btop/btop.conf

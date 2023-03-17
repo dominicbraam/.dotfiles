@@ -4,7 +4,7 @@
 [[ -z "$1" ]] && { echo "Parameter is empty"; echo "(0 = laptop, 1 = laptop at work with their display, 2 = PC - dualscreen - hori-vert)" ; exit 1; }
 
 if [ $1 = '0' ]; then
-  echo "Xft.dpi: 120" > $HOME/.dotfiles/Xorg/.config/Xorg/.Xresources
+  echo "Xft.dpi: 130" > $HOME/.dotfiles/Xorg/.config/Xorg/.Xresources
 
   echo "bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9 0" > $HOME/.dotfiles/bspwm/.config/bspwm/device_config
   chmod +x $HOME/.dotfiles/bspwm/.config/bspwm/device_config
@@ -55,7 +55,7 @@ elif [ $1 = '1' ]; then
 
   bspc wm --restart
 else
-  echo "Xft.dpi: 100" > $HOME/.dotfiles/Xorg/.config/Xorg/.Xresources
+  echo "Xft.dpi: 120" > $HOME/.dotfiles/Xorg/.config/Xorg/.Xresources
 
   echo "bspc monitor DP-2 -d 1 2 3 4 5" > $HOME/.dotfiles/bspwm/.config/bspwm/device_config
   echo "bspc monitor DP-3 -d 6 7 8 9 0" >> $HOME/.dotfiles/bspwm/.config/bspwm/device_config

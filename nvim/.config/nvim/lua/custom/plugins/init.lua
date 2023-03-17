@@ -6,9 +6,9 @@ return {
     end,
     },
   ["kdheepak/lazygit.nvim"] = {},
-  ["rcarriga/nvim-notify"] = {
+--[[   ["rcarriga/nvim-notify"] = {
     config = function()
       require "custom.plugins.notify"
     end,
-  },
+  }, ]]
 }

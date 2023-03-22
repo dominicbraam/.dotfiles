@@ -53,6 +53,7 @@ alias br="sudo $HOME/.dotfiles/custom_scripts/dp_brightness.sh"
 alias find='fd'
 alias grep='grep --colour=auto'
 alias mydot="cd $HOME/.dotfiles/"
+alias fz='. fz'
 
 # $PATH
 path+=("$HOME/.local/bin")

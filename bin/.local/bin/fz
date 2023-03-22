@@ -1,0 +1,44 @@
+#!/bin/bash
+
+COMMANDS=("cd" "tn" "help")
+
+function fzcd {
+  if [ -z "$1" ]; then
+    cd $(fd --type directory "" $HOME | fzf)
+  else
+    cd $(fd --type directory $1 $HOME | fzf)
+  fi
+}
+
+function fztn {
+  if [ -z "$1" ]; then
+    dir=$(fd --type directory "" $HOME | fzf)
+  else
+    dir=$(fd --type directory $1 $HOME | fzf)
+  fi
+  session_name=$(basename $dir)
+  tmux new -s $session_name -c $dir
+}
+
+function print_commands {
+  echo  "Available commands:"
+  for command in ${COMMANDS[@]}
+  do
+    echo $command
+  done
+}
+
+case $1 in
+  cd)
+    fzcd $2
+    ;;
+  tn)
+    fztn $2
+    ;;
+  help)
+    print_commands
+    ;;
+  *)
+    echo -n "Unknown command.\n"
+    print_commands
+esac

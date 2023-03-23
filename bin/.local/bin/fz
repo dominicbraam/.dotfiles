@@ -4,17 +4,17 @@ COMMANDS=("cd" "tn" "help")
 
 function fzcd {
   if [ -z "$1" ]; then
-    cd $(fd --type directory "" $HOME | fzf)
+    cd $(fd --hidden --type directory "" $HOME | fzf)
   else
-    cd $(fd --type directory $1 $HOME | fzf)
+    cd $(fd --hidden --type directory $1 $HOME | fzf)
   fi
 }
 
 function fztn {
   if [ -z "$1" ]; then
-    dir=$(fd --type directory "" $HOME | fzf)
+    dir=$(fd --hidden --type directory "" $HOME | fzf)
   else
-    dir=$(fd --type directory $1 $HOME | fzf)
+    dir=$(fd --hidden --type directory $1 $HOME | fzf)
   fi
   session_name=$(basename $dir)
   tmux new -s $session_name -c $dir

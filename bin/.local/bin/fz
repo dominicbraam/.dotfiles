@@ -12,7 +12,7 @@ function fzcd {
 
 function fztn {
   if [ -z "$1" ]; then
-    dir=$(fd --hidden --type directory "" $HOME | fzf)
+    dir=$(pwd)
   else
     dir=$(fd --hidden --type directory $1 $HOME | fzf)
   fi

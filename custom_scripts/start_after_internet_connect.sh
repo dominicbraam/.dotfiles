@@ -10,4 +10,4 @@ pgrep -x Mailspring >/dev/null || bspc rule -a Mailspring desktop='^9' follow=of
 # bspc rule -a Surf -o desktop='^10' state=tiled follow=off && /usr/bin/surf https://pihole.local.dominicbraam.com &
 
 # check for updates in .dotfiles
-$HOME/.dotfiles/custom_scripts/check_dotfiles_updates.sh
+$HOME/.dotfiles/cron/dotfiles/check_updates.sh

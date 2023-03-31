@@ -21,13 +21,13 @@ function fztn {
 }
 
 function fztnrofi {
-  dir=$(fd --type directory "" $1 | rofi -dmenu -i)
+  dir=$(fd --type directory "" $1 | rofi -dmenu -i -no-show-icons)
   session_name=$(basename $dir)
   alacritty --working-directory $dir --command tmux new -s $session_name
 }
 
 function fzcdrofi {
-  dir=$(fd --type directory "" $1 | rofi -dmenu -i)
+  dir=$(fd --type directory "" $1 | rofi -dmenu -i -no-show-icons)
   session_name=$(basename $dir)
   alacritty --working-directory $dir
 }

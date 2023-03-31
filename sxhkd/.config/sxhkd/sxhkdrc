@@ -15,6 +15,7 @@ super + @space
 super + ctrl + @space
     rofi -show emoji -modi emoji -kb-custom-1 Ctrl+C
 
+# calculator
 super + shift + @space
     rofi -show calc -modi calc -no-show-match -no-sort
 
@@ -22,11 +23,21 @@ super + shift + @space
 super + shift + Return
     pcmanfm
 
-shift + alt + @space
-    dmenu
+# cd directory in new terminal window
+super + f
+  fz cdrofi
 
+# apple music
 super + m
     cider
+
+# open project directory in new tmux session
+super + p
+  fz tnprojrofi
+
+# show keybinds
+super + k
+  $HOME/.dotfiles/custom_scripts/show_keybinds.sh
 
 # make sxhkd reload its configuration files:
 alt + Escape
@@ -165,5 +176,6 @@ XF86AudioMicMute
 XF86MonBrightness{Up,Down}
     brightnessctl s 10{+,-} && polybar-msg hook mbrightness 1
 
+# take screenshot
 {Print, alt + Print}
     scrot {_,-s -d 1}

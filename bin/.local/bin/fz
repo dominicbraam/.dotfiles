@@ -20,6 +20,18 @@ function fztn {
   tmux new -s $session_name -c $dir
 }
 
+function fztnrofi {
+  dir=$(fd --type directory "" $1 | rofi -dmenu -i)
+  session_name=$(basename $dir)
+  alacritty --working-directory $dir --command tmux new -s $session_name
+}
+
+function fzcdrofi {
+  dir=$(fd --type directory "" $1 | rofi -dmenu -i)
+  session_name=$(basename $dir)
+  alacritty --working-directory $dir
+}
+
 function print_commands {
   echo  "Available commands:"
   for command in ${COMMANDS[@]}
@@ -32,8 +44,14 @@ case $1 in
   cd)
     fzcd $2
     ;;
+  cdrofi)
+    fzcdrofi
+    ;;
   tn)
     fztn $2
+    ;;
+  tnprojrofi)
+    fztnrofi "Projects"
     ;;
   help)
     print_commands

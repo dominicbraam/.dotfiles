@@ -31,12 +31,20 @@ super + f
 super + m
     cider
 
-# open project directory in new tmux session
-super + p
-  fz tnprojrofi
+# search project directory and open in new tmux session
+super + shift + t
+  fz tnrofi "Projects"
+
+# search any directory and open in new tmux session
+super + t
+  fz tnrofi
+
+# search tmux sessions and attach
+alt + t
+  fz tarofi
 
 # show keybinds
-super + k
+alt + k
   $HOME/.dotfiles/custom_scripts/show_keybinds.sh
 
 # make sxhkd reload its configuration files:

@@ -9,7 +9,7 @@ $HOME/.config/bspwm/device_config
 
 bspc config top_padding 0
 
-bspc config window_gap 10
+bspc config window_gap 15
 
 bspc config focused_border_color "#928374"
 # bspc config normal_border_color "#11121D"

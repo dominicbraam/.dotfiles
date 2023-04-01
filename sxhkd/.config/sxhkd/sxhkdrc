@@ -13,19 +13,19 @@ super + @space
 
 # emoji launcher
 super + ctrl + @space
-    rofi -show emoji -modi emoji -kb-custom-1 Ctrl+C
+    rofi -show emoji -modi emoji -no-show-icons -kb-custom-1 Ctrl+C
 
 # calculator
 super + shift + @space
-    rofi -show calc -modi calc -no-show-match -no-sort
+    rofi -show calc -modi calc -no-show-match -no-show-icons -no-sort
 
 # file mananger
 super + shift + Return
     pcmanfm
 
-# cd directory in new terminal window
+# cd in new terminal window
 super + f
-  fz cdrofi
+  $HOME/.dotfiles/scripts/rofi/navigation.sh cd
 
 # apple music
 super + m
@@ -33,19 +33,23 @@ super + m
 
 # search project directory and open in new tmux session
 super + shift + t
-  fz tnrofi "Projects"
+  $HOME/.dotfiles/scripts/rofi/tmux.sh tn "Projects"
 
 # search any directory and open in new tmux session
 super + t
-  fz tnrofi
+  $HOME/.dotfiles/scripts/rofi/tmux.sh tn
 
 # search tmux sessions and attach
 alt + t
-  fz tarofi
+  $HOME/.dotfiles/scripts/rofi/tmux.sh ta
 
 # show keybinds
 alt + k
-  $HOME/.dotfiles/custom_scripts/show_keybinds.sh
+  $HOME/.dotfiles/scripts/rofi/get_sxhkd_keybinds.sh
+
+# hide/show polybar
+super + b
+  $HOME/.dotfiles/scripts/polybar/toggle_show.sh
 
 # make sxhkd reload its configuration files:
 alt + Escape
@@ -179,7 +183,7 @@ XF86AudioMute
   changevolume mute
 
 XF86AudioMicMute
-  mic_toggle toggle
+  mic toggle
 
 XF86MonBrightness{Up,Down}
     brightnessctl s 10{+,-} && polybar-msg hook mbrightness 1

@@ -40,4 +40,4 @@ xset s off
 xset -dpms
 xset s noblank
 
-$HOME/.dotfiles/custom_scripts/startup.sh
+$HOME/.dotfiles/scripts/startup/startup.sh

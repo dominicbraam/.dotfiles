@@ -49,8 +49,6 @@ alias la='exa --icons --group-directories-first -a -a'
 # alias ll='ls -lh'
 alias ll='exa --icons --group-directories-first -l -g --git'
 alias v='nvim'
-alias br="sudo $HOME/.dotfiles/custom_scripts/dp_brightness.sh"
-alias find='fd'
 alias grep='grep --colour=auto'
 alias mydot="cd $HOME/.dotfiles/"
 alias fz='. fz'

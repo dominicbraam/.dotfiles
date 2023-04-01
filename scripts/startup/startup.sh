@@ -21,7 +21,7 @@ pgrep -x blueman-applet >/dev/null || blueman-applet &
 # display resolution
 $HOME/.config/Xorg/.display_res
 
-$HOME/.dotfiles/custom_scripts/dbus_var_handler.sh &
+$HOME/.dotfiles/scripts/general/dbus_var_handler.sh &
 
 # WM
 exec bspwm -c $HOME/.config/bspwm/bspwmrc

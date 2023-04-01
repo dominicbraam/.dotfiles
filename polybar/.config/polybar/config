@@ -22,6 +22,7 @@ include-file = $HOME/.config/polybar/device_vars
 include-file = $HOME/.dotfiles/custom_config/displays
 
 [dominicbar-base]
+enable-ipc = true
 tray-position = right
 width =  100%
 height = 40

@@ -172,7 +172,7 @@ super + alt + shift + {h,j,k,l}
 # XF86AudioMute
 #     pamixer --toggle-mute && polybar-msg hook mvol 1
 
-# changevolume and mic_toggle are scripts added to $PATH
+# changevolume and mic are scripts added to $HOME/.local/bin
 XF86AudioRaiseVolume
   changevolume up
 

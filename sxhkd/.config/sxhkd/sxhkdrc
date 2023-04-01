@@ -32,15 +32,15 @@ super + m
     cider
 
 # search project directory and open in new tmux session
-super + shift + t
+super + shift + p
   $HOME/.dotfiles/scripts/rofi/tmux.sh tn "Projects"
 
 # search any directory and open in new tmux session
-super + t
+super + p
   $HOME/.dotfiles/scripts/rofi/tmux.sh tn
 
 # search tmux sessions and attach
-alt + t
+alt + p
   $HOME/.dotfiles/scripts/rofi/tmux.sh ta
 
 # show keybinds

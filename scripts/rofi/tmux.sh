@@ -38,8 +38,10 @@ function tmux_new {
 }
 
 function tmux_attach {
-  session=$(tmux ls -F "#S" | rofi -dmenu -i -no-show-icons -p "tmux attach")
-  alacritty --command tmux attach-session -t $session
+  session_name=$(tmux ls -F "#S" | rofi -dmenu -i -no-show-icons -p "tmux attach")
+  if [[ $(is_tmux_session $session_name) -ne 0 ]]; then
+    alacritty --command tmux attach-session -t $session
+  fi
 }
 
 function tcd {

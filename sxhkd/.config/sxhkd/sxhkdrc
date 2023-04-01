@@ -32,11 +32,11 @@ super + m
     cider
 
 # search project directory and open in new tmux session
-super + shift + p
+super + p
   $HOME/.dotfiles/scripts/rofi/tmux.sh tn "Projects"
 
 # search any directory and open in new tmux session
-super + p
+super + shift + p
   $HOME/.dotfiles/scripts/rofi/tmux.sh tn
 
 # search tmux sessions and attach

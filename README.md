@@ -11,4 +11,4 @@ stow -vS $prog-dir
 ## Screenshots
 
 ![screenshot1](https://raw.githubusercontent.com/dominicbraam/.dotfiles/main/screenshots/2023-04/2023-04-01-120531_1920x1200_scrot.png)
-![screenshot2](https://raw.githubusercontent.com/dominicbraam/.dotfiles/main/screenshots/2023-04/2023-04-01-120432_1920x1200_scrot.png)
+![screenshot2](https://raw.githubusercontent.com/dominicbraam/.dotfiles/main/screenshots/2023-04/2023-04-01-123605_1920x1200_scrot.png)

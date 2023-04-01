@@ -7,12 +7,15 @@ function is_tmux_session {
 
   for session in ${tmux_sessions[@]}
   do
-    if [[ $session =~ $re ]] ; then
-      # returns 0 because the session name comes from dir name and so
-      # is unlikely to be a number
-      continue
+    # if [[ $session =~ $re ]] ; then
+    #   # returns 0 because the session name comes from dir name and so
+    #   # is unlikely to be a number
+    #   continue
+    # fi
+    if [ -z $1 ]; then
+      return 1
     fi
-    if [[ $1 == $session ]]; then
+    if [ $1 = $session ]; then
       return 0
     fi
   done
@@ -30,17 +33,24 @@ function tmux_new {
     session_name="_${session_name:1}"
   fi
 
-  if [[ $(is_tmux_session $session_name) -ne 0 ]]; then
+  is_tmux_session $session_name
+
+  if [[ $? -eq 0 ]]; then
     alacritty --command tmux attach-session -t $session_name
   else
+    echo "$dir and $session_name"
     alacritty --working-directory $dir --command tmux new -s $session_name
   fi
 }
 
 function tmux_attach {
   session_name=$(tmux ls -F "#S" | rofi -dmenu -i -no-show-icons -p "tmux attach")
-  if [[ $(is_tmux_session $session_name) -ne 0 ]]; then
-    alacritty --command tmux attach-session -t $session
+
+  is_tmux_session $session_name
+
+  if [[ $? -eq 0 ]]; then
+    echo "hmm"
+    alacritty --command tmux attach-session -t $session_name
   fi
 }
 

@@ -101,11 +101,24 @@ ZSH_COMMAND_TIME_MSG="Exec time: %s"
 # Exclude some commands
 ZSH_COMMAND_TIME_EXCLUDE=(ls nvim cd)
 
+# Install plugins with package manager because it will be easier to maintain
+
+# Vi Mode
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+# you-should-use - it gives a prompt when an alias is available for that task
+source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
+
 # Auto suggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Autocomplete
 source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+# bash-zsh-insulter
+if [ -f /etc/bash.command-not-found ]; then
+    . /etc/bash.command-not-found
+fi
 
 # the starship prompt
 eval "$(starship init zsh)"

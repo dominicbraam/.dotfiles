@@ -3,7 +3,7 @@
 wmname LG3D
 # export _JAVA_AWT_WM_NONREPARENTING=1
 
-$HOME/.config/polybar/launch.sh
+$HOME/.dotfiles/scripts/startup/startup.sh
 
 $HOME/.config/bspwm/device_config
 

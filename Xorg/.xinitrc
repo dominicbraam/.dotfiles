@@ -40,4 +40,5 @@ xset s off
 xset -dpms
 xset s noblank
 
-$HOME/.dotfiles/scripts/startup/startup.sh
+# WM
+exec bspwm -c $HOME/.config/bspwm/bspwmrc

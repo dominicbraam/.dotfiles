@@ -24,3 +24,5 @@ $HOME/.config/polybar/launch.sh
 nitrogen --restore &
 
 $HOME/.dotfiles/scripts/general/dbus_var_handler.sh &
+
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

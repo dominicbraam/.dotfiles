@@ -52,6 +52,7 @@ alias v='nvim'
 alias grep='grep --colour=auto'
 alias mydot="cd $HOME/.dotfiles/"
 alias fz='. fz'
+alias cat='bat'
 
 # $PATH
 path+=("$HOME/.local/bin")

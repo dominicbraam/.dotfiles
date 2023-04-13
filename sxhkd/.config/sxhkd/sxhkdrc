@@ -21,7 +21,7 @@ super + shift + @space
 
 # lock screen
 super + l
-  betterlockscreen -l
+  betterlockscreen -l dim
 
 # file mananger
 super + shift + Return

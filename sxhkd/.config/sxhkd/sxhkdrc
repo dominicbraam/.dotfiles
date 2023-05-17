@@ -20,7 +20,7 @@ super + shift + @space
     rofi -show calc -modi calc -no-show-match -no-show-icons -no-sort
 
 # lock screen
-super + l
+alt + l
   betterlockscreen -l dim
 
 # file mananger

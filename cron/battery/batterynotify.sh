@@ -26,7 +26,7 @@ elif [ $BATTERY_DISCHARGING -eq 0 ] && [ -f $EMPTY_FILE ]; then
 fi
 
 # If the battery is charging and is full (and has not shown notification yet)
-if [ $BATTERY_LEVEL -gt 95 ] && [ $BATTERY_DISCHARGING -eq 0 ] && [ ! -f $FULL_FILE ]; then
+if [ $BATTERY_LEVEL -gt 98 ] && [ $BATTERY_DISCHARGING -eq 0 ] && [ ! -f $FULL_FILE ]; then
     notify-send "Battery Charged" "Battery is fully charged." -i "$HOME/.dotfiles/icons/battery-charging-100.png" -r 9991
     touch $FULL_FILE
 # If the battery is low and is not charging (and has not shown notification yet)

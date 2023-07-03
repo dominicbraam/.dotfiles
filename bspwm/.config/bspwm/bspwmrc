@@ -27,7 +27,7 @@ bspc rule -a Mailspring desktop='^9' follow=off
 bspc rule -a Pavucontrol state=floating sticky=on center=true
 bspc rule -a openrgb state=floating sticky=on center=true
 bspc rule -a Nitrogen state=floating sticky=on center=true
-bspc rule -a Pcmanfm state=floating sticky=on center=true
+bspc rule -a Pcmanfm state=floating center=true
 bspc rule -a Cider state=floating sticky=on center=true
 bspc rule -a mpv state=floating sticky=on
 bspc rule -a Blueman state=floating sticky=on center=true

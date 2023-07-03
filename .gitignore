@@ -4,6 +4,7 @@ yay
 plugged/
 .zcompdump
 Xorg/.config/Xorg/.Xresources
+Xorg/.config/Xorg/.display_res
 bspwm/.config/bspwm/device_config
 btop/.config/btop/btop.conf
 polybar/.config/polybar/device_config

@@ -82,3 +82,5 @@ then
 else
     monitor_remove
 fi
+
+$HOME/.dotfiles/polybar/.config/polybar/launch.sh

@@ -18,8 +18,7 @@
 
 [global-wm]
 include-file = $HOME/.config/polybar/themes/gruvbox
-include-file = $HOME/.config/polybar/device_vars
-include-file = $HOME/.dotfiles/custom_config/displays
+include-file = $HOME/.dotfiles/custom_config/device_config
 
 [dominicbar-base]
 enable-ipc = true

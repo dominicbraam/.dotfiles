@@ -21,9 +21,9 @@ bspc config top_padding 0
 
 bspc config window_gap 15
 
-bspc config focused_border_color "#928374"
-# bspc config normal_border_color "#11121D"
-bspc config border_width 0
+bspc config focused_border_color "#f4511e"
+bspc config normal_border_color "#383838"
+bspc config border_width 3
 bspc config borderless_monocle true
 
 bspc config split_ratio 0.50

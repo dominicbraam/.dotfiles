@@ -16,7 +16,7 @@ if [ $1 = '0' ]; then
   echo "$HOME/.config/Xorg/layouts/thinkpad_z13-1200p.sh" > $HOME/.config/Xorg/.display_res
   chmod +x $HOME/.config/Xorg/.display_res
 elif [ $1 = '1' ]; then
-  echo "Xft.dpi: 100" > $HOME/.dotfiles/Xorg/.config/Xorg/.Xresources
+  echo "Xft.dpi: 100" > $HOME/.dotfiles/Xorg/.Xresources
 
   mkdir -p $HOME/.dotfiles/custom_config
   echo "[display]" > $HOME/.dotfiles/custom_config/device_config
@@ -29,7 +29,7 @@ elif [ $1 = '1' ]; then
   echo "$HOME/.config/Xorg/layouts/work-display_z13.sh" > $HOME/.config/Xorg/.display_res
   chmod +x $HOME/.config/Xorg/.display_res
 elif [ $1 = '2' ]; then
-  echo "Xft.dpi: 100" > $HOME/.dotfiles/Xorg/.config/Xorg/.Xresources
+  echo "Xft.dpi: 100" > $HOME/.dotfiles/Xorg/.Xresources
 
   mkdir -p $HOME/.dotfiles/custom_config
   echo "[display]" > $HOME/.dotfiles/custom_config/device_config
@@ -43,7 +43,7 @@ elif [ $1 = '2' ]; then
   chmod +x $HOME/.config/Xorg/.display_res
 
 else
-  echo "Xft.dpi: 120" > $HOME/.dotfiles/Xorg/.config/Xorg/.Xresources
+  echo "Xft.dpi: 120" > $HOME/.dotfiles/Xorg/.Xresources
 
   mkdir -p $HOME/.dotfiles/custom_config
   echo "[display]" > $HOME/.dotfiles/custom_config/device_config

@@ -18,7 +18,8 @@
 
 [global-wm]
 include-file = $HOME/.config/polybar/themes/gruvbox
-include-file = $HOME/.dotfiles/custom_config/device_config
+include-file = $HOME/.dotfiles/custom_config/device/displays
+include-file = $HOME/.dotfiles/custom_config/device/temperature
 
 [dominicbar-base]
 enable-ipc = true
@@ -47,7 +48,7 @@ inherit = dominicbar-base
 monitor = ${display.primary}
 modules-left = round-left m-gap user m-gap bspwm round-right
 # modules-center = round-left xwindow round-right
-modules-right =  round-left pulseaudio m-gap mic-tog battery-headset player-mpris-tail round-right gap round-left updates-pacman-aurhelper m-gap cpu m-gap temperature m-gap temperature-gpu m-gap fs-root m-gap fs-home m-gap m-gap mem m-gap battery m-gap time powermenu
+modules-right =  round-left pulseaudio m-gap mic-tog battery-headset player-mpris-tail round-right gap round-left updates-pacman-aurhelper m-gap cpu m-gap temperature m-gap fs-root m-gap fs-home m-gap m-gap mem m-gap battery m-gap time powermenu
 
 [bar/dominicbar-secondary]
 inherit = dominicbar-base

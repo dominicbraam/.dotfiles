@@ -6,7 +6,7 @@ echo "---" | tee -a /tmp/polybar1.log
 
 source $HOME/.local/bin/bash-ini-parser/bash-ini-parser
 
-cfg_parser $HOME/.dotfiles/custom_config/device_config
+cfg_parser $HOME/.dotfiles/custom_config/device/displays
 cfg_section_display
 
 if [ ! -z $secondary ]; then

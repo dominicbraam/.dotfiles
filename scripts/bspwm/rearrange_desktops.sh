@@ -73,7 +73,7 @@ monitor_remove() {
 }
 
 source $HOME/.local/bin/bash-ini-parser/bash-ini-parser
-cfg_parser $HOME/.dotfiles/custom_config/device_config
+cfg_parser $HOME/.dotfiles/custom_config/device/displays
 cfg_section_display
 
 if [ -z $secondary ]; then
@@ -86,4 +86,7 @@ then
     monitor_add
 else
     monitor_remove
+    $HOME/.dotfiles/scripts/config/set_config.sh 0
 fi
+
+bspc wm --restart

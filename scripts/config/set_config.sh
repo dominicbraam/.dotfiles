@@ -9,7 +9,7 @@ if [ $1 = '0' ]; then
   mkdir -p $HOME/.dotfiles/custom_config
   echo "[display]" > $HOME/.dotfiles/custom_config/device/displays
   echo "primary=eDP-1" >> $HOME/.dotfiles/custom_config/device/displays
-  echo "[cpu-temp]" >> $HOME/.dotfiles/custom_config/device/temperature
+  echo "[cpu-temp]" > $HOME/.dotfiles/custom_config/device/temperature
   echo "hwmon-path=/sys/devices/platform/thinkpad_hwmon/hwmon/hwmon4/temp1_input" >> $HOME/.dotfiles/custom_config/device/temperature
   chmod +x $HOME/.dotfiles/custom_config/device/displays
   chmod +x $HOME/.dotfiles/custom_config/device/temperature
@@ -23,7 +23,7 @@ elif [ $1 = '1' ]; then
   echo "[display]" > $HOME/.dotfiles/custom_config/device/displays
   echo "primary=DP-1" >> $HOME/.dotfiles/custom_config/device/displays
   echo "secondary=eDP-1" >> $HOME/.dotfiles/custom_config/device/displays
-  echo "[cpu-temp]" >> $HOME/.dotfiles/custom_config/device/temperature
+  echo "[cpu-temp]" > $HOME/.dotfiles/custom_config/device/temperature
   echo "hwmon-path=/sys/devices/platform/thinkpad_hwmon/hwmon/hwmon4/temp1_input" >> $HOME/.dotfiles/custom_config/device/temperature
   chmod +x $HOME/.dotfiles/custom_config/device/displays
   chmod +x $HOME/.dotfiles/custom_config/device/temperature
@@ -37,7 +37,7 @@ elif [ $1 = '2' ]; then
   echo "[display]" > $HOME/.dotfiles/custom_config/device/displays
   echo "primary=DP-1" >> $HOME/.dotfiles/custom_config/device/displays
   echo "secondary=eDP-1" >> $HOME/.dotfiles/custom_config/device/displays
-  echo "[cpu-temp]" >> $HOME/.dotfiles/custom_config/device/temperature
+  echo "[cpu-temp]" > $HOME/.dotfiles/custom_config/device/temperature
   echo "hwmon-path=/sys/devices/platform/thinkpad_hwmon/hwmon/hwmon4/temp1_input" >> $HOME/.dotfiles/custom_config/device/temperature
   chmod +x $HOME/.dotfiles/custom_config/device/displays
   chmod +x $HOME/.dotfiles/custom_config/device/temperature
@@ -52,7 +52,7 @@ else
   echo "[display]" > $HOME/.dotfiles/custom_config/device/displays
   echo "primary=DP-2" >> $HOME/.dotfiles/custom_config/device/displays
   echo "secondary=DP-3" >> $HOME/.dotfiles/custom_config/device/displays
-  echo "[cpu-temp]" >> $HOME/.dotfiles/custom_config/device/displays
+  echo "[cpu-temp]" > $HOME/.dotfiles/custom_config/device/displays
   echo "hwmon-path=/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon4/temp1_input" >> $HOME/.dotfiles/custom_config/device/temperature
   echo "[gpu-temp]" >> $HOME/.dotfiles/custom_config/device/temperature
   echo "hwmon-path=/sys/devices/pci0000:00/0000:00:03.1/0000:07:00.0/0000:08:00.0/0000:09:00.0/hwmon/hwmon3/temp1_input" >> $HOME/.dotfiles/custom_config/device/temperature

@@ -76,6 +76,11 @@ source $HOME/.local/bin/bash-ini-parser/bash-ini-parser
 cfg_parser $HOME/.dotfiles/custom_config/device_config
 cfg_section_display
 
+if [ -z $secondary ]; then
+  echo "Can only run if secondary monitor is defined"
+  exit 0
+fi
+
 if xrandr | grep -o "$secondary connected" > /dev/null && [[ "$1" != "1" ]] && [[ "$(bspc query -M | wc -l)" != 2 ]] && [ ! -z $secondary ]
 then
     monitor_add

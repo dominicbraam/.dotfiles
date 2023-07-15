@@ -50,8 +50,8 @@ else
 
   mkdir -p $HOME/.dotfiles/custom_config
   echo "[display]" > $HOME/.dotfiles/custom_config/device/displays
-  echo "primary=DP-3" >> $HOME/.dotfiles/custom_config/device/displays
-  echo "secondary=DP-2" >> $HOME/.dotfiles/custom_config/device/displays
+  echo "primary=DP-2" >> $HOME/.dotfiles/custom_config/device/displays
+  echo "secondary=DP-3" >> $HOME/.dotfiles/custom_config/device/displays
   echo "[cpu-temp]" > $HOME/.dotfiles/custom_config/device/temperature
   echo "hwmon-path=/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input" >> $HOME/.dotfiles/custom_config/device/temperature
   echo "[gpu-temp]" >> $HOME/.dotfiles/custom_config/device/temperature

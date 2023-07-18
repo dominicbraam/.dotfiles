@@ -23,8 +23,6 @@ $HOME/.config/polybar/launch.sh
 # wallpaper manager
 nitrogen --restore &
 
-xlivebg -n &
-
 $HOME/.dotfiles/scripts/general/dbus_var_handler.sh &
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

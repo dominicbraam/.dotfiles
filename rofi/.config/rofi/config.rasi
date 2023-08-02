@@ -1,4 +1,4 @@
-@theme "~/.config/rofi/themes/gruvbox-dark-soft.rasi"
+@theme "~/.config/rofi/themes/tokyodark.rasi"
 
 // Main config
 configuration {

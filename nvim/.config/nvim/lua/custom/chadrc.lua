@@ -3,8 +3,8 @@
 local M = {}
 
 M.ui = {
-  theme = "gruvbox_material",
-  theme_toggle = { "gruvbox_material", "gruvbox_light" },
+  theme = "tokyodark",
+  -- theme_toggle = { "gruvbox_material", "gruvbox_light" },
 }
 
 M.plugins = {

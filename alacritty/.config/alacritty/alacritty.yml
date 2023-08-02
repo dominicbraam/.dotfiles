@@ -587,11 +587,40 @@ schemes:
       cyan:    '0x92e5ff'
       white:   '0xffffff'
 
+  tokyodark: &tokyodark
+    bright:
+      black: '#212234'
+      blue: '#7199ee'
+      cyan: '#38a89d'
+      green: '#95c561'
+      magenta: '#a485dd'
+      red: '#ee6d85'
+      white: '#a0a8cd'
+      yellow: '#d7a65f'
+    cursor:
+      cursor: '#a0a8cd'
+      text: '#11121d'
+    normal:
+      black: '#06080a'
+      blue: '#7199ee'
+      cyan: '#38a89d'
+      green: '#A0E8A2'
+      magenta: '#a485dd'
+      red: '#e06c75'
+      white: '#a0a8cd'
+      yellow: '#d4b261'
+    primary:
+      background: '#11121d'
+      foreground: '#a0a8cd'
+    selection:
+      background: '#11121d'
+      text: '#a0a8cd'
+
   indexed_colors:
       - { index: 16, color: '0xF5D0D0' }
       - { index: 17, color: '0x141719' }
 
-colors: *gruvbox_dark
+colors: *tokyodark
 
 # Bell
 #

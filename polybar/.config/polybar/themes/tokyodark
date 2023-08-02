@@ -1,0 +1,14 @@
+[colors]
+# background = #11121D
+background = #001E1E28
+foreground = #A0A8CD
+accent = #e06c75
+content-background = #11121D
+blue = #7199EE
+cyan = #38A89D
+green =  #A0E8A2
+orange = #d19a66
+red =  #e06c75
+yellow = #D4B261
+purple = #A485DD
+light-gray = #565c64

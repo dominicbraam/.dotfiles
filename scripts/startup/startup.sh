@@ -15,6 +15,12 @@ pgrep -x nm-applet >/dev/null || nm-applet &
 pgrep -x blueman-applet >/dev/null || blueman-applet &
 # pgrep -x bitwarden-desktop >/dev/null || bitwarden-desktop &
 
+# auto mount media
+pgrep -x udiskie >/dev/null || udiskie &
+
+# launch file sync app
+pgrep -x nextcloud > /dev/null || nextcloud &
+
 # display resolution
 $HOME/.config/Xorg/.display_res
 

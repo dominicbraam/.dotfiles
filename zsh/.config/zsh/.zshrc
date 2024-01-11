@@ -15,7 +15,7 @@ _comp_options+=(globdots)
 # History
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=$HOME/.cache/zsh/histfile
+HISTFILE="$HOME/.cache/zsh/histfile"
 HIST_STAMPS='yyyy-mm-dd'
 
 setopt autocd
@@ -71,7 +71,6 @@ export PYTHONHISTORY="$HOME/.cache/python/python_history"
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 export PYLINTHOME="$HOME/.config/pylint.d"
 export KDEHOME="$HOME/.config/kdehome"
-export HISTFILE="${XDG_STATE_HOME}"/bash/history
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker

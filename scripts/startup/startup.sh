@@ -18,9 +18,6 @@ pgrep -x blueman-applet >/dev/null || blueman-applet &
 # auto mount media
 pgrep -x udiskie >/dev/null || udiskie &
 
-# launch file sync app
-pgrep -x nextcloud > /dev/null || nextcloud &
-
 # display resolution
 $HOME/.config/Xorg/.display_res
 

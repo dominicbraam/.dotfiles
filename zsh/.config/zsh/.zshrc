@@ -123,3 +123,20 @@ eval "$(starship init zsh)"
 
 # Load zsh syntax highlighting. MUST BE LAST THING IN .zshrc
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# conda init edit: for a better (but not the best) solution for cross device support
+MINICONDA3_DIR="${HOME}/.local/lib/miniconda3"
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$("${MINICONDA3_DIR}/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "${MINICONDA3_DIR}/etc/profile.d/conda.sh" ]; then
+        . "${MINICONDA3_DIR}/etc/profile.d/conda.sh"
+    else
+        export PATH="${MINICONDA3_DIR}/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<

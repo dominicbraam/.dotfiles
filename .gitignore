@@ -7,6 +7,7 @@ Xorg/.Xresources
 Xorg/.config/Xorg/.display_res
 bspwm/.config/bspwm/device_config
 btop/.config/btop/btop.conf
+btop/.config/btop/btop.log
 polybar/.config/polybar/device_config
 polybar/.config/polybar/device_vars
 custom_config/*

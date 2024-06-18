@@ -10,3 +10,4 @@ btop/.config/btop/btop.conf
 polybar/.config/polybar/device_config
 polybar/.config/polybar/device_vars
 custom_config/*
+nvim/.config/nvim/lazy-lock.json

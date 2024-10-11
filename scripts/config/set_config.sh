@@ -4,7 +4,7 @@
 [[ -z "$1" ]] && { echo "Parameter is empty"; echo "(0 = laptop, 1 = laptop at work with their display, 2 = laptop and G7, 3 = PC - dualscreen - hori-vert)" ; exit 1; }
 
 if [ $1 = '0' ]; then
-  echo "Xft.dpi: 140" > $HOME/.dotfiles/Xorg/.Xresources
+  echo "Xft.dpi: 130" > $HOME/.dotfiles/Xorg/.Xresources
 
   mkdir -p $HOME/.dotfiles/custom_config
   echo "[display]" > $HOME/.dotfiles/custom_config/device/displays

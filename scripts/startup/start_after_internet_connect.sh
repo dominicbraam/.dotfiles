@@ -9,7 +9,9 @@ done
 pgrep -x nextcloud > /dev/null || nextcloud &
 
 # bspc rule -a discord desktop='^4' follow=off && discord &
-pgrep -x Mailspring >/dev/null || bspc rule -a Mailspring desktop='^9' follow=off && mailspring --password-store="gnome-libsecret" &
+pgrep -x Mailspring >/dev/null || mailspring --password-store="gnome-libsecret" &
+pgrep -x gnome-calendar >/dev/null || gnome-calendar &
+pgrep -x planify >/dev/null || planify &
 
 # check for updates in .dotfiles
 $HOME/.dotfiles/cron/dotfiles/check_updates.sh

@@ -3,9 +3,10 @@
 // Main config
 configuration {
     font:                   "MonoLisa Medium 12";
-    fixed-num-lines:        true;
+    fixed-num-lines:        false;
     show-icons:             true;
     icon-theme:             "Gruvbox-Material-Dark";
+    terminal:               "alacritty";
     sidebar-mode: 		      false;
     scroll-method: 		      0;
     window-format: 		      "[{w}] ··· {c} ···   {t}";
@@ -28,10 +29,10 @@ configuration {
 window {
     border: 						0px;
     border-color: 			@active-foreground;
-    border-radius: 			10px;
-    padding: 						0;
+    border-radius: 			0;
     width: 						  600px;
-    height:						  600px;
+    // height:						  600px;
+    background-color:   #282c3400;
 }
 
 prompt {
@@ -61,30 +62,34 @@ case-indicator {
     text-color: 				@foreground;
 }
 
+mainbox {
+    padding: 						0;
+    background-color:   @transparent;
+    spacing:            15px;
+    children:           [ inputbar, listview ];
+}
+
 inputbar {
     spacing:    				0px;
+    border:             5px;
+    border-color:       @button-selected;
+    border-radius:      10px;
     text-color: 				@foreground;
     padding:    				20px;
     background-color:   @background;
     children: 					[ prompt, entry ];
 }
 
-mainbox {
-    border: 						0px;
-    border-color: 			@active-foreground;
-    padding: 						0;
-    children:           [ inputbar, listview ];
-}
-
 listview {
-    lines:							8;
+    require-input:      true;
     columns:						1;
     fixed-height: 			0;
-    border: 						0px;
-    border-color: 			@active-foreground;
-    spacing: 						4px;
+    border: 						5px;
+    border-color: 			@button-selected;
+    border-radius:      10px;
+    spacing: 						10px;
     scrollbar: 					false;
-    padding: 						0 25px;
+    padding: 						25px;
 }
 
 // element properties

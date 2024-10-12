@@ -10,4 +10,4 @@ stow -vS $prog-dir
 
 ## Showcase
 
-![video](https://raw.githubusercontent.com/dominicbraam/.dotfiles/main/screenshots/2024-10/2024-10-12%2022-11-29.mp4)
+https://github.com/user-attachments/assets/e2e4ff14-2981-4e34-8aed-746b4fc92591

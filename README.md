@@ -8,7 +8,6 @@ Dotfiles are managed with GNU Stow. For help, visit the following link: https://
 stow -vS $prog-dir
 ```
 
-## Screenshots
+## Showcase
 
-![screenshot1](https://raw.githubusercontent.com/dominicbraam/.dotfiles/main/screenshots/2023-04/2023-04-01-120531_1920x1200_scrot.png)
-![screenshot2](https://raw.githubusercontent.com/dominicbraam/.dotfiles/main/screenshots/2023-04/2023-04-01-123605_1920x1200_scrot.png)
+![video](https://raw.githubusercontent.com/dominicbraam/.dotfiles/main/screenshots/2024-10/2024-10-12%2022-11-29.mp4)

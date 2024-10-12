@@ -23,7 +23,7 @@ function is_tmux_session {
 }
 
 function tmux_new {
-  dir=$(fd --hidden --type directory "" $1 | rofi -dmenu -i -no-show-icons -p "tmux new")
+  dir=$(fd --hidden --max-depth=1 --type directory "" $1 | rofi -dmenu -i -no-show-icons -p "tmux new")
 
   session_name=$(basename $dir)
 

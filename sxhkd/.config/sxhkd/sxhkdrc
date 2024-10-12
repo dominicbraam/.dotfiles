@@ -11,6 +11,9 @@ super + Return
 super + @space
     rofi -show drun
 
+super + c
+    rofi -show ssh
+
 # emoji launcher
 super + ctrl + @space
     rofi -show emoji -modi emoji -no-show-icons -kb-custom-1 Ctrl+C
@@ -30,6 +33,10 @@ super + shift + Return
 # cd in new terminal window
 super + f
   $HOME/.dotfiles/scripts/rofi/navigation.sh cd
+
+# cd in new terminal window
+alt + @space
+  $HOME/.dotfiles/scripts/rofi/navigation.sh open
 
 # apple music
 # super + m
@@ -66,6 +73,10 @@ super + s
 # take screenshot (selection)
 super + shift + s
   scrot -s -d 1 && paplay ~/.local/share/sounds/camera-shutter-6305.mp3
+
+# randomize wallpaper
+alt + w
+  nitrogen --set-zoom-fill --random $HOME/Wallpapers --save
 
 #
 # bspwm hotkeys

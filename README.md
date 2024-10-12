@@ -10,4 +10,4 @@ stow -vS $prog-dir
 
 ## Showcase
 
-https://github.com/user-attachments/assets/e2e4ff14-2981-4e34-8aed-746b4fc92591
+https://github.com/user-attachments/assets/47bee5e0-bc63-4a97-ac52-125d1b8d3328

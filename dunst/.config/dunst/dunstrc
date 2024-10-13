@@ -61,16 +61,16 @@
     per_monitor_dpi = false
 
 [urgency_low]
-   background = "#11121D"
-   foreground = "#A0A8CD"
-   frame_color = "#98971a"
+   background = "#A0A8CD"
+   foreground = "#11121D"
+   frame_color = "#A0A8CD"
 
 [urgency_normal]
-   background = "#11121D"
-   foreground = "#A0A8CD"
-   frame_color = "#98971a"
+   background = "#A0A8CD"
+   foreground = "#11121D"
+   frame_color = "#A0A8CD"
 
 [urgency_critical]
-   background = "#11121D"
-   foreground = "#A0A8CD"
-   frame_color = "#cc241d"
+   background = "#D4B261"
+   foreground = "#E06C75"
+   frame_color = "#EE6D85"

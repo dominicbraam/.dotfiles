@@ -44,7 +44,7 @@ function tmux_new {
 }
 
 function tmux_attach {
-  session_name=$(tmux ls -F "#S" | rofi -dmenu -i -no-show-icons -p "tmux attach")
+  session_name=$(tmux ls -F "#S" | rofi -dmenu -i -no-show-icons -theme-str "listview { require-input: false; }" -p "tmux attach")
 
   is_tmux_session $session_name
 

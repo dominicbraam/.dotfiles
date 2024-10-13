@@ -9,10 +9,10 @@ super + Return
 
 # program launcher
 super + @space
-    rofi -show drun
+    rofi -modes "drun" -show drun
 
 super + c
-    rofi -show ssh
+    rofi -modes "ssh" -show ssh
 
 # emoji launcher
 super + ctrl + @space

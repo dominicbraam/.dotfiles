@@ -27,8 +27,8 @@ alt + l
   betterlockscreen -l dim
 
 # file mananger
-super + shift + Return
-    nautilus
+# super + shift + Return
+#     nautilus
 
 # cd in new terminal window
 super + f
@@ -41,6 +41,10 @@ alt + @space
 # apple music
 # super + m
 #     cider
+
+# chatgpt quick response
+super + shift + Return
+  $HOME/.dotfiles/scripts/rofi/chatgpt.sh
 
 # search project directory and open in new tmux session
 super + p

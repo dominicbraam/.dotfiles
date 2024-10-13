@@ -3,7 +3,7 @@
     follow = mouse
     width = (0,400)
     origin = top-right
-    offset = 10x56
+    offset = 10x45
     progress_bar = true
     progress_bar_height = 10
     progress_bar_frame_width = 1
@@ -17,9 +17,9 @@
     padding = 24
     horizontal_padding = 24
     text_icon_padding = 0
-    frame_width = 0
+    frame_width = 4
     outer_frame_width = 10
-    frame_color = "#4A5057"
+    frame_color = "#000000"
     separator_color = frame
     sort = yes
     idle_threshold = 120

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function run_chatgpt {
-  env OPENAI_KEY=$(secret-tool lookup apikey openai-shell-cli) alacritty --hold -e chatgpt --model gpt-4o-mini-2024-07-18 -p "$1" & sleep 0.2
+  env OPENAI_KEY=$(secret-tool lookup apikey openai-shell-cli) alacritty --hold -e chatgpt --model gpt-4o-mini-2024-07-18 -p "$1" & sleep 0.25
 
   node_id=$(bspc query -N -n focused)
   bspc node $node_id -t floating

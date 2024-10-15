@@ -53,6 +53,9 @@ alias grep='grep --colour=auto'
 alias mydot="cd $HOME/.dotfiles/"
 alias fz='. fz'
 alias cat='bat'
+alias df='duf'
+alias du='dua'
+alias powershell='echo This is an alias for pwsh && pwsh'
 
 # $PATH
 path+=("$HOME/.local/bin")

@@ -1,18 +1,26 @@
 * {
     /* Theme colors */
-    background: #11121D;
-    foreground: #A0A8CD;
+    foreground: #11121D;
+    background: #A0A8CD;
+    black: #06080a;
+    blue: #7199ee;
+    cyan: #38a89d;
+    green: #A0E8A2;
+    magenta: #a485dd;
+    red: #e06c75;
+    white: #a0a8cd;
+    yellow: #d4b261;
+    light-gray: #565c64;
+
     prompt: #21222D;
-    button-selected: #e06c75;
     background-color: @background;
     text-color: @foreground;
-    border: #2b2f37;
     // transparent: #00000000;
     transparent: #11121d00;
 
-    border-color:                @border;
-    separatorcolor:              @border-color;
-    scrollbar-handle:            @border-color;
+    border:                      @foreground;
+    separatorcolor:              @border;
+    scrollbar-handle:            @border;
 
     normal-background:           @background;
     normal-foreground:           @foreground;
@@ -21,8 +29,8 @@
     selected-normal-background:  @gruvbox-dark-bg3;
     selected-normal-foreground:  @gruvbox-dark-fg0;
 
-    active-background:           @button-selected;
-    active-foreground:           @border-color;
+    active-background:           @blue;
+    active-foreground:           @black;
     alternate-active-background: @active-background;
     alternate-active-foreground: @active-foreground;
     selected-active-background:  @gruvbox-dark-yellow-light;

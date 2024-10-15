@@ -2,7 +2,7 @@
 
 // Main config
 configuration {
-    font:                   "MonoLisa Medium 12";
+    font:                   "Hack Nerd Font Bold 13";
     fixed-num-lines:        false;
     show-icons:             true;
     icon-theme:             "Gruvbox-Material-Dark";
@@ -18,11 +18,6 @@ configuration {
     display-ssh: 					  "ssh";
     display-drun: 					"app";
     display-combi: 					"";
-}
-
-// bg color
-* {
-    background-color:   @background;
 }
 
 // setup
@@ -72,9 +67,8 @@ mainbox {
 inputbar {
     spacing:    				0px;
     border:             5px;
-    border-color:       @button-selected;
+    border-color:       @border;
     border-radius:      10px;
-    text-color: 				@foreground;
     padding:    				20px;
     background-color:   @background;
     children: 					[ prompt, entry ];
@@ -85,7 +79,7 @@ listview {
     columns:						1;
     fixed-height: 			0;
     border: 						5px;
-    border-color: 			@button-selected;
+    border-color: 			@border;
     border-radius:      10px;
     spacing: 						10px;
     scrollbar: 					false;

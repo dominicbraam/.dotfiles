@@ -1,6 +1,6 @@
 [colors]
-background = #11121D
-# background = #001E1E28
+# background = #11121D
+background = #001E1E28
 foreground = #A0A8CD
 accent = #e06c75
 content-background = #11121D

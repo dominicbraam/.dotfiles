@@ -4,7 +4,7 @@ function tcd {
 }
 
 function topen {
-  selection=$(fd --type file | awk -F/ '{print $NF " | " $0}' | rofi -dmenu -i -no-show-icons -p "open")
+  selection=$(fd --type file | awk -F/ '{print $NF " | " $0}' | rofi -dmenu -i -no-show-icons -p "🔎📂")
   file_path=$(echo $selection | sed 's#.*| ##')
   xdg-open "$file_path"
 }

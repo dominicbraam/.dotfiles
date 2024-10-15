@@ -15,8 +15,10 @@ configuration {
     display-window: 				"window";
     display-windowcd: 			"windowcd";
     display-run: 					  "run";
-    display-ssh: 					  "ssh";
-    display-drun: 					"app";
+    display-ssh: 					  ">_";
+    display-drun: 					"🚀";
+    display-emoji: 					"😊";
+    display-calc: 					"🧮";
     display-combi: 					"";
 }
 
@@ -33,7 +35,8 @@ window {
 prompt {
     spacing: 						0;
     border: 						0;
-    padding:            0 10px;
+    border-color: 			black;
+    padding:            3 10;
     background-color:   @background;
     font:               "Iosevka Nerd Font 12 Bold";
     text-color: 				@foreground;

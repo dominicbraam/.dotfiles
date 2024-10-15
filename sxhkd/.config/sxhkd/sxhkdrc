@@ -11,15 +11,16 @@ super + Return
 super + @space
     rofi -modes "drun" -show drun
 
-super + c
+# ssh connect
+super + shift + @space
     rofi -modes "ssh" -show ssh
 
 # emoji launcher
-super + ctrl + @space
+super + alt + @space
     rofi -show emoji -modi emoji -no-show-icons -kb-custom-1 Ctrl+C
 
 # calculator
-super + shift + @space
+super + c
     rofi -show calc -modi calc -no-show-match -no-show-icons -no-sort
 
 # lock screen
@@ -27,14 +28,14 @@ alt + l
   betterlockscreen -l dim
 
 # file mananger
-# super + shift + Return
-#     nautilus
+super + shift + Return
+  thunar
 
 # cd in new terminal window
-super + f
-  $HOME/.dotfiles/scripts/rofi/navigation.sh cd
+# super + f
+#   $HOME/.dotfiles/scripts/rofi/navigation.sh cd
 
-# cd in new terminal window
+# open file in default program
 alt + @space
   $HOME/.dotfiles/scripts/rofi/navigation.sh open
 
@@ -42,8 +43,8 @@ alt + @space
 # super + m
 #     cider
 
-# chatgpt quick response
-super + shift + Return
+# chatgpt mode select
+super + ctrl + @space
   $HOME/.dotfiles/scripts/rofi/chatgpt.sh
 
 # search project directory and open in new tmux session

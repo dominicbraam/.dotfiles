@@ -12,7 +12,7 @@ function run_chatgpt {
 }
 
 function chat_quick_response {
-  query=$(rofi -dmenu -no-show-icons -theme-str "listview { require-input: false; }" -p "ask")
+  query=$(rofi -i -dmenu -no-show-icons -theme-str "listview { require-input: false; }" -p "🧠❓")
   run_chatgpt "$query"
 }
 

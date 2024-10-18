@@ -25,7 +25,7 @@ super + c
 
 # lock screen
 alt + l
-  betterlockscreen -l dim
+  betterlockscreen --lock dim --off 5
 
 # file mananger
 super + shift + Return
@@ -81,7 +81,7 @@ super + shift + s
 
 # randomize wallpaper
 alt + w
-  nitrogen --set-zoom-fill --random $HOME/Wallpapers --save
+  $HOME/.dotfiles/scripts/general/set_random_wallpaper.bash
 
 #
 # bspwm hotkeys

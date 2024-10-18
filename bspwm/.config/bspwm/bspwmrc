@@ -39,6 +39,7 @@ bspc config ignore_ewmh_focus true # to stop apps like discord to allow for foll
 # - in terminal to get term details: `bspc query -T -n | jq`
 # - to get info on all windows in view: `bspc query -T -d | jq`
 # They will give all the info you need inclusing the `className`.
+bspc rule -a Bitwarden state=floating sticky=on center=true
 bspc rule -a Blueman state=floating sticky=on center=true
 bspc rule -a Cider desktop='^9' follow=on state=floating sticky=on center=true
 bspc rule -a discord desktop='^5' follow=off

@@ -45,7 +45,6 @@ bspc rule -a Cider desktop='^9' follow=on state=floating sticky=on center=true
 bspc rule -a discord desktop='^5' follow=off
 bspc rule -a gnome-calendar desktop='^10' follow=off
 bspc rule -a Mailspring desktop='^9' follow=off
-bspc rule -a "Microsoft Teams - Preview" desktop='^5' follow=off
 # bspc rule -a mpv state=floating sticky=on rectangle=1280x720+320+240
 bspc rule -a mpv state=fullscreen
 bspc rule -a org.gnome.Nautilus state=floating center=true
@@ -55,6 +54,7 @@ bspc rule -a openrgb state=floating sticky=on center=true
 bspc rule -a Pavucontrol state=floating sticky=on center=true
 bspc rule -a Pcmanfm state=floating center=true
 bspc rule -a planify desktop='^10' follow=off
+bspc rule -a teams-for-linux desktop='^4' follow=off
 bspc rule -a Thunar state=floating center=true
 bspc rule -a XTerm state=floating follow=off
 

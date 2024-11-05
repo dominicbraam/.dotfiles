@@ -1,3 +1,4 @@
+[general]
 # import colour scheme
 import = ["~/.config/alacritty/themes/tokyodark.toml"]
 

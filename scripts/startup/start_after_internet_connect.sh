@@ -9,7 +9,10 @@ done
 pgrep -x nextcloud >/dev/null || nextcloud &
 
 # bspc rule -a discord desktop='^4' follow=off && discord &
-pgrep -x Mailspring >/dev/null || mailspring --password-store="gnome-libsecret" &
+pgrep -x mailspring >/dev/null && (
+    killall mailspring &
+    mailspring --password-store="gnome-libsecret"
+) || mailspring --password-store="gnome-libsecret" &
 pgrep -x gnome-calendar >/dev/null || gnome-calendar &
 pgrep -x planify >/dev/null || planify &
 

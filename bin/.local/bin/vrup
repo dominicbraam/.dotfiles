@@ -1,0 +1,14 @@
+#!/bin/bash
+
+xrandr | awk /\ connected/
+
+"$HOME"/.dotfiles/scripts/displays/add_connect_virt_displays.bash
+
+"$HOME"/.dotfiles/scripts/displays/set_config.sh
+
+echo "Immersed starting"
+/usr/bin/immersed
+echo "Immersed stopped"
+
+"$HOME"/.dotfiles/scripts/displays/set_config.sh
+"$HOME"/.dotfiles/scripts/displays/move_all_nodes_to_primary.bash

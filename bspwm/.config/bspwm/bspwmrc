@@ -3,18 +3,22 @@
 wmname LG3D
 # export _JAVA_AWT_WM_NONREPARENTING=1
 
-$HOME/.dotfiles/scripts/startup/startup.sh
+"$HOME"/.dotfiles/scripts/startup/startup.sh
 
-source $HOME/.local/bin/bash-ini-parser/bash-ini-parser
+source "$HOME"/.local/bin/bash-ini-parser/bash-ini-parser
 
-cfg_parser $HOME/.dotfiles/custom_config/device/displays
-cfg_section_display
+cfg_parser "$HOME"/.screenlayout/monitors_data
+cfg_section_displays
 
-if [ ! -z $secondary ]; then
-  bspc monitor $primary -d 1 2 3 4 5
-  bspc monitor $secondary -d 6 7 8 9 0
-else
-  bspc monitor $primary -d 1 2 3 4 5 6 7 8 9 0
+if [ "$monitor_count" -eq 1 ]; then
+    bspc monitor "$display1" -d 1 2 3 4 5 6 7 8 9 0
+elif [ "$monitor_count" -eq 2 ]; then
+    bspc monitor "$display1" -d 1 2 3 4 5
+    bspc monitor "$display2" -d 6 7 8 9 0
+elif [ "$monitor_count" -eq 3 ]; then
+    bspc monitor "$display1" -d 1 2 3
+    bspc monitor "$display2" -d 4 5 6 7
+    bspc monitor "$display3" -d 8 9 0
 fi
 
 bspc config top_padding 0
@@ -65,4 +69,4 @@ bspc config pointer_action2 resize_side
 bspc config pointer_action2 resize_corner
 bspc config focus_follows_pointer false
 
-$HOME/.dotfiles/scripts/startup/start_after_internet_connect.sh &
+"$HOME"/.dotfiles/scripts/startup/start_after_internet_connect.sh &

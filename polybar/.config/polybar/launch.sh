@@ -9,15 +9,24 @@ polybar-msg cmd quit
 echo "---" | tee -a /tmp/polybar1.log
 
 source $HOME/.local/bin/bash-ini-parser/bash-ini-parser
-cfg_parser $HOME/.dotfiles/custom_config/device/displays
-cfg_section_display
+cfg_parser $HOME/.screenlayout/monitors_data
+cfg_section_displays
 
-if [ ! -z $secondary ]; then
-  polybar -r dominicbar 2>&1 | tee -a /tmp/polybar1.log & disown
-  polybar -r dominicbar-secondary 2>&1 | tee -a /tmp/polybar1.log & disown
-else
-  polybar -r dominicbar 2>&1 | tee -a /tmp/polybar1.log & disown
+if [[ $monitor_count -eq 1 ]]; then
+    polybar -r dominicbar 2>&1 | tee -a /tmp/polybar1.log &
+    disown
+elif [[ $monitor_count -eq 2 ]]; then
+    polybar -r dominicbar 2>&1 | tee -a /tmp/polybar1.log &
+    disown
+    polybar -r dominicbar-secondary1 2>&1 | tee -a /tmp/polybar1.log &
+    disown
+elif [[ $monitor_count -eq 3 ]]; then
+    polybar -r dominicbar 2>&1 | tee -a /tmp/polybar1.log &
+    disown
+    polybar -r dominicbar-secondary1 2>&1 | tee -a /tmp/polybar1.log &
+    disown
+    polybar -r dominicbar-secondary2 2>&1 | tee -a /tmp/polybar1.log &
+    disown
 fi
-
 
 echo "Bars launched..."

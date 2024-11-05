@@ -19,13 +19,13 @@ pgrep -x blueman-applet >/dev/null || blueman-applet &
 pgrep -x udiskie >/dev/null || udiskie &
 
 # display resolution
-$HOME/.config/Xorg/.display_res
+"$HOME"/.screenlayout/xrandr_cmd.sh
 
-$HOME/.config/polybar/launch.sh
+"$HOME"/.config/polybar/launch.sh
 
 # wallpaper manager
 nitrogen --restore &
 
-$HOME/.dotfiles/scripts/general/dbus_var_handler.sh &
+"$HOME"/.dotfiles/scripts/general/dbus_var_handler.sh &
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

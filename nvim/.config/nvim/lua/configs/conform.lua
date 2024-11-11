@@ -17,6 +17,11 @@ local options = {
         yaml = { "prettier" },
         zsh = { "shfmt" },
     },
+    formatters = {
+        black = {
+            prepend_args = { "--line-length", "79" },
+        },
+    },
 
     format_on_save = {
         -- These options will be passed to conform.format()

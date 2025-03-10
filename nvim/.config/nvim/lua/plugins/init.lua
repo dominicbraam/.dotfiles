@@ -42,6 +42,12 @@ return {
         -- like so:
         version = "~0.1.0",
     },
+    {
+        "danymat/neogen",
+        config = true,
+        -- Uncomment next line if you want to follow only stable versions
+        -- version = "*"
+    },
 
     -- These are some examples, uncomment them if you want to see them work!
     -- {

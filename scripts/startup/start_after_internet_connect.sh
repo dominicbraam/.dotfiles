@@ -13,8 +13,6 @@ pgrep -x mailspring >/dev/null && (
     killall mailspring &
     mailspring --password-store="gnome-libsecret"
 ) || mailspring --password-store="gnome-libsecret" &
-pgrep -x gnome-calendar >/dev/null || gnome-calendar &
-pgrep -x planify >/dev/null || planify &
 
 # check for updates in .dotfiles
 "$HOME"/.dotfiles/cron/dotfiles/check_updates.sh

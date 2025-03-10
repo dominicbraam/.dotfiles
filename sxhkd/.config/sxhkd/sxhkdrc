@@ -29,7 +29,7 @@ alt + l
 
 # file mananger
 super + shift + Return
-  thunar
+  nautilus
 
 # cd in new terminal window
 # super + f

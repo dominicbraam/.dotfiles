@@ -56,6 +56,7 @@ alias cat='bat'
 alias df='duf'
 alias du='dua'
 alias powershell='echo This is an alias for pwsh && pwsh'
+alias rm='echo Use the full path i.e. '/bin/rm', consider using trash i.e. trash-cli. Do not forget the Jupyter Notebook incident!!'
 
 # $PATH
 path+=("$HOME/.local/bin")
@@ -131,7 +132,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 MINICONDA3_DIR="${HOME}/.local/lib/miniconda3"
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$("${MINICONDA3_DIR}/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$("${MINICONDA3_DIR}/bin/conda" 'shell.zsh' 'hook' 2>/dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else

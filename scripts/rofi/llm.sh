@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function run_openai {
-    env OATMEAL_OPENAI_TOKEN="$(secret-tool lookup apikey openai-shell-cli)" alacritty --hold -e oatmeal --backend openai --model o3-mini &
+    env OATMEAL_OPENAI_TOKEN="$(secret-tool lookup apikey openai-shell-cli)" alacritty -e oatmeal --backend openai --model o3-mini &
     sleep 0.25
 
     node_id=$(bspc query -N -n focused)

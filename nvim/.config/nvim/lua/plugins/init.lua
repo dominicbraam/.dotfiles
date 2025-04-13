@@ -48,6 +48,13 @@ return {
         -- Uncomment next line if you want to follow only stable versions
         -- version = "*"
     },
+    {
+        "dustinblackman/oatmeal.nvim",
+        cmd = { "Oatmeal" },
+        config = function()
+            require("configs.oatmeal")
+        end,
+    },
 
     -- These are some examples, uncomment them if you want to see them work!
     -- {

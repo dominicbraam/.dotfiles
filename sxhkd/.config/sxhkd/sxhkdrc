@@ -31,6 +31,10 @@ alt + l
 super + shift + Return
   nautilus
 
+# notification centre
+super + n
+    $HOME/.dotfiles/scripts/general/notification-centre.bash
+
 # cd in new terminal window
 # super + f
 #   $HOME/.dotfiles/scripts/rofi/navigation.sh cd
@@ -43,9 +47,9 @@ alt + @space
 # super + m
 #     cider
 
-# chatgpt mode select
+# llm select
 super + ctrl + @space
-  $HOME/.dotfiles/scripts/rofi/chatgpt.sh
+  $HOME/.dotfiles/scripts/rofi/llm.sh
 
 # search project directory and open in new tmux session
 super + p

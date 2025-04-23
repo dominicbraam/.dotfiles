@@ -51,12 +51,12 @@ alias ll='exa --icons --group-directories-first -l -g --git'
 alias v='nvim'
 alias grep='grep --colour=auto'
 alias mydot="cd $HOME/.dotfiles/"
-alias fz='. fz'
 alias cat='bat'
 alias df='duf'
 alias du='dua'
 alias powershell='echo This is an alias for pwsh && pwsh'
 alias rm='echo Use the full path i.e. '/bin/rm', consider using trash i.e. trash-cli. Do not forget the Jupyter Notebook incident!!'
+alias cpc='xclip -sel c < '
 
 # $PATH
 path+=("$HOME/.local/bin")

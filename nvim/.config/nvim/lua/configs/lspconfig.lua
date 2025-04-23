@@ -10,6 +10,7 @@ local servers = {
     "cssls",
     "dockerls",
     "gopls",
+    "harper_ls",
     "html",
     "jsonls",
     "marksman",

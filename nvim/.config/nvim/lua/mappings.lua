@@ -1,5 +1,12 @@
 require("nvchad.mappings")
 
+-- disable mappings
+local nomap = vim.keymap.del
+
+nomap("n", "<C-n>")
+nomap("n", "<Tab>")
+nomap("n", "<S-Tab>")
+
 -- add yours here
 
 local map = vim.keymap.set

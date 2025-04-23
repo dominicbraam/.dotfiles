@@ -13,6 +13,7 @@ local options = {
         rust = { "rustfmt" },
         sh = { "shfmt" },
         sql = { "sql-formatter" },
+        toml = { "pyproject-fmt" },
         typescript = { "prettier" },
         yaml = { "prettier" },
         zsh = { "shfmt" },

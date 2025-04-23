@@ -5,22 +5,24 @@
 local M = {}
 
 M.base46 = {
-    theme = "tokyonight",
+    theme = "tokyodark",
     transparency = true,
+    theme_toggle = { "tokyodark", "gruvbox_light" },
 }
 
 M.ui = {
 
     statusline = {
-        theme = "vscode_colored",
+        theme = "minimal",
+        separator_style = "round",
     },
 
     telescope = { style = "bordered" }, -- borderless / bordered
 
     -- lazyload it when there are 1+ buffers
     tabufline = {
-        enabled = true,
-        lazyload = true,
+        enabled = false,
+        lazyload = false,
         order = { "treeOffset", "buffers", "tabs", "btns" },
         modules = nil,
     },
@@ -39,13 +41,11 @@ M.nvdash = {
 
 M.term = {
     hl = "Normal:term,WinSeparator:WinSeparator",
-    sizes = { sp = 0.4, vsp = 0.4 },
+    sizes = { sp = 0.5, vsp = 0.5 },
     float = {
         relative = "editor",
-        row = 0.15,
-        col = 0.2,
-        width = 0.6,
-        height = 0.65,
+        width = 1.0,
+        height = 0.9,
         border = "single",
     },
 }

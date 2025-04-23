@@ -6,6 +6,8 @@ local token = handle:read("*a")
 handle:close()
 
 local opts = {
+    hotkey = "<leader>om",
+    close_terminal_on_quit = true,
     backend = "openai",
     model = "o3-mini",
     open_ai_token = token,

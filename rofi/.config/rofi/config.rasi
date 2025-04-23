@@ -6,135 +6,136 @@ configuration {
     fixed-num-lines:        false;
     show-icons:             true;
     icon-theme:             "Gruvbox-Material-Dark";
-    terminal:               "alacritty";
-    sidebar-mode: 		      false;
-    scroll-method: 		      0;
-    window-format: 		      "[{w}] ··· {c} ···   {t}";
-    click-to-exit: 		      true;
+    terminal:               "kitty";
+    ssh-command:            "kitty -- kitty +kitten ssh {host}";
+    sidebar-mode: 		    false;
+    scroll-method: 		    0;
+    window-format: 		    "[{w}] ··· {c} ···   {t}";
+    click-to-exit: 		    true;
     combi-hide-mode-prefix: false;
-    display-window: 				"window";
-    display-windowcd: 			"windowcd";
-    display-run: 					  "run";
-    display-ssh: 					  ">_";
-    display-drun: 					"🚀";
-    display-emoji: 					"😊";
-    display-calc: 					"🧮";
-    display-combi: 					"";
+    display-window: 		"window";
+    display-windowcd: 		"windowcd";
+    display-run: 			"run";
+    display-ssh: 			">_";
+    display-drun: 		    "🚀";
+    display-emoji: 			"😊";
+    display-calc: 			"🧮";
+    display-combi: 			"";
 }
 
 // setup
 window {
-    border: 						0px;
+    border: 				0px;
     border-color: 			@active-foreground;
     border-radius: 			0;
-    width: 						  600px;
-    // height:						  600px;
-    background-color:   #282c3400;
+    width: 					600px;
+    // height:				600px;
+    background-color:       #282c3400;
 }
 
 prompt {
-    spacing: 						0;
-    border: 						0;
+    spacing: 				0;
+    border: 				0;
     border-color: 			black;
-    padding:            3 10;
-    background-color:   @background;
-    font:               "Iosevka Nerd Font 12 Bold";
-    text-color: 				@foreground;
+    padding:                3 10;
+    background-color:       @background;
+    font:                   "Iosevka Nerd Font 12 Bold";
+    text-color: 			@foreground;
 }
 
 textbox-prompt-colon {
-    expand: 						false;
-    str: 							  "";
-    background-color:   @background;
-    text-color: 				inherit;
+    expand: 				false;
+    str: 				    "";
+    background-color:       @background;
+    text-color: 			inherit;
 }
 
 entry {
-    spacing:    				10;
-    background-color:   @background;
-    text-color: 				@foreground;
+    spacing:    			10;
+    background-color:       @background;
+    text-color: 			@foreground;
 }
 
 case-indicator {
-    spacing:    				4;
-    text-color: 				@foreground;
+    spacing:    			4;
+    text-color: 			@foreground;
 }
 
 mainbox {
-    padding: 						0;
-    background-color:   @transparent;
-    spacing:            15px;
-    children:           [ inputbar, listview ];
+    padding: 				0;
+    background-color:       @transparent;
+    spacing:                15px;
+    children:               [ inputbar, listview ];
 }
 
 inputbar {
-    spacing:    				0px;
-    border:             5px;
-    border-color:       @border;
-    border-radius:      10px;
-    padding:    				20px;
-    background-color:   @background;
-    children: 					[ prompt, entry ];
+    spacing:    			0px;
+    border:                 5px;
+    border-color:           @border;
+    border-radius:          10px;
+    padding:    			20px;
+    background-color:       @background;
+    children: 				[ prompt, entry ];
 }
 
 listview {
-    require-input:      true;
-    columns:						1;
+    require-input:          true;
+    columns:				1;
     fixed-height: 			0;
-    border: 						5px;
+    border: 				5px;
     border-color: 			@border;
-    border-radius:      10px;
-    spacing: 						10px;
-    scrollbar: 					false;
-    padding: 						25px;
+    border-radius:          10px;
+    spacing: 				10px;
+    scrollbar: 				false;
+    padding: 				25px;
 }
 
 // element properties
 element-text, element-icon {
-    background-color:   #00000000;
-    text-color:         inherit;
+    background-color:       #00000000;
+    text-color:             inherit;
 }
 
 element {
-    border: 						0px;
+    border: 				0px;
     border-radius: 			5px;
-    padding: 						10px;
+    padding: 				10px;
 }
 element normal.normal {
-    background-color: 	@background;
-    text-color:       	@foreground;
+    background-color: 	    @background;
+    text-color:       	    @foreground;
 }
 element normal.urgent {
-    background-color: 	@background;
-    text-color:       	@foreground;
+    background-color: 	    @background;
+    text-color:       	    @foreground;
 }
 element normal.active {
-    background-color: 	@background;
-    text-color:       	@foreground;
+    background-color: 	    @background;
+    text-color:       	    @foreground;
 }
 element selected.normal {
-    background-color: 	@active-background;
-    text-color:       	@active-foreground;
+    background-color: 	    @active-background;
+    text-color:       	    @active-foreground;
 }
 element selected.urgent {
-    background-color: 	@background;
-    text-color:       	@foreground;
+    background-color: 	    @background;
+    text-color:       	    @foreground;
 }
 element selected.active {
-    background-color: 	@foreground;
-    text-color:       	@background;
+    background-color: 	    @foreground;
+    text-color:       	    @background;
 }
 element alternate.normal {
-    background-color: 	@background;
-    text-color:       	@foreground;
+    background-color: 	    @background;
+    text-color:       	    @foreground;
 }
 element alternate.urgent {
-    background-color: 	@background;
-    text-color:       	@foreground;
+    background-color: 	    @background;
+    text-color:       	    @foreground;
 }
 element alternate.active {
-    background-color: 	@background;
-    text-color:       	@foreground;
+    background-color: 	    @background;
+    text-color:       	    @foreground;
 }
 
 sidebar {
@@ -144,21 +145,21 @@ sidebar {
 }
 
 button {
-    horizontal-align:   0.5;
-    vertical-align:     0.5;
-    background-color:   @foreground;
-    margin: 						5px;
-    padding: 						5px;
-    text-color: 				@background;
-    border: 						0px;
+    horizontal-align:       0.5;
+    vertical-align:         0.5;
+    background-color:       @foreground;
+    margin: 				5px;
+    padding: 				5px;
+    text-color: 			@background;
+    border: 				0px;
     border-radius: 			4px;
     border-color: 			@foreground;
 }
 
 button selected {
-    background-color:   @active-foreground;
-    text-color: 				@foreground;
-    border: 						0px;
+    background-color:       @active-foreground;
+    text-color: 			@foreground;
+    border: 				0px;
     border-radius: 			4px;
     border-color: 			@foreground;
 }
@@ -168,23 +169,23 @@ scrollbar {
     border:       			0px;
     handle-color: 			@foreground;
     handle-width: 			8px;
-    padding:  					0;
+    padding:  			    0;
 }
 
 message {
-    border: 						0px;
+    border: 				0px;
     border-color: 			@active-foreground;
-    padding: 						1px;
+    padding: 				1px;
 }
 
 textbox {
-    text-color: 				@active-foreground;
+    text-color: 			@active-foreground;
 }
 
 // if you use icons
 element-icon {
-    size:               24;
-    margin:             0 10px 0 0;
-    vertical-align:     0.5;
-    horizontal-align:   0.5;
+    size:                   24;
+    margin:                 0 10px 0 0;
+    vertical-align:         0.5;
+    horizontal-align:       0.5;
 }

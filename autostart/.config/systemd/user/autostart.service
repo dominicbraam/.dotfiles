@@ -1,0 +1,17 @@
+[Unit]
+Description=Current graphical user session (Autostart)
+RefuseManualStart=no
+StopWhenUnneeded=no
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStartPre=/bin/sh -c '[ -e "/tmp/.X11-unix/X${DISPLAY#*:}" ] || exit 1'
+ExecStart=/usr/bin/systemctl --user import-environment \
+    DISPLAY XAUTHORITY WAYLAND_DISPLAY XDG_RUNTIME_DIR DBUS_SESSION_BUS_ADDRESS
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=graphical-session.target

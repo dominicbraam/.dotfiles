@@ -1,0 +1,12 @@
+[Unit]
+Description=Simple X Hotkey Daemon
+Documentation=man:sxhkd(1)
+After=autostart.service
+PartOf=autostart.service
+
+[Service]
+ExecStart=/usr/bin/sxhkd
+ExecReload=/usr/bin/kill -SIGUSR1 $MAINPID
+
+[Install]
+WantedBy=autostart.service

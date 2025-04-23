@@ -3,7 +3,7 @@
 #
 # terminal emulator
 super + Return
-    alacritty
+    kitty
     # alacritty -e "tmux attach -t $(bspc query -D -d focused --names) || tmux new-session -A -s $(bspc query -D -d focused --names)"
     # kitty sh -c "tmux attach -t $(bspc query -D -d focused --names) || tmux new-session -A -s $(bspc query -D -d focused --names)"
 
@@ -29,7 +29,7 @@ alt + l
 
 # file mananger
 super + shift + Return
-  nautilus
+    kitty -e zsh -ilc yazi
 
 # notification centre
 super + n
@@ -93,10 +93,10 @@ alt + w
 
 # quit/restart bspwm
 super + shift + {q,r}
-	bspc {quit,wm -r} && notify-send "bspwm" "Restarting..."
+	bspc {quit,wm -r} && systemctl --user {stop, restart} auto-graphical.service && notify-send "bspwm" "Restarting..."
 
 # close and kill
-super + {_,ctrol + }q
+super + {_,ctrl + }q
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout

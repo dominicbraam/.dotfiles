@@ -1,0 +1,7 @@
+[Unit]
+Description=Start and keep running graphical‑session.target
+Wants=graphical-session-pre.target graphical-session.target
+After=graphical-session-pre.target
+
+[Install]
+WantedBy=default.target

@@ -2,7 +2,7 @@
 # purpose of pgrep: https://www.reddit.com/r/bspwm/comments/sb4ics/what_does_this_line_do_in_the_config/
 
 # hoykey daemon
-pgrep -x sxhkd >/dev/null || sxhkd &
+# pgrep -x sxhkd >/dev/null || sxhkd &
 
 # notification daemon
 pgrep -x dunst >/dev/null || dunst &

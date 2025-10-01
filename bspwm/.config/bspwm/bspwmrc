@@ -1,7 +1,6 @@
 #! /bin/sh
 
 wmname LG3D
-# export _JAVA_AWT_WM_NONREPARENTING=1
 
 "$HOME"/.dotfiles/scripts/startup/startup.sh
 
@@ -50,6 +49,7 @@ bspc rule -a discord desktop='^5' follow=off
 bspc rule -a Mailspring desktop='^10' follow=off
 # bspc rule -a mpv state=floating sticky=on rectangle=1280x720+320+240
 bspc rule -a mpv state=fullscreen
+bspc rule -a Oatmeal state=floating center=true rectangle=1050x1050+0+0
 bspc rule -a org.gnome.Nautilus state=floating center=true
 bspc rule -a Nitrogen state=floating sticky=on center=true
 bspc rule -a Nsxiv state=fullscreen
@@ -67,4 +67,4 @@ bspc config pointer_action2 resize_side
 bspc config pointer_action2 resize_corner
 bspc config focus_follows_pointer false
 
-"$HOME"/.dotfiles/scripts/startup/start_after_internet_connect.sh &
+systemctl --user start auto-graphical.service

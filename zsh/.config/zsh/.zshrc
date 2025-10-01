@@ -92,6 +92,9 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 
+# Java + non-reparenting WM issue. Java AWT thinks the WM is “weird” and never maps the window unless you set that hint.
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # command exec time
 source /usr/share/zsh/plugins/zsh-command-time/command-time.plugin.zsh
 # If command execution time above min. time, plugins will not output time.

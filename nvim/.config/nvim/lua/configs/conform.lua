@@ -4,6 +4,7 @@ local options = {
         c = { "clang-format" },
         css = { "prettier" },
         html = { "prettier" },
+        javascript = { "prettier" },
         json = { "prettier" },
         lua = { "stylua" },
         markdown = { "prettier" },
@@ -22,12 +23,15 @@ local options = {
         black = {
             prepend_args = { "--line-length", "79" },
         },
+        prettier = {
+            prepend_args = { "--tab-width", "4" },
+        },
     },
 
     format_on_save = {
         -- These options will be passed to conform.format()
         timeout_ms = 500,
-        lsp_fallback = true,
+        lsp_fallback = false,
     },
 }
 

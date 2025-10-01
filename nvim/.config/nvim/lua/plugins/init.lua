@@ -55,6 +55,13 @@ return {
             require("configs.oatmeal")
         end,
     },
+    {
+        "mikavilpas/yazi.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            "folke/snacks.nvim",
+        },
+    },
 
     -- These are some examples, uncomment them if you want to see them work!
     -- {

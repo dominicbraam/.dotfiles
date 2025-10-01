@@ -20,5 +20,6 @@ map("n", "<leader>tr", function()
 end, { desc = "Toggle transparency" })
 map("n", "<leader>gs", ":lua require('neogen').generate() <cr>", { desc = "Generate docstring" })
 map({ "n", "v" }, "<leader>om", ":Oatmeal <cr>", { desc = "Start Oatmeal session" })
+map("n", "<leader>fn", ":Yazi cwd<cr>", { desc = "Open file manager (yazi) at current working directory" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

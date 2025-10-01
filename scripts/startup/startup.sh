@@ -11,7 +11,7 @@ pgrep -x dunst >/dev/null || dunst &
 pgrep -x picom >/dev/null || picom &
 
 # network and bluetooth applets
-pgrep -x nm-applet >/dev/null || nm-applet &
+pgrep -x nm-applet >/dev/null || nm-applet --indicator &
 pgrep -x blueman-applet >/dev/null || blueman-applet &
 # pgrep -x bitwarden-desktop >/dev/null || bitwarden-desktop &
 

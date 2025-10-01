@@ -5,7 +5,7 @@
 # Use script only after setting both laptop and external display variables using set_config script
 
 # check if bspwm is running:
-pgrep bspwm > /dev/null || exit 0
+pgrep bspwm >/dev/null || exit 0
 
 monitor_add() {
     # Add the external monitor
@@ -18,23 +18,21 @@ monitor_add() {
     #     --mode 1600x900 \
     #     --pos 1920x0 \
     #     --rotate normal
-    source $HOME/.dotfiles/Xorg/.config/Xorg/.display_res
+    source $HOME/.screenlayout/monitors_data
 
     n_desktops=5 # How many desktops should be on second monitor
 
-    for desktop in $(bspc query -D -m $secondary | sed "$n_desktops"q)
-    do
+    for desktop in $(bspc query -D -m $secondary | sed "$n_desktops"q); do
         bspc desktop $desktop --to-monitor $primary
     done
 
     # The desktop "Desktop" is removed
-    bspc desktop Desktop --remove > /dev/null
+    bspc desktop Desktop --remove >/dev/null
 }
 
 monitor_remove() {
     # Check if a single monitor is registerd by bspwm
-    if [[ "$(bspc query -M | wc -l)" = 1 ]]
-    then
+    if [[ "$(bspc query -M | wc -l)" = 1 ]]; then
         # Then do nothing
         exit
     fi
@@ -42,10 +40,9 @@ monitor_remove() {
     # secondary = laptop display
     # at this time of running because set_config script has
     # to be run after this.
-    bspc monitor $secondary -a Desktop > /dev/null
+    bspc monitor $secondary -a Desktop >/dev/null
 
-    for desktop in $(bspc query -D -m $secondary)
-    do
+    for desktop in $(bspc query -D -m $secondary); do
         bspc desktop $desktop --to-monitor $primary
     done
 
@@ -53,12 +50,11 @@ monitor_remove() {
 
     bspc monitor $primary -a Desktop
 
-    for desktop in $(bspc query -D -m $primary)
-    do
+    for desktop in $(bspc query -D -m $primary); do
         bspc desktop $desktop --to-monitor $secondary
     done
-    
-    bspc monitor $primary --remove > /dev/null
+
+    bspc monitor $primary --remove >/dev/null
 
     # xrandr --output $secondary --off \
     #     --output $primary \
@@ -67,22 +63,23 @@ monitor_remove() {
     #     --pos 0x0 \
     #     --rotate normal
 
-    source $HOME/.dotfiles/Xorg/.config/Xorg/layouts/thinkpad_z13-1200p.sh
+    source $HOME/.screenlayout/xrandr_cmd.sh
 
     bspc desktop Desktop -r
 }
 
 source $HOME/.local/bin/bash-ini-parser/bash-ini-parser
-cfg_parser $HOME/.dotfiles/custom_config/device/displays
-cfg_section_display
+cfg_parser $HOME/.screenlayout/monitors_data
+cfg_section_displays
 
-if [ -z $secondary ]; then
-  echo "Can only run if secondary monitor is defined"
-  exit 0
+if [ -z $secondary1 ]; then
+    echo "Can only run if secondary monitor is defined"
+    exit 0
 fi
 
-if xrandr | grep -o "$secondary connected" > /dev/null && [[ "$1" != "1" ]] && [[ "$(bspc query -M | wc -l)" != 2 ]] && [ ! -z $secondary ]
-then
+secondary="$secondary1"
+
+if xrandr | grep -o "$secondary connected" >/dev/null && [[ "$1" != "1" ]] && [[ "$(bspc query -M | wc -l)" != 2 ]] && [ ! -z $secondary ]; then
     monitor_add
 else
     monitor_remove

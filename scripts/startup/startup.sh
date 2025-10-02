@@ -5,13 +5,13 @@
 # pgrep -x sxhkd >/dev/null || sxhkd &
 
 # notification daemon
-pgrep -x dunst >/dev/null || dunst &
+# pgrep -x dunst >/dev/null || dunst &
 
 # compositor
 pgrep -x picom >/dev/null || picom &
 
 # network and bluetooth applets
-pgrep -x nm-applet >/dev/null || nm-applet --indicator &
+pgrep -x nm-applet >/dev/null || nm-applet &
 pgrep -x blueman-applet >/dev/null || blueman-applet &
 # pgrep -x bitwarden-desktop >/dev/null || bitwarden-desktop &
 
@@ -24,8 +24,8 @@ pgrep -x udiskie >/dev/null || udiskie &
 "$HOME"/.config/polybar/launch.sh
 
 # wallpaper manager
-nitrogen --restore &
+pgrep -x nitrogen >/dev/null || nitrogen --restore &
 
 "$HOME"/.dotfiles/scripts/general/dbus_var_handler.sh &
 
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+# /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

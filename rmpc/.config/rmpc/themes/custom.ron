@@ -16,8 +16,8 @@
     preview_metadata_group_style: (fg: "yellow", modifiers: "Bold"),
     tab_bar: (
         enabled: true,
-        active_style: (fg: "black", bg: "blue", modifiers: "Bold"),
-        inactive_style: (),
+        active_style:   (fg: "black", bg: "blue", modifiers: "Bold"),
+        inactive_style: (fg: "dark_gray"),
     ),
     highlighted_item_style: (fg: "blue", modifiers: "Bold"),
     current_item_style: (fg: "black", bg: "blue", modifiers: "Bold"),
@@ -42,9 +42,9 @@
     ),
     progress_bar: (
         symbols: ["|", "█", "▶", " ", "|"],
-        track_style: (fg: "#1e2030"),
+        track_style: (fg: "dark_gray"),
         elapsed_style: (fg: "blue"),
-        thumb_style: (fg: "blue", bg: "#1e2030"),
+        thumb_style: (fg: "blue"),
     ),
     scrollbar: (
         symbols: ["│", "█", "▲", "▼"],
@@ -169,5 +169,13 @@
     ],
     lyrics: (
         timestamp: false
-    )
+    ),
+    cava: (
+        bar_color: Gradient({
+            0: "rgb(157, 124, 216)",  // #9d7cd8
+            40: "rgb(187, 154, 247)",  // #bb9af7
+            65: "rgb(247, 118, 142)",  // #f7768e
+            100: "rgb(255, 158, 100)",  // #ff9e64
+        })
+    ),
 )

@@ -41,10 +41,10 @@
         trace: (fg: "magenta", bg: "black"),
     ),
     progress_bar: (
-        symbols: ["|", "█", "▶", " ", "|"],
+        symbols: ["|", "█", "█", "█", "|"],
         track_style: (fg: "dark_gray"),
         elapsed_style: (fg: "blue"),
-        thumb_style: (fg: "blue"),
+        thumb_style: (fg: "blue", bg: "dark_gray"),
     ),
     scrollbar: (
         symbols: ["│", "█", "▲", "▼"],
@@ -171,6 +171,8 @@
         timestamp: false
     ),
     cava: (
+        bar_width: 3,
+        bar_spacing: 1,
         bar_color: Gradient({
             0: "rgb(157, 124, 216)",  // #9d7cd8
             40: "rgb(187, 154, 247)",  // #bb9af7

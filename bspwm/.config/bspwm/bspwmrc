@@ -56,7 +56,7 @@ bspc rule -a Nsxiv state=fullscreen
 bspc rule -a openrgb state=floating sticky=on center=true
 bspc rule -a Pavucontrol state=floating sticky=on center=true
 bspc rule -a Pcmanfm state=floating center=true
-bspc rule -a Rmpc state=fullscreen sticky=on
+bspc rule -a Rmpc state=floating sticky=on center=true rectangle=1440x900+0+0
 bspc rule -a teams-for-linux desktop='^9' follow=off
 bspc rule -a Thunar state=floating center=true
 bspc rule -a XTerm state=floating follow=off

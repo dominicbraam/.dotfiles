@@ -47,6 +47,10 @@ alt + @space
 # super + m
 #     cider
 
+# music
+super + m
+    kitty --class=Rmpc -e zsh -ilc rmpc
+
 # llm select
 super + ctrl + @space
   $HOME/.dotfiles/scripts/rofi/llm.sh

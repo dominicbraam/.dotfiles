@@ -6,6 +6,8 @@
 # For additional debugging, use the following command in your terminal
 # when loading zsh to see your startup time: time `/bin/zsh -i -c exit`
 
+# More lazyloading tips: https://sumercip.com/posts/lazyload-zsh/
+
 # Language
 export LC_ALL=en_GB.UTF-8
 export LC_CTYPE=en_GB.UTF-8

@@ -5,7 +5,7 @@ function get_volume() {
 }
 
 function send_notification() {
-    dunstify -a "changevolume" -u low -t 500 -r 9993 -i "$HOME/.dotfiles/icons/volume-$option.png" -h int:value:"$volume" "Volume: ${volume}%"
+    dunstify -a "changevolume" -u low -t 500 -r 9993 -i "$HOME/.dotfiles/icons/volume-$1.png" -h int:value:"$volume" "Volume: ${volume}%"
 }
 
 function toggle_mute() {
@@ -23,7 +23,7 @@ function volume_down() {
     amixer set Master unmute
     amixer set Master 5%-
     volume=$(get_volume)
-    send_notification "$option" "$volume"
+    send_notification down "$volume"
 }
 
 function volume_up() {
@@ -31,7 +31,7 @@ function volume_up() {
     amixer set Master unmute
     amixer set Master 5%+
     volume=$(get_volume)
-    send_notification "$option" "$volume"
+    send_notification up "$volume"
 }
 
 # first command line argument $1
@@ -40,7 +40,7 @@ option=$1
 case $option in
 
 up)
-    volume_up "$option"
+    volume_up
     ;;
 
 down)
@@ -50,7 +50,7 @@ down)
     if [[ $volume -le 5 ]]; then
         [[ $volume -ne 0 ]] && amixer set Master 5%- && toggle_mute
     else
-        volume_down "$option"
+        volume_down
     fi
     ;;
 
@@ -59,7 +59,7 @@ mute)
     # if the volme state is 0% and the user tries to unmute,
     # raise the volume above 0%, otherwise it would unmute to 0%
     if [[ $volume -eq 0 ]]; then
-        volume_up "$option"
+        volume_up
     else
         toggle_mute "$volume"
     fi

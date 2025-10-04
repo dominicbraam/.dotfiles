@@ -1,3 +1,11 @@
+# To see load times of different objects in zshrc,
+# uncomment the following line along with the line at the end
+# of this file.
+# zmodload zsh/zprof
+
+# For additional debugging, use the following command in your terminal
+# when loading zsh to see your startup time: time `/bin/zsh -i -c exit`
+
 # Language
 export LC_ALL=en_GB.UTF-8
 export LC_CTYPE=en_GB.UTF-8
@@ -6,11 +14,15 @@ export LC_CTYPE=en_GB.UTF-8
 autoload -U colors && colors
 
 # Basic auto/tab completion
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)
+# autoload -U compinit
+# zstyle ':completion:*' menu select
+# zmodload zsh/complist
+# compinit
+# _comp_options+=(globdots)
+
+# Autocomplete (taking the place of compinit)
+# This needs to be close to the top
+source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # History
 HISTSIZE=10000
@@ -90,7 +102,7 @@ export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
 export GOPATH="$XDG_CACHE_HOME"/go
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
-compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+# compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION" # replaced by zsh-autocomplete plugin
 
 # Java + non-reparenting WM issue. Java AWT thinks the WM is “weird” and never maps the window unless you set that hint.
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -117,9 +129,6 @@ source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
 # Auto suggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# Autocomplete
-source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-
 # bash-zsh-insulter
 if [ -f /etc/bash.command-not-found ]; then
     . /etc/bash.command-not-found
@@ -131,19 +140,46 @@ eval "$(starship init zsh)"
 # Load zsh syntax highlighting. MUST BE LAST THING IN .zshrc
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# conda init edit: for a better (but not the best) solution for cross device support
-MINICONDA3_DIR="${HOME}/.local/lib/miniconda3"
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$("${MINICONDA3_DIR}/bin/conda" 'shell.zsh' 'hook' 2>/dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "${MINICONDA3_DIR}/etc/profile.d/conda.sh" ]; then
-        . "${MINICONDA3_DIR}/etc/profile.d/conda.sh"
+###############################
+# Lazy conda
+# Taken from this reddit post: https://www.reddit.com/r/zsh/comments/qmd25q/lazy_loading_conda/
+# Anaconda will not load until one of the commands in lazy_conda_aliases is used.
+
+# Add any commands which depend on conda here
+lazy_conda_aliases=('python' 'conda')
+
+load_conda() {
+    for lazy_conda_alias in $lazy_conda_aliases; do
+        unalias $lazy_conda_alias
+    done
+
+    # conda init edit: for a better (but not the best) solution for cross device support
+    MINICONDA3_DIR="${HOME}/.local/lib/miniconda3"
+
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$("${MINICONDA3_DIR}/bin/conda" 'shell.zsh' 'hook' 2>/dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
     else
-        export PATH="${MINICONDA3_DIR}/bin:$PATH"
+        if [ -f "${MINICONDA3_DIR}/etc/profile.d/conda.sh" ]; then
+            . "${MINICONDA3_DIR}/etc/profile.d/conda.sh"
+        else
+            export PATH="${MINICONDA3_DIR}/bin:$PATH"
+        fi
     fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+    unset __conda_setup
+    # <<< conda initialize <<<
+
+    unset __conda_prefix
+    unfunction load_conda
+}
+
+for lazy_conda_alias in $lazy_conda_aliases; do
+    alias $lazy_conda_alias="load_conda && $lazy_conda_alias"
+done
+###############################
+
+# Uncomment line below for debug.
+# See instructions at the top of this file.
+# zprof

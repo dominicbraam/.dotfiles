@@ -18,7 +18,7 @@ function run_oatmeal {
     if [ "$1" = "ollama" ]; then
         cmd="$base_cmd --backend ollama"
     elif [ "$1" = "openai" ]; then
-        cmd="env OATMEAL_OPENAI_TOKEN=$(secret-tool lookup apikey openai-shell-cli) $base_cmd --backend openai --model o4-mini"
+        cmd="env OATMEAL_OPENAI_TOKEN=$(secret-tool lookup apikey openai-shell-cli) $base_cmd --backend openai --model gpt-5-nano"
     fi
 
     if [ -z "$2" ]; then
@@ -26,7 +26,7 @@ function run_oatmeal {
         $cmd
     else
         logger "connecting to session [$1]: $2"
-        env OATMEAL_OPENAI_TOKEN="$(secret-tool lookup apikey openai-shell-cli)" kitty --class=Oatmeal -e oatmeal sessions open --id "$2"
+        env OATMEAL_OPENAI_TOKEN="$(secret-tool lookup apikey openai-shell-cli)" "$base_cmd" sessions open --id "$2"
     fi
 }
 

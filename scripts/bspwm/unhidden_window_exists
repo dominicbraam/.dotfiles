@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# Exits with non-zero value if no unhidden window exists for class
+
+wid=$(bspc query -N -n .window |
+    while read -r id; do
+        if bspc query -T -n "$id" | grep -q '"hidden":false' &&
+            xprop -id "$id" WM_CLASS | grep -qi "$1"; then
+
+            echo "$id"
+            break
+        fi
+    done)
+
+if [ -z "$wid" ]; then
+    exit 0
+else
+    exit 1
+fi

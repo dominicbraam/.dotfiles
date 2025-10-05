@@ -68,7 +68,16 @@ function save_oatmeal_session {
 mode1="openai"
 mode2="ollama"
 options="$mode1\n$mode2"
-mode=$(echo -e "$options" | rofi -dmenu -no-show-icons -theme-str "listview { require-input: false; } inputbar { enabled: false; }")
+mode=$(
+    echo -e "$options" |
+        rofi -dmenu -no-show-icons \
+            -mesg "LLM Picker" \
+            -theme-str '
+                    window { width: 250px; }
+                    mainbox { children: [ message, listview ]; }
+                    listview { require-input: false; }
+                '
+)
 
 # session_id=$(get_oatmeal_session "$mode")
 # run_oatmeal "$mode" "$session_id"

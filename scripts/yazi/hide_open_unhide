@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# Hide Yazi
+focused_node=$(bspc query -N -n focused)
+bspc node "$focused_node" -g hidden=on
+
+# Run the opener (blocking)
+"$@" || true
+
+bspc node "$focused_node" -g hidden=off
+bspc node "$focused_node" -f

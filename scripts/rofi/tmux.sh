@@ -1,9 +1,9 @@
 #!/bin/bash
 
 function is_tmux_session {
-    tmux_sessions=($(tmux ls -F "#S"))
+    mapfile -t tmux_sessions < <(tmux ls -F "#S")
 
-    re='^[0-9]+$'
+    # re='^[0-9]+$'
 
     for session in "${tmux_sessions[@]}"; do
         # if [[ $session =~ $re ]] ; then
@@ -22,7 +22,14 @@ function is_tmux_session {
 }
 
 function tmux_new {
-    dir=$(fd --hidden --max-depth=1 --type directory "" $1 | rofi -dmenu -i -no-show-icons -p "tmux new")
+    dir=$(
+        fd --hidden --max-depth=1 --type directory "" "$1" |
+            rofi -dmenu -i -no-show-icons -p "$1" \
+                -mesg "tmux new" \
+                -theme-str '
+                        mainbox { children: [ message, inputbar, listview ]; }
+                    '
+    )
 
     session_name=$(basename "$dir")
 
@@ -32,9 +39,7 @@ function tmux_new {
         session_name="_${session_name:1}"
     fi
 
-    is_tmux_session "$session_name"
-
-    if [[ $? -eq 0 ]]; then
+    if is_tmux_session "$session_name"; then
         kitty tmux attach-session -t "$session_name"
     else
         echo "$dir and $session_name"
@@ -47,9 +52,7 @@ function tmux_new {
 function tmux_attach {
     session_name=$(tmux ls -F "#S" | rofi -dmenu -i -no-show-icons -theme-str "listview { require-input: false; }" -p "tmux attach")
 
-    is_tmux_session "$session_name"
-
-    if [[ $? -eq 0 ]]; then
+    if is_tmux_session "$session_name"; then
         echo "hmm"
         kitty tmux attach-session -t "$session_name"
     fi

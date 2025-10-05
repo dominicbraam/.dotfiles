@@ -43,6 +43,10 @@ prompt {
     text-color: 			@foreground;
 }
 
+textbox {
+    text-color: 			@active-foreground;
+}
+
 textbox-prompt-colon {
     expand: 				false;
     str: 				    "";
@@ -173,13 +177,11 @@ scrollbar {
 }
 
 message {
-    border: 				0px;
-    border-color: 			@active-foreground;
-    padding: 				1px;
-}
-
-textbox {
-    text-color: 			@active-foreground;
+    spacing:                0px;
+    border:                 5px;
+    border-color:           @border;
+    border-radius:          10px;
+    padding:                13px;
 }
 
 // if you use icons

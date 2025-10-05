@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# When rofi is launched through sxhkd, pasting after selection does
+# not work because the rofi process ends before the the emoji picker
+# can paste.
+
+EMOJI=$(rofi -show emoji -modi emoji -no-show-icons)
+[ -z "$EMOJI" ] && exit 0
+
+# delay to refocus window
+sleep 0.1
+
+xdotool type --clearmodifiers "$EMOJI"

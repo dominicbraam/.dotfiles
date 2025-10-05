@@ -1,0 +1,108 @@
+#!/bin/bash
+
+# This script essentially uses an xterm window to create a blur effect
+# for whatever command is passed into it.
+#
+# TODO: Improve all cases where xdotool is used to find IDs
+#       They're generally being run in a loop (polling) that probably takes up
+#       valuable resources. Switch to something that is more event-based?
+# TODO: Fix window priority/selection. If the user clicks on the blurred xterm
+#       the floating window would lose its focus and go behind xterm.
+#
+# NOTE: Ensure that your compositor correctly blurs windows with the classname: BlurBg
+
+set -euo pipefail
+
+get_monitor_dimensions() {
+    local mon_id="$1"
+    bspc query -T -m "$mon_id" |
+        jq -r '.rectangle | "\(.x) \(.y) \(.width) \(.height)"'
+}
+
+wid_for_pid() {
+    local pid="$1" wid=""
+    for _ in {1..10}; do
+        wid=$(xdotool search --pid "$pid" 2>/dev/null | head -n1) &&
+            [ -n "$wid" ] &&
+            break
+        sleep 0.02
+    done
+    [ -n "$wid" ] && echo "$wid"
+}
+
+cleanup() {
+    for pid in "${PIDS[@]}"; do
+        # Writing to stderr still in case one of the kill processes fails
+        # and in turn, it doesn't stop the other kill processes.
+        kill "$pid" 2>/dev/null || true
+    done
+}
+
+# Let cleanup run when it hits one of the defined signals.
+trap cleanup EXIT INT TERM
+
+i=0
+declare -a PIDS=()
+
+for mon_id in $(bspc query -M); do
+    # Spawn xterm windows on all monitors using all available screen space.
+    # Fullscreen state isn't used because if other windows spawn on top, then
+    # the xterm window would switch to tiling state.
+
+    title="BlurBg-$i"
+    read -r x y w h < <(get_monitor_dimensions "$mon_id")
+
+    bspc rule -a "BlurBg:${title}" \
+        monitor="$mon_id" \
+        state=floating \
+        border=off \
+        layer=above \
+        rectangle="${w}x${h}+${x}+${y}"
+
+    xterm -class BlurBg -name "$title" \
+        -bg black -fg black -cr black \
+        -e sleep 9999 &
+
+    pid=$!
+    PIDS+=("$pid") # PIDS of xterm windows spawned
+
+    # Make xterm windows follow the user when switching desktops to create
+    # the effect that all system area is blurred except for the window in focus.
+    wid=$(wid_for_pid "$pid")
+    bspc node "$wid" -g sticky=on
+
+    i=$((i + 1))
+done
+
+# External command/script injected here. Notice that the command uses single '&'
+# so that the subsequent commands can be run in parallel.
+"$@" &
+
+# The next section handles removing the blurred background when necessary.
+# Both cases use the EXIT signal to trigger the cleanup function:
+#   - The loop waits for rofi to appear within a defined timeframe, then
+#   - If there is no rofi, it waits for whatever other app was launched
+#     by the script.
+
+payload=$!
+
+found_rofi=0
+for _ in {1..10}; do
+
+    if xdotool search --class rofi >/dev/null 2>&1; then
+        found_rofi=1
+
+        while xdotool search --class rofi >/dev/null 2>&1; do
+            sleep 0.05
+        done
+
+        exit 0
+    fi
+
+    sleep 0.03
+done
+
+if [ "$found_rofi" -ne 1 ]; then
+    wait "$payload" 2>/dev/null || true
+    exit 0
+fi

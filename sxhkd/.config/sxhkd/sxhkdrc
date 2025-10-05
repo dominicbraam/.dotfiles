@@ -1,27 +1,20 @@
 #
-# wm independent hotkeys
+# Keyboard Shortcuts
 #
+
+###################
+# GENERAL
+###################
+
+# reload sxhkd config
+alt + Escape
+	pkill -USR1 -x sxhkd && notify-send "sxhkd" "Config reloaded."
+
 # terminal emulator
 super + Return
     kitty
     # alacritty -e "tmux attach -t $(bspc query -D -d focused --names) || tmux new-session -A -s $(bspc query -D -d focused --names)"
     # kitty sh -c "tmux attach -t $(bspc query -D -d focused --names) || tmux new-session -A -s $(bspc query -D -d focused --names)"
-
-# program launcher
-super + @space
-    rofi -modes "drun" -show drun
-
-# ssh connect
-super + shift + @space
-    rofi -modes "ssh" -show ssh
-
-# emoji launcher
-super + alt + @space
-    rofi -show emoji -modi emoji -no-show-icons -kb-custom-1 Ctrl+C
-
-# calculator
-super + c
-    rofi -show calc -modi calc -no-show-match -no-show-icons -no-sort
 
 # lock screen
 alt + l
@@ -29,11 +22,59 @@ alt + l
 
 # file mananger
 super + shift + Return
-    kitty -e zsh -ilc yazi
+    $HOME/.dotfiles/scripts/bspwm/unhidden_window_exists "Yazi" && \
+        kitty --class=Yazi \
+        -e zsh -ilc yazi
+    # pgrep -x yazi >/dev/null || \
+    #     $HOME/.dotfiles/scripts/rofi/blur_bg kitty --class=Yazi \
+    #     -e zsh -ilc yazi
 
-# notification centre
-super + n
-    $HOME/.dotfiles/scripts/general/notification-centre.bash
+# music player (rmpc)
+super + m
+    pgrep -x rmpc >/dev/null || \
+        $HOME/.dotfiles/scripts/rofi/blur_bg kitty --class=Rmpc \
+        -e zsh -ilc rmpc
+        # kitty --class=Rmpc \
+
+# toggle polybar
+super + b
+    $HOME/.dotfiles/scripts/polybar/toggle_show.sh
+
+# screenshot (full,selection)
+super + {s,shift + s}
+    $HOME/.dotfiles/scripts/general/take_screenshot {full,selection}
+
+# randomize wallpaper
+alt + w
+  $HOME/.dotfiles/scripts/general/set_random_wallpaper.bash
+
+
+###################
+# ROFI MAGIC
+###################
+
+# program launcher
+super + @space
+    $HOME/.dotfiles/scripts/rofi/blur_bg rofi -modes "drun" -show drun
+
+# ssh connect
+super + shift + @space
+    $HOME/.dotfiles/scripts/rofi/blur_bg rofi \
+        -modes "ssh" \
+        -show ssh \
+        -theme-str 'window \{ width: 350px; \}'
+
+# emoji launcher
+super + alt + @space
+    $HOME/.dotfiles/scripts/rofi/blur_bg \
+        $HOME/.dotfiles/scripts/rofi/emoji_picker
+
+# calculator
+super + c
+    $HOME/.dotfiles/scripts/rofi/blur_bg rofi \
+        -show calc -modi calc \
+        -no-show-match -no-show-icons \
+        -no-sort
 
 # cd in new terminal window
 # super + f
@@ -41,178 +82,50 @@ super + n
 
 # open file in default program
 alt + @space
-  $HOME/.dotfiles/scripts/rofi/navigation.sh open
-
-# apple music
-# super + m
-#     cider
-
-# music
-super + m
-    kitty --class=Rmpc -e zsh -ilc rmpc
+    $HOME/.dotfiles/scripts/rofi/blur_bg \
+        $HOME/.dotfiles/scripts/rofi/navigation.sh open
 
 # llm select
 super + ctrl + @space
-  $HOME/.dotfiles/scripts/rofi/llm.sh
+    $HOME/.dotfiles/scripts/rofi/blur_bg \
+        $HOME/.dotfiles/scripts/rofi/llm.sh
 
 # search project directory and open in new tmux session
 super + p
-  $HOME/.dotfiles/scripts/rofi/tmux.sh tn "Projects"
+    $HOME/.dotfiles/scripts/rofi/blur_bg \
+        $HOME/.dotfiles/scripts/rofi/tmux.sh tn "$HOME/Projects"
 
 # search any directory and open in new tmux session
 super + shift + p
-  $HOME/.dotfiles/scripts/rofi/tmux.sh tn
+    $HOME/.dotfiles/scripts/rofi/blur_bg \
+        $HOME/.dotfiles/scripts/rofi/tmux.sh tn "$HOME/"
 
 # search tmux sessions and attach
 alt + p
-  $HOME/.dotfiles/scripts/rofi/tmux.sh ta
+    $HOME/.dotfiles/scripts/rofi/blur_bg \
+        $HOME/.dotfiles/scripts/rofi/tmux.sh ta
+
+# set default audio output
+super + a 
+    $HOME/.dotfiles/scripts/rofi/blur_bg \
+        $HOME/.dotfiles/scripts/audio/sink.bash set_default
 
 # show keybinds
 alt + k
-  $HOME/.dotfiles/scripts/rofi/get_sxhkd_keybinds.sh
+    $HOME/.dotfiles/scripts/rofi/blur_bg \
+        $HOME/.dotfiles/scripts/rofi/get_sxhkd_keybinds.sh
 
-# hide/show polybar
-super + b
-  $HOME/.dotfiles/scripts/polybar/toggle_show.sh
 
-# make sxhkd reload its configuration files:
-alt + Escape
-	pkill -USR1 -x sxhkd && notify-send "sxhkd" "Config reloaded."
+###################
+# Audio
+###################
 
-# take screenshot (full)
-super + s
-  scrot && paplay ~/.local/share/sounds/camera-shutter-6305.mp3
-
-# take screenshot (selection)
-super + shift + s
-  scrot -s -d 1 && paplay ~/.local/share/sounds/camera-shutter-6305.mp3
-
-# randomize wallpaper
-alt + w
-  $HOME/.dotfiles/scripts/general/set_random_wallpaper.bash
-
-#
-# bspwm hotkeys
-#
-
-# quit/restart bspwm
-super + shift + {q,r}
-	bspc {quit,wm -r} && systemctl --user {stop, restart} auto-graphical.service && notify-send "bspwm" "Restarting..."
-
-# close and kill
-super + {_,ctrl + }q
-	bspc node -{c,k}
-
-# alternate between the tiled and monocle layout
-alt + m
-	bspc desktop -l next
-
-# send the newest marked node to the newest preselected node
-alt + y
-	bspc node newest.marked.local -n newest.!automatic.local
-
-# swap the current node and the biggest window
-super + g
-	bspc node -s biggest.window
-
-# rotate parent
-super + {_,shift + }e
-	bspc node '@parent' -R {_,-}90
-
-#
-# state/flags
-#
-
-# set the window state
-alt + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
-
-# set the node flags
-alt + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
-
-#
-# focus/swap
-#
-
-# focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
-
-# focus the node for the given path jump
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
-
-# focus the next/previous window in the current desktop
-# super + {_,shift + }c
-# 	bspc node -f {next,prev}.local.!hidden.window
-
-# focus the next window in current desktop
-alt + c
-	bspc node -f {next}.local.!hidden.window
-
-# focus the next/previous desktop in the current monitor
-super + bracket{left,right}
-	bspc desktop -f {prev,next}.local
-
-# focus the last node/desktop
-alt + {grave,Tab}
-	bspc {node,desktop} -f last
-
-# focus the older or newer node in the focus history
-super + {o,i}
-	bspc wm -h off; \
-	bspc node {older,newer} -f; \
-	bspc wm -h on
-
-# focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
-
-#
-# preselect
-#
-
-# preselect the direction
-super + ctrl + {h,j,k,l}
-	bspc node -p {west,south,north,east}
-
-# preselect the ratio
-super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
-
-# cancel the preselection for the focused node
-super + ctrl + space
-	bspc node -p cancel
-
-# cancel the preselection for the focused desktop
-super + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
-
-#
-# move/resize
-#
-
-# expand a window by moving one of its side outward
-super + alt + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
-
-# contract a window by moving one of its side inward
-super + alt + shift + {h,j,k,l}
-    bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
-
-# move a floating window
-super + {Left,Down,Up,Right}
-	bspc node -v {-40 0,0 40,0 -40,40 0}
-
-# custom
 # XF86Audio{Raise,Lower}Volume
 #     pamixer -{i,d} 10 --allow-boost && polybar-msg hook mvol 1
 
 # XF86AudioMute
 #     pamixer --toggle-mute && polybar-msg hook mvol 1
 
-# changevolume and mic are scripts added to $HOME/.local/bin
 XF86Audio{Raise,Lower}Volume
     $HOME/.local/bin/changevolume {up,down}
 
@@ -225,6 +138,118 @@ XF86AudioMicMute
 XF86MonBrightness{Up,Down}
     brightnessctl s {+10%,10%-} && polybar-msg hook mbrightness 1
 
-# take screenshot
-{Print, alt + Print}
-    scrot {_,-s -d 1}
+
+###################
+# BSPWM
+###################
+
+# quit/restart bspwm
+super + shift + {q,r}
+	bspc {quit,wm -r} && \
+        notify-send "bspwm" "Restarted."
+
+# close and kill window/app
+super + {_,ctrl + }q
+	bspc node -{c,k}
+
+# alternate tiled and monocle layout
+alt + m
+	bspc desktop -l next
+
+# send the newest marked node to the newest preselected node
+alt + y
+	bspc node newest.marked.local -n newest.!automatic.local
+
+# swap current node and biggest window
+super + g
+	bspc node -s biggest.window
+
+# rotate parent
+super + {_,shift + }e
+	bspc node '@parent' -R {_,-}90
+
+#
+# state/flags
+#
+
+# set window state (tiled,pseudo_tiled,floating,fullscreen)
+alt + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# set node flags (marked,locked,sticky,private)
+alt + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}
+
+#
+# focus/swap
+#
+
+# focus node in direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus node for given path jump
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous window in the current desktop
+# super + {_,shift + }c
+# 	bspc node -f {next,prev}.local.!hidden.window
+
+# focus next window in current desktop
+alt + c
+	bspc node -f {next}.local.!hidden.window
+
+# focus next/previous desktop in current monitor
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# focus last node/desktop
+alt + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# focus older or newer node in the history
+super + {o,i}
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
+
+# focus or send to given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+#
+# preselect
+#
+
+# preselect direction
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# preselect ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# cancel preselection for focused node
+super + ctrl + space
+	bspc node -p cancel
+
+# cancel preselection for focused desktop
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#
+# move/resize
+#
+
+# expand window
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract window
+super + alt + shift + {h,j,k,l}
+    bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-40 0,0 40,0 -40,40 0}

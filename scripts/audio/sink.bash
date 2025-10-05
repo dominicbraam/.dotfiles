@@ -1,43 +1,85 @@
 #!/bin/bash
 
-default_sink_name=$(pactl info | sed -n "s/^Default Sink: //p")
-
-function get_human_name {
+function transform_sink_name {
+    # Transforms output from:
+    # 'alsa_output.pci-0000_63_00.6.HiFi__Speaker__sink'
+    # to
+    # 'Speaker'
     echo "$1" | sed -E "s/.*__([A-Za-z0-9]+)__sink/\1/"
 }
 
 function get_default {
-    get_human_name "$default_sink_name"
+    pactl info | sed -n "s/^Default Sink: //p"
 }
 
 function set_default {
+
+    count=0
+    options=()
+    old_default_sink_name=$(get_default)
     mapfile -t sinks < <(pactl list short sinks | awk '{print $1"\t"$2}')
 
-    options=()
     for line in "${sinks[@]}"; do
-        idx="${line%%$'\t'*}"
+
+        sink_idx="${line%%$'\t'*}"
         sink_name="${line#*$'\t'}"
 
-        printf -v label '%s\t%s\t%s' "$idx" "$sink_name" "$(get_human_name "$sink_name")"
-        [[ "$sink_name" == "$default_sink_name" ]] &&
-            label="$label [default]" &&
-            default_sink_idx="$idx"
+        # Formats menu labels in the format "idx sink_name human_readable_name".
+        printf -v label '%s\t%s\t%s' "$sink_idx" "$sink_name" "$(transform_sink_name "$sink_name")"
+
+        # Attaches "[Current]" to end of default menu label and maps it to idx that will
+        # be used in the menu since the sink indeces can be random-ish.
+        [[ "$sink_name" == "$old_default_sink_name" ]] &&
+            label="$label [Current]" &&
+            default_sink_menu_idx="$count"
 
         options+=("$label")
+        count=$((count + 1))
     done
 
-    selected_idx="$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -p 'Audio Output' -no-show-icons -selected-row "$default_sink_idx" -a "$default_sink_idx" -theme-str "listview { require-input: false; } inputbar { enabled: false; }" -display-columns 3 -format i)"
+    selected_item="$(
+        printf '%s\n' "${options[@]}" |
+            rofi -dmenu -i \
+                -mesg "Audio Output Switcher" \
+                -theme-str '
+                    window { width: 300px; }
+                    mainbox { children: [ message, listview ]; }
+                    listview { require-input: false; }
+                ' \
+                -no-show-icons \
+                -selected-row "$default_sink_menu_idx" \
+                -a "$default_sink_menu_idx" \
+                -display-columns 3
+    )"
 
-    [[ -z "$selected_idx" ]] && exit 1
+    selected_sink_name="$(echo "$selected_item" | awk '{print $2}')"
 
-    IFS=$'\t' read -r new_sink_idx new_sink_name _ <<<"${sinks[$selected_idx]}"
+    [[ -z "$selected_sink_name" ]] && exit 0
 
-    pactl set-default-sink "$new_sink_name"
+    pactl set-default-sink "$selected_sink_name"
+
+    # Get the updated sink_name because sometimes the output doesn't switch.
+    # If the selected port isn't avaialble, it defaults to another available
+    # port on the selected output.
+    new_default_sink_name=$(get_default)
+    new_sink_human_readable=$(transform_sink_name "$new_default_sink_name")
+
+    # Moves all current audio streams to the newly selected or closest
+    # available port.
+    pactl list short sink-inputs |
+        awk '{print $1}' |
+        xargs -r -I{} pactl move-sink-input {} "$new_default_sink_name"
+
+    # Notification.
+    [ "$new_default_sink_name" == "$old_default_sink_name" ] &&
+        msg="No change." ||
+        msg="Changed to $new_sink_human_readable."
+    dunstify -a "changevolume" -u low -t 2500 -r 9993 "Audio Ouput" "$msg"
 }
 
 case $1 in
 "get_default")
-    get_default
+    transform_sink_name "$(get_default)"
     ;;
 "set_default")
     set_default

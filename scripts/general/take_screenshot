@@ -1,0 +1,44 @@
+#!/bin/bash
+
+DIR="$HOME/Photos/Screenshots"
+FILE_NAME_TPL="screenshot_%Y-%m-%d_%H-%M-%S.png"
+FILE_NAME="$(date +"$FILE_NAME_TPL")"
+FILE_PATH="$DIR/$FILE_NAME"
+
+mkdir -p "$DIR"
+
+function send_notification() {
+    dunstify -a "screenshot" -u low -t 2500 -r 9993 -i "$FILE_PATH" "Screenshot" "$1"
+}
+
+function take() {
+    params=$1
+
+    tmp="$(mktemp --suffix=.png)"
+
+    saved=$(scrot $params -o -F "$tmp" \
+        -e "paplay ~/.local/share/sounds/camera-shutter-6305.mp3 >/dev/null 2>&1 || true; \
+            $HOME/.dotfiles/scripts/rofi/blur_bg \
+            satty --filename \$f --output-filename \"$FILE_PATH\" --early-exit --actions-on-enter save-to-file --disable-notifications && \
+            true")
+
+    rm -f "$tmp"
+
+    if [ "$saved" ]; then
+        send_notification "Saved at $FILE_PATH"
+    else
+        send_notification "Aborted"
+    fi
+}
+
+case $1 in
+"full")
+    take
+    ;;
+"selection")
+    take "-s -d 1"
+    ;;
+*)
+    exit
+    ;;
+esac

@@ -5,13 +5,13 @@ function get_volume() {
 }
 
 function send_notification() {
-    dunstify -a "changevolume" -u low -t 500 -r 9993 -i "$HOME/.dotfiles/icons/volume-$1.png" -h int:value:"$volume" "Volume: ${volume}%"
+    dunstify -a "changevolume" -u low -t 500 -r 9993 -i "$HOME/.dotfiles/icons/volume-$1.png" -h int:value:"$volume" "${volume}%"
 }
 
 function toggle_mute() {
     if amixer sget Master | grep -q '\[on\]'; then
         amixer set Master mute
-        dunstify -a "changevolume" -u low -t 500 -r 9993 -i "$HOME/.dotfiles/icons/volume-mute.png" "Muted"
+        dunstify -a "changevolume" -u low -t 500 -r 9993 -i "$HOME/.dotfiles/icons/volume-mute.png" ""
     else
         amixer set Master unmute
         send_notification up "$volume"

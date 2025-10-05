@@ -13,7 +13,7 @@ function run_oatmeal {
         return
     fi
 
-    base_cmd="kitty --class Oatmeal -e oatmeal"
+    base_cmd="$HOME/.dotfiles/scripts/rofi/blur_bg kitty --class Oatmeal -e oatmeal"
 
     if [ "$1" = "ollama" ]; then
         cmd="$base_cmd --backend ollama"
@@ -24,9 +24,9 @@ function run_oatmeal {
     if [ -z "$2" ]; then
         logger "creating new session [$1]"
         $cmd
-    else
-        logger "connecting to session [$1]: $2"
-        env OATMEAL_OPENAI_TOKEN="$(secret-tool lookup apikey openai-shell-cli)" "$base_cmd" sessions open --id "$2"
+    # else
+    #     logger "connecting to session [$1]: $2"
+    #     env OATMEAL_OPENAI_TOKEN="$(secret-tool lookup apikey openai-shell-cli)" "$base_cmd" sessions open --id "$2"
     fi
 }
 

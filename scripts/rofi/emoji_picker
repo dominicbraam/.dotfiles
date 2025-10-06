@@ -4,8 +4,15 @@
 # not work because the rofi process ends before the the emoji picker
 # can paste.
 
-EMOJI=$(rofi -show emoji -modi emoji -no-show-icons)
+set -euo pipefail
+
+# Rofi needs to use the stdout mode in scripts.
+# I totally didn't take over a day to figure that out 🙄
+EMOJI=$(rofi -show emoji -modi emoji -emoji-mode stdout -no-show-icons)
 [ -z "$EMOJI" ] && exit 0
+
+# Copy to clipboard since rofi is using the stdout mode
+echo -n "$EMOJI" | xclip -selection clipboard
 
 # delay to refocus window
 sleep 0.1

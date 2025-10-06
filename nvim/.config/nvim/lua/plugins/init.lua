@@ -62,7 +62,12 @@ return {
             "folke/snacks.nvim",
         },
     },
-
+    {
+        "nvim-telescope/telescope.nvim",
+        config = function()
+            require("configs.telescope")
+        end,
+    },
     -- These are some examples, uncomment them if you want to see them work!
     -- {
     --   "neovim/nvim-lspconfig",

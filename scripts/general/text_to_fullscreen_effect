@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -euo pipefail
+
+text="$1"
+
+[ -z "$text" ] && exit 0
+
+CLASS_NAME="KITTY_TTE"
+
+bspc rule -a "$CLASS_NAME" state=fullscreen
+
+kitty --class "$CLASS_NAME" \
+    --override background_opacity=0 --override cursor_shape=underline \
+    -e bash -c "toilet -W --termwidth --font mono9 \"$text\" | \
+    tte --canvas-width 0 --canvas-height 0 \
+    --anchor-canvas c --anchor-text c \
+    --frame-rate 1024 fireworks; \
+    sleep 3"

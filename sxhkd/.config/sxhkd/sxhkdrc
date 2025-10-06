@@ -115,6 +115,13 @@ alt + k
     $HOME/.dotfiles/scripts/rofi/blur_bg \
         $HOME/.dotfiles/scripts/rofi/get_sxhkd_keybinds.sh
 
+# fullscreen text effect
+super + t
+    txt=$($HOME/.dotfiles/scripts/rofi/blur_bg rofi -dmenu -p "➤" \
+            -mesg "Cool Fullscreen Text (VERY Unnecessary 🤣)" \
+            -theme-str 'mainbox\{children:[message,inputbar];\}' \
+        ) && \
+        $HOME/.dotfiles/scripts/general/text_to_fullscreen_effect "$txt"
 
 ###################
 # Audio

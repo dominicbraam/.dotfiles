@@ -63,4 +63,4 @@ image/png=userapp-nsxiv-YVCD11.desktop
 application/x-java=nvim.desktop
 x-scheme-handler/sidequest=SideQuest.desktop
 x-scheme-handler/mailto=Mailspring.desktop
-application/pdf=zathura.desktop
+application/pdf=org.pwmt.zathura.desktop

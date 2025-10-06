@@ -5,7 +5,7 @@ configuration {
     font:                   "Hack Nerd Font Bold 13";
     fixed-num-lines:        false;
     show-icons:             true;
-    icon-theme:             "Gruvbox-Material-Dark";
+    icon-theme:             "Arc";
     terminal:               "kitty";
     ssh-command:            "kitty -- kitty +kitten ssh {host}";
     sidebar-mode: 		    false;

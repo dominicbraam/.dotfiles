@@ -15,16 +15,16 @@ function tcd {
 }
 
 function topen {
-    # Create separation using span and rofi markup
+    # Create separation by forcing width to be 50 (and truncating col 1 to 50)
     selection=$(
         fd --type file |
             awk -F/ '{
                 name=$NF
                 if (length(name) > 50)
-                    name_truncated = substr(name, 1, 47) "..."
+                    display_name = substr(name, 1, 47) "..."
                 else
-                    name_truncated = name
-                printf "%-50s\t%s\t%s\n", name_truncated, $0, name
+                    display_name = name
+                printf "%-50s\t%s\t%s\n", display_name, $0, name
             }' |
             rofi -dmenu -i -no-show-icons -p "🔎📂" \
                 -theme-str '
@@ -33,8 +33,10 @@ function topen {
                 -display-columns 1,2
     )
     if [[ -n "$selection" ]]; then
+        # use xargs to remove additional space
         file_name=$(printf '%s\n' "$selection" | awk -F'\t' '{print $3}' | xargs)
         file_path=$(printf '%s\n' "$selection" | awk -F'\t' '{print $2}')
+
         send_notification "Opening '$file_name'"
         xdg-open "$file_path"
     fi

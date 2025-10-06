@@ -1,5 +1,11 @@
 #!/bin/bash
 
+set -euo pipefail
+
+function send_notification() {
+    dunstify -a "tmux_session_mgr" -u low -t 2500 -r 9993 "Tmux Manager" "$1"
+}
+
 function is_tmux_session {
     mapfile -t tmux_sessions < <(tmux ls -F "#S")
 
@@ -42,7 +48,6 @@ function tmux_new {
     if is_tmux_session "$session_name"; then
         kitty tmux attach-session -t "$session_name"
     else
-        echo "$dir and $session_name"
         if [ -n "$dir" ]; then
             kitty --working-directory "$dir" tmux new -s "$session_name"
         fi
@@ -50,10 +55,23 @@ function tmux_new {
 }
 
 function tmux_attach {
-    session_name=$(tmux ls -F "#S" | rofi -dmenu -i -no-show-icons -theme-str "listview { require-input: false; }" -p "tmux attach")
+    sessions=$(tmux ls -F "#S" || true)
+
+    if [ -z "$sessions" ]; then
+        send_notification "No sessions found."
+        exit 0
+    fi
+
+    session_name=$(
+        printf '%s\n' "$sessions" | rofi -dmenu -i -no-show-icons \
+            -mesg "tmux attach" \
+            -theme-str '
+                listview { require-input: false; }
+                mainbox { children: [ message, listview ]; }
+            '
+    )
 
     if is_tmux_session "$session_name"; then
-        echo "hmm"
         kitty tmux attach-session -t "$session_name"
     fi
 }

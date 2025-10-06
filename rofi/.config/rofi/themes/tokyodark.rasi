@@ -1,45 +1,47 @@
 * {
     /* Theme colors */
-    foreground: #11121D;
-    background: #A0A8CD;
-    black: #06080a;
-    blue: #7199ee;
-    cyan: #38a89d;
-    green: #A0E8A2;
-    magenta: #a485dd;
-    red: #e06c75;
-    white: #a0a8cd;
-    yellow: #d4b261;
-    light-gray: #565c64;
+    foreground:                     #11121D;
+    background:                     #A0A8CD;
+    black:                          #06080a;
+    blue:                           #7199ee;
+    cyan:                           #38a89d;
+    green:                          #A0E8A2;
+    magenta:                        #a485dd;
+    red:                            #e06c75;
+    white:                          #a0a8cd;
+    yellow:                         #d4b261;
+    light-gray:                     #565c64;
 
-    prompt: #21222D;
-    background-color: @background;
-    text-color: @foreground;
-    // transparent: #00000000;
-    transparent: #11121d00;
+    prompt:                         @light-gray;
+    alternate-background:           #21222D;
+    text-color:                     @white;
+    transparent:                    #00000000;
+    transparent:                    #11121d00;
+    header-text:                    white;
+    header-background:              @border;
 
-    border:                      @foreground;
-    separatorcolor:              @border;
-    scrollbar-handle:            @border;
+    border:                         @foreground;
+    separatorcolor:                 @border;
+    scrollbar-handle:               @border;
 
-    normal-background:           @background;
-    normal-foreground:           @foreground;
-    alternate-normal-background: @gruvbox-dark-bg0-soft;
-    alternate-normal-foreground: @foreground;
-    selected-normal-background:  @gruvbox-dark-bg3;
-    selected-normal-foreground:  @gruvbox-dark-fg0;
+    normal-background:              @alternate-background;
+    normal-foreground:              @foreground;
+    alternate-normal-background:    @normal-background;
+    alternate-normal-foreground:    @normal-background;
+    selected-normal-background:     @blue;
+    selected-normal-foreground:     @black;
 
-    active-background:           @blue;
-    active-foreground:           @black;
-    alternate-active-background: @active-background;
-    alternate-active-foreground: @active-foreground;
-    selected-active-background:  @gruvbox-dark-yellow-light;
-    selected-active-foreground:  @active-foreground;
+    active-background:              @red;
+    active-foreground:              @black;
+    alternate-active-background:    @active-background;
+    alternate-active-foreground:    @active-foreground;
+    selected-active-background:     @active-background;
+    selected-active-foreground:     @active-foreground;
 
-    urgent-background:           @gruvbox-dark-red-dark;
-    urgent-foreground:           @background;
-    alternate-urgent-background: @urgent-background;
-    alternate-urgent-foreground: @urgent-foreground;
-    selected-urgent-background:  @gruvbox-dark-red-light;
-    selected-urgent-foreground:  @urgent-foreground;
+    urgent-background:              @yellow;
+    urgent-foreground:              @red;
+    alternate-urgent-background:    @urgent-background;
+    alternate-urgent-foreground:    @urgent-foreground;
+    selected-urgent-background:     @urgent-foreground;
+    selected-urgent-foreground:     @urgent-background;
 }

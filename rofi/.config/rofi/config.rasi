@@ -38,31 +38,31 @@ prompt {
     border: 				0;
     border-color: 			black;
     padding:                3 10;
-    background-color:       @background;
+    background-color:       @alternate-background;
     font:                   "Iosevka Nerd Font 12 Bold";
-    text-color: 			@foreground;
+    text-color: 			@light-gray;
 }
 
 textbox {
-    text-color: 			@active-foreground;
+    background-color:       inherit;
+    text-color: 		    @header-text;
 }
 
 textbox-prompt-colon {
     expand: 				false;
     str: 				    "";
-    background-color:       @background;
+    background-color:       @normal-background;
     text-color: 			inherit;
 }
 
 entry {
-    spacing:    			10;
-    background-color:       @background;
-    text-color: 			@foreground;
+    background-color:       @alternate-background;
+    text-color: 			white;
 }
 
 case-indicator {
     spacing:    			4;
-    text-color: 			@foreground;
+    text-color: 			@normal-foreground;
 }
 
 mainbox {
@@ -72,13 +72,22 @@ mainbox {
     children:               [ inputbar, listview ];
 }
 
+message {
+    spacing:                0px;
+    border:                 5px;
+    border-color:           @border;
+    border-radius:          10px;
+    padding:                13px;
+    background-color:       @header-background;
+}
+
 inputbar {
     spacing:    			0px;
     border:                 5px;
     border-color:           @border;
     border-radius:          10px;
     padding:    			20px;
-    background-color:       @background;
+    background-color:       @alternate-background;
     children: 				[ prompt, entry ];
 }
 
@@ -92,6 +101,7 @@ listview {
     spacing: 				10px;
     scrollbar: 				false;
     padding: 				25px;
+    background-color:       @alternate-background;
 }
 
 // element properties
@@ -106,82 +116,74 @@ element {
     padding: 				10px;
 }
 element normal.normal {
-    background-color: 	    @background;
-    text-color:       	    @foreground;
+    background-color: 	    @normal-background;
+    text-color:       	    @text-color;
 }
 element normal.urgent {
-    background-color: 	    @background;
-    text-color:       	    @foreground;
+    background-color: 	    @urgent-background;
+    text-color:       	    @text-color;
 }
 element normal.active {
-    background-color: 	    @background;
-    text-color:       	    @foreground;
+    background-color: 	    @active-background;
+    text-color:       	    @normal-background;
 }
 element selected.normal {
-    background-color: 	    @active-background;
-    text-color:       	    @active-foreground;
+    background-color: 	    @selected-normal-background;
+    text-color:       	    @selected-normal-foreground;
 }
 element selected.urgent {
-    background-color: 	    @background;
-    text-color:       	    @foreground;
+    background-color: 	    @selected-urgent-background;
+    text-color:       	    @selected-urgent-foreground;
 }
 element selected.active {
-    background-color: 	    @foreground;
-    text-color:       	    @background;
+    background-color: 	    @selected-active-background;
+    text-color:       	    @selected-active-foreground;
 }
 element alternate.normal {
-    background-color: 	    @background;
-    text-color:       	    @foreground;
+    background-color: 	    @alternate-normal-background;
+    text-color:       	    @text-color;
 }
 element alternate.urgent {
-    background-color: 	    @background;
-    text-color:       	    @foreground;
+    background-color: 	    @alternate-urgent-background;
+    text-color:       	    @alternate-urgent-foreground;
 }
 element alternate.active {
-    background-color: 	    @background;
-    text-color:       	    @foreground;
+    background-color: 	    @alternate-active-background;
+    text-color:       	    @alternate-active-foreground;
 }
 
 sidebar {
     border:       			0px;
-    border-color: 			@active-foreground;
+    border-color: 			@border;
     border-radius: 			0px;
 }
 
 button {
     horizontal-align:       0.5;
     vertical-align:         0.5;
-    background-color:       @foreground;
+    background-color:       @normal-foreground;
     margin: 				5px;
     padding: 				5px;
-    text-color: 			@background;
+    text-color: 			@normal-background;
     border: 				0px;
     border-radius: 			4px;
-    border-color: 			@foreground;
+    border-color: 			@normal-foreground;
 }
 
 button selected {
     background-color:       @active-foreground;
-    text-color: 			@foreground;
+    text-color: 			@normal-foreground;
     border: 				0px;
     border-radius: 			4px;
-    border-color: 			@foreground;
+    border-color: 			@normal-foreground;
 }
 
 scrollbar {
     width:        			4px;
     border:       			0px;
-    handle-color: 			@foreground;
+    handle-color: 			@normal-foreground;
     handle-width: 			8px;
     padding:  			    0;
-}
-
-message {
-    spacing:                0px;
-    border:                 5px;
-    border-color:           @border;
-    border-radius:          10px;
-    padding:                13px;
 }
 
 // if you use icons

@@ -33,8 +33,12 @@ super + shift + Return
 super + m
     pgrep -x rmpc >/dev/null || \
         $HOME/.dotfiles/scripts/rofi/blur_bg kitty --class=Rmpc \
+        --override window_padding_width=0 \
         -e zsh -ilc rmpc
-        # kitty --class=Rmpc \
+
+# open mailbox
+super + shift + m
+    kitty --override window_padding_width=3 -e zsh -ilc neomutt
 
 # toggle polybar
 super + b

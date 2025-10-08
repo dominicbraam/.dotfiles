@@ -2,7 +2,22 @@
 
 wmname LG3D
 
-"$HOME"/.dotfiles/scripts/startup/startup.sh
+# autostart my apps
+dex -a -s ~/.config/autostart/
+
+# set display(s) resolution
+"$HOME"/.screenlayout/xrandr_cmd.sh
+
+# launch polybar
+"$HOME"/.config/polybar/launch.sh &
+
+# wallpaper
+pgrep -x nitrogen >/dev/null || nitrogen --restore &
+
+# set dbus variables
+"$HOME"/.dotfiles/scripts/general/dbus_var_handler.sh
+
+systemctl --user restart sxhkd.service
 
 source "$HOME"/.local/bin/bash-ini-parser/bash-ini-parser
 

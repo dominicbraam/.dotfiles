@@ -9,7 +9,7 @@ function transform_sink_name {
 }
 
 function get_default {
-    pactl info | sed -n "s/^Default Sink: //p"
+    pactl get-default-sink
 }
 
 function set_default {

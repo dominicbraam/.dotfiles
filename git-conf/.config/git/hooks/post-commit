@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -eu
+fmt="$(git config --get gpg.format || echo "")"
+
+case "$fmt" in
+ssh | openpgp) git verify-commit -q HEAD || {
+    echo "Signature verification failed for HEAD" >&2
+    exit 1
+} ;;
+esac

@@ -1,0 +1,47 @@
+#!/bin/sh
+set -eu
+
+# Exit non-zero function with error message
+die() {
+    printf '%s\n' "$*" >&2
+    exit 1
+}
+
+# Config checks
+[ "$(git config --get commit.gpgsign || echo false)" = "true" ] || die "commit.gpgsign must be true"
+fmt="$(git config --get gpg.format || echo "")"
+[ "$fmt" = "ssh" ] || [ "$fmt" = "openpgp" ] || die "gpg.format must be ssh or openpgp"
+email="$(git config --get user.email || echo "")"
+[ -n "$email" ] || die "user.email is unset"
+
+if [ "$fmt" = "ssh" ]; then
+    key="$(git config --get user.signingkey || echo "")"
+    [ -n "$key" ] || die "gpg.ssh.signingkey is unset"
+    asf="$(git config --get gpg.ssh.allowedSignersFile || echo "")"
+    [ -n "$asf" ] || die "gpg.ssh.allowedSignersFile is unset"
+    [ -f "$asf" ] || die "allowed signers file not found: $asf"
+
+    if [ -f "$key" ]; then
+        pub="$key"
+        [ -f "$key.pub" ] && pub="$key.pub"
+        pubstr="$(cat "$pub")"
+        echo "$pubstr" | grep -qE '^(ssh-(ed25519|rsa)|sk-ssh-(ed25519|ecdsa)-@openssh\.com)' ||
+            die "signingkey must be an SSH key or its .pub"
+        grep -Fq "$email $pubstr" "$asf" || die "allowedSigners lacks a line: '$email <pubkey>'"
+    else
+        die "'$key' not found."
+    fi
+fi
+
+if [ "$fmt" = "openpgp" ]; then
+    keyid="$(git config --get user.signingkey || echo "")"
+    [ -n "$keyid" ] || die "user.signingkey is unset for GPG"
+    command -v gpg >/dev/null 2>&1 || die "gpg not found"
+    tmp="$(mktemp)"
+    trap 'rm -f "$tmp"' EXIT
+    gpg --list-keys --with-colons -- "$keyid" >"$tmp" 2>/dev/null || true
+    grep -q '^pub:' "$tmp" || die "GPG key '$keyid' not found"
+    grep -q "^uid:.*<$email>" "$tmp" || die "GPG key '$keyid' has no UID with <$email>"
+fi
+
+exit 0

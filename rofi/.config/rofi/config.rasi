@@ -2,7 +2,7 @@
 
 // Main config
 configuration {
-    font:                   "Iosevka Nerd Font Bold 13";
+    font:                   "Iosevka Extrabold 15";
     fixed-num-lines:        false;
     show-icons:             true;
     icon-theme:             "Arc";

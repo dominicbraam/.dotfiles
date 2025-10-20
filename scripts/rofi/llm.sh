@@ -65,7 +65,7 @@ function save_oatmeal_session {
     logger "Session saved for location $CURRENT_LOC with session id $LATEST_SESSION_ID"
 }
 
-mode1="openai"
+mode1="oatmeal (openai)"
 mode2="ollama"
 options="$mode1\n$mode2"
 mode=$(
@@ -84,11 +84,11 @@ mode=$(
 run_oatmeal "$mode"
 save_oatmeal_session "$mode"
 
-case $mode in
-"get_oatmeal_session")
-    get_oatmeal_session "$1"
-    ;;
-*)
-    exit
-    ;;
-esac
+# case $mode in
+# "get_oatmeal_session")
+#     get_oatmeal_session "$1"
+#     ;;
+# *)
+#     exit
+#     ;;
+# esac

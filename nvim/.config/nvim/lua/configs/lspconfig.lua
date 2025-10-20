@@ -10,7 +10,6 @@ local servers = {
     "cssls",
     "dockerls",
     "gopls",
-    "harper_ls",
     "html",
     "jsonls",
     "marksman",
@@ -21,6 +20,7 @@ local servers = {
     "pylsp",
     "r_language_server",
     "ts_ls",
+    "turtle_ls",
     "yamlls",
 }
 

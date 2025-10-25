@@ -77,6 +77,11 @@ return {
             vim.diagnostic.config({ virtual_text = false }) -- Disable Neovim's default virtual text diagnostics
         end,
     },
+    {
+        "Fildo7525/pretty_hover",
+        event = "LspAttach",
+        opts = {},
+    },
     -- These are some examples, uncomment them if you want to see them work!
     -- {
     --   "neovim/nvim-lspconfig",

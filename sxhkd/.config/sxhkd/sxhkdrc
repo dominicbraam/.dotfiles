@@ -127,6 +127,14 @@ super + t
         ) && \
         $HOME/.dotfiles/scripts/general/text_to_fullscreen_effect "$txt"
 
+# vpn connect
+super + v
+	$HOME/.dotfiles/scripts/rofi/nord/vpn_menu.sh
+
+# vpn disconnect
+super + shift + v
+	nordvpn disconnect
+
 ###################
 # Audio
 ###################

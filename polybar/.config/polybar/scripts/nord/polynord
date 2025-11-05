@@ -1,0 +1,120 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+import json
+import socket
+import subprocess
+import select
+from contextlib import contextmanager
+
+SOCKFILE = os.path.join(
+    os.environ.get("XDG_RUNTIME_DIR", "/tmp"), "polyvpn.sock"
+)
+# LOCK = ""  # fa-lock
+# UNLOCK = ""  # fa-unlock
+
+ABBR_FILE = os.path.expanduser("~/.config/polybar/scripts/nord/vpn_abbr.json")
+try:
+    with open(ABBR_FILE, "r") as f:
+        abbr_map = json.load(f)
+except Exception:
+    abbr_map = {}
+
+
+def get_vpn_info():
+    """
+    Returns (connected: bool, country_key: str or None)
+    """
+    try:
+        out = subprocess.check_output(
+            ["/usr/bin/nordvpn", "status"], stderr=subprocess.DEVNULL
+        ).decode()
+    except Exception:
+        return False, None
+
+    connected = "Status: Connected" in out
+    m = None
+    for line in out.splitlines():
+        if line.startswith("Server:"):
+            m = line.split()[1]
+            parts = line[len("Server:") :].strip().split()
+            country = parts[0]
+            country = line.split("Server:")[1].strip().split("#")[0].strip()
+            break
+    else:
+        country = None
+
+    return connected, country
+
+
+@contextmanager
+def socket_server():
+    try:
+        os.remove(SOCKFILE)
+    except FileNotFoundError:
+        pass
+    s = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
+    s.bind(SOCKFILE)
+    try:
+        yield s
+    finally:
+        s.close()
+
+
+def send_action(msg):
+    s = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
+    try:
+        s.connect(SOCKFILE)
+        s.send(msg.encode())
+    finally:
+        s.close()
+
+
+def run_display():
+
+    connected, country = get_vpn_info()
+
+    with socket_server() as sock:
+        while True:
+            if connected and country:
+
+                key = country.replace(" ", "_")
+
+                code = abbr_map.get(key, "")
+
+                if code:
+                    # line = f"%{{T1}}{LOCK}%{{T-}} {code}"
+                    line = f"%{{F#A0E8A2}}{code}%{{F-}}"
+                else:
+                    # line = f"%{{T1}}{LOCK}%{{T-}}"
+                    line = "%{F#A0E8A2}cn%{F-}"
+
+            else:
+
+                # line = f"%{{T1}}{UNLOCK}%{{T-}}"
+                line = "%{F#e06c75}_%{F-}"
+
+            print(line)
+            sys.stdout.flush()
+
+            r, _, _ = select.select([sock], [], [], 5)
+            if r:
+                cmd = sock.recv(1024).decode()
+                if cmd == "connect":
+                    subprocess.call(["/usr/bin/nordvpn", "connect"])
+                elif cmd == "disconnect":
+                    subprocess.call(["/usr/bin/nordvpn", "disconnect"])
+                elif cmd == "exit":
+                    break
+
+            connected, country = get_vpn_info()
+
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        action = sys.argv[1]
+        if action in ("connect", "disconnect", "exit"):
+            send_action(action)
+    else:
+        run_display()

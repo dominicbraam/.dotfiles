@@ -4,75 +4,75 @@ CURRENT_LOC="$PWD"
 
 # create session file if it doesn't exist
 if [ ! -f "$SESSION_FILE" ]; then
-    echo "[]" >"$SESSION_FILE"
+	echo "[]" >"$SESSION_FILE"
 fi
 
 function run_oatmeal {
 
-    if [ -z "$1" ]; then
-        return
-    fi
+	if [ -z "$1" ]; then
+		return
+	fi
 
-    base_cmd="$HOME/.dotfiles/scripts/rofi/blur_bg kitty --class Oatmeal -e oatmeal"
+	base_cmd="$HOME/.dotfiles/scripts/rofi/blur_bg kitty --class Oatmeal -e oatmeal"
 
-    if [ "$1" = "ollama" ]; then
-        cmd="$base_cmd --backend ollama"
-    elif [ "$1" = "openai" ]; then
-        cmd="env OATMEAL_OPENAI_TOKEN=$(secret-tool lookup apikey openai-shell-cli) $base_cmd --backend openai --model gpt-5-nano"
-    fi
+	if [ "$1" = "ollama" ]; then
+		cmd="$base_cmd --backend ollama"
+	elif [ "$1" = "openai" ]; then
+		cmd="env OATMEAL_OPENAI_TOKEN=$(secret-tool lookup apikey openai-shell-cli) $base_cmd --backend openai --model gpt-5-nano"
+	fi
 
-    if [ -z "$2" ]; then
-        logger "creating new session [$1]"
-        $cmd
-    # else
-    #     logger "connecting to session [$1]: $2"
-    #     env OATMEAL_OPENAI_TOKEN="$(secret-tool lookup apikey openai-shell-cli)" "$base_cmd" sessions open --id "$2"
-    fi
+	if [ -z "$2" ]; then
+		logger "creating new session [$1]"
+		$cmd
+	# else
+	#     logger "connecting to session [$1]: $2"
+	#     env OATMEAL_OPENAI_TOKEN="$(secret-tool lookup apikey openai-shell-cli)" "$base_cmd" sessions open --id "$2"
+	fi
 }
 
 # maps session based on where the command was started and which backend
 function get_oatmeal_session {
 
-    SESSION_ID=$(jq -r --arg loc "$CURRENT_LOC" --arg backend "$1" '.[] | select(.location==$loc and .backend==$backend) | .session_id' "$SESSION_FILE")
+	SESSION_ID=$(jq -r --arg loc "$CURRENT_LOC" --arg backend "$1" '.[] | select(.location==$loc and .backend==$backend) | .session_id' "$SESSION_FILE")
 
-    if [ -n "$SESSION_ID" ] && [ "$SESSION_ID" != "null" ]; then
-        echo "$SESSION_ID"
-    fi
-    echo "poop"
+	if [ -n "$SESSION_ID" ] && [ "$SESSION_ID" != "null" ]; then
+		echo "$SESSION_ID"
+	fi
+	echo "poop"
 }
 
 function save_oatmeal_session {
 
-    exists=$(jq --arg loc "$CURRENT_LOC" --arg backend "$1" 'any(.[]; .location == $loc and .backend==$backend)' "$SESSION_FILE")
-    if [ "$exists" = "true" ]; then
-        logger "Entry for location: $CURRENT_LOC, backend: $1 already exists. Not updating."
-        return
-    fi
+	exists=$(jq --arg loc "$CURRENT_LOC" --arg backend "$1" 'any(.[]; .location == $loc and .backend==$backend)' "$SESSION_FILE")
+	if [ "$exists" = "true" ]; then
+		logger "Entry for location: $CURRENT_LOC, backend: $1 already exists. Not updating."
+		return
+	fi
 
-    # uses latest values so it's not perfect
-    LATEST_SESSION_ID=$(oatmeal sessions list | awk 'NR==1 {gsub(/\)$/, "", $3); print $3}')
+	# uses latest values so it's not perfect
+	LATEST_SESSION_ID=$(oatmeal sessions list | awk 'NR==1 {gsub(/\)$/, "", $3); print $3}')
 
-    if
-        [ -z "$LATEST_SESSION_ID" ] || [ "$LATEST_SESSION_ID" = "null" ]
-    then
-        logger "No valid session id found."
-        return
-    fi
+	if
+		[ -z "$LATEST_SESSION_ID" ] || [ "$LATEST_SESSION_ID" = "null" ]
+	then
+		logger "No valid session id found."
+		return
+	fi
 
-    new_json=$(jq --arg loc "$CURRENT_LOC" --arg backend "$1" --arg session_id "$LATEST_SESSION_ID" '. + [{"location": $loc, "backend": $backend, "session_id": $session_id}]' "$SESSION_FILE")
+	new_json=$(jq --arg loc "$CURRENT_LOC" --arg backend "$1" --arg session_id "$LATEST_SESSION_ID" '. + [{"location": $loc, "backend": $backend, "session_id": $session_id}]' "$SESSION_FILE")
 
-    echo "$new_json" >"$SESSION_FILE"
-    logger "Session saved for location $CURRENT_LOC with session id $LATEST_SESSION_ID"
+	echo "$new_json" >"$SESSION_FILE"
+	logger "Session saved for location $CURRENT_LOC with session id $LATEST_SESSION_ID"
 }
 
-mode1="oatmeal (openai)"
+mode1="openai"
 mode2="ollama"
 options="$mode1\n$mode2"
 mode=$(
-    echo -e "$options" |
-        rofi -dmenu -no-show-icons \
-            -mesg "LLM Picker" \
-            -theme-str '
+	echo -e "$options" |
+		rofi -dmenu -no-show-icons \
+			-mesg "LLM Picker" \
+			-theme-str '
                     window { width: 250px; }
                     mainbox { children: [ message, listview ]; }
                     listview { require-input: false; }

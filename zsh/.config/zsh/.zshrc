@@ -55,23 +55,6 @@ export VISUAL='nvim'
 # PROMPT='%B%F{#50fa7b}>%f%b '
 # TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
 
-# Aliases
-# alias ls='ls --color=auto'
-alias ls='exa --icons --group-directories-first'
-# alias la='ls -A'
-alias la='exa --icons --group-directories-first -a -a'
-# alias ll='ls -lh'
-alias ll='exa --icons --group-directories-first -l -g --git'
-alias v='nvim'
-alias grep='grep --colour=auto'
-alias mydot="cd $HOME/.dotfiles/"
-alias cat='bat'
-alias df='duf'
-alias du='dua'
-alias powershell='echo This is an alias for pwsh && pwsh'
-alias rm='echo Use the full path i.e. '/bin/rm', consider using trash i.e. trash-cli. Do not forget the Jupyter Notebook incident!!'
-alias cpc='xclip -sel c < '
-
 # $PATH
 path+=("$HOME/.local/bin")
 path+=("$HOME/.local/share/gem/ruby/3.0.0/bin")
@@ -103,11 +86,29 @@ export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
 export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
 export GOPATH="$XDG_CACHE_HOME"/go
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
-alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+export OLLAMA_MODELS="$XDG_DATA_HOME/ollama/models"
 # compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION" # replaced by zsh-autocomplete plugin
 
 # Java + non-reparenting WM issue. Java AWT thinks the WM is “weird” and never maps the window unless you set that hint.
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+# Aliases
+# alias ls='ls --color=auto'
+alias ls='exa --icons --group-directories-first'
+# alias la='ls -A'
+alias la='exa --icons --group-directories-first -a -a'
+# alias ll='ls -lh'
+alias ll='exa --icons --group-directories-first -l -g --git'
+alias v='nvim'
+alias grep='grep --colour=auto'
+alias mydot="cd $HOME/.dotfiles/"
+alias cat='bat'
+alias df='duf'
+alias du='dua'
+alias powershell='echo This is an alias for pwsh && pwsh'
+alias rm='echo Use the full path i.e. '/bin/rm', consider using trash i.e. trash-cli. Do not forget the Jupyter Notebook incident!!'
+alias cpc='xclip -sel c < '
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 
 # command exec time
 source /usr/share/zsh/plugins/zsh-command-time/command-time.plugin.zsh
@@ -133,7 +134,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # bash-zsh-insulter
 if [ -f /etc/bash.command-not-found ]; then
-    . /etc/bash.command-not-found
+	. /etc/bash.command-not-found
 fi
 
 # the starship prompt
@@ -151,34 +152,34 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 lazy_conda_aliases=('python' 'conda')
 
 load_conda() {
-    for lazy_conda_alias in $lazy_conda_aliases; do
-        unalias $lazy_conda_alias
-    done
+	for lazy_conda_alias in $lazy_conda_aliases; do
+		unalias $lazy_conda_alias
+	done
 
-    # conda init edit: for a better (but not the best) solution for cross device support
-    MINICONDA3_DIR="${HOME}/.local/lib/miniconda3"
+	# conda init edit: for a better (but not the best) solution for cross device support
+	MINICONDA3_DIR="${HOME}/.local/lib/miniconda3"
 
-    # >>> conda initialize >>>
-    # !! Contents within this block are managed by 'conda init' !!
-    __conda_setup="$("${MINICONDA3_DIR}/bin/conda" 'shell.zsh' 'hook' 2>/dev/null)"
-    if [ $? -eq 0 ]; then
-        eval "$__conda_setup"
-    else
-        if [ -f "${MINICONDA3_DIR}/etc/profile.d/conda.sh" ]; then
-            . "${MINICONDA3_DIR}/etc/profile.d/conda.sh"
-        else
-            export PATH="${MINICONDA3_DIR}/bin:$PATH"
-        fi
-    fi
-    unset __conda_setup
-    # <<< conda initialize <<<
+	# >>> conda initialize >>>
+	# !! Contents within this block are managed by 'conda init' !!
+	__conda_setup="$("${MINICONDA3_DIR}/bin/conda" 'shell.zsh' 'hook' 2>/dev/null)"
+	if [ $? -eq 0 ]; then
+		eval "$__conda_setup"
+	else
+		if [ -f "${MINICONDA3_DIR}/etc/profile.d/conda.sh" ]; then
+			. "${MINICONDA3_DIR}/etc/profile.d/conda.sh"
+		else
+			export PATH="${MINICONDA3_DIR}/bin:$PATH"
+		fi
+	fi
+	unset __conda_setup
+	# <<< conda initialize <<<
 
-    unset __conda_prefix
-    unfunction load_conda
+	unset __conda_prefix
+	unfunction load_conda
 }
 
 for lazy_conda_alias in $lazy_conda_aliases; do
-    alias $lazy_conda_alias="load_conda && $lazy_conda_alias"
+	alias $lazy_conda_alias="load_conda && $lazy_conda_alias"
 done
 ###############################
 

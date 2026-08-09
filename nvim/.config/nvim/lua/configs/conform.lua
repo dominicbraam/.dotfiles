@@ -26,7 +26,14 @@ local options = {
 			prepend_args = { "--line-length", "79" },
 		},
 		prettier = {
-			prepend_args = { "--tab-width", "4", "--print-width", "79" },
+			prepend_args = {
+				"--config-precedence",
+				"prefer-file",
+				"--tab-width",
+				"4",
+				"--print-width",
+				"79",
+			},
 		},
 		stylua = {
 			prepend_args = {

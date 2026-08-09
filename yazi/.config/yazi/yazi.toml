@@ -15,14 +15,14 @@ open = [
 ]
 reveal = [
   { run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux" },
-  { run = '''exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
+  { run = 'exiftool "$1"; echo "Press enter to exit"; read _', block = true, desc = "Show EXIF", for = "unix" },
 ]
 extract = [
   { run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
 ]
 play = [
   { run = '$HOME/.dotfiles/scripts/yazi/hide_open_unhide mpv "$@"', block = true, desc = "Play", for = "unix" },
-  { run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
+  { run = 'mediainfo "$1"; echo "Press enter to exit"; read _', block = true, desc = "Show media info", for = "unix" },
 ]
 pdf = [
   { run = '$HOME/.dotfiles/scripts/yazi/hide_open_unhide libreoffice "$@"', block = true, desc = "Open (libreoffice)", for = "unix" },
@@ -36,7 +36,7 @@ office = [
 [open]
 rules = [
   # Folder
-  { name = "*/", use = [
+  { mime = "inode/directory", use = [
     "reveal",
   ] },
   # Text
@@ -50,12 +50,12 @@ rules = [
   ] },
   # Office Docs
   # Not sure why I can't use the mime type. Oh well...
-  { name = "*.docx", use = [ "office" ] },
-  { name = "*.doc", use = [ "office" ] },
-  { name = "*.xlsx", use = [ "office" ] },
-  { name = "*.xls", use = [ "office" ] },
-  { name = "*.pptx", use = [ "office" ] },
-  { name = "*.ppt", use = [ "office" ] },
+  { url = "*.docx", use = [ "office" ] },
+  { url = "*.doc", use = [ "office" ] },
+  { url = "*.xlsx", use = [ "office" ] },
+  { url = "*.xls", use = [ "office" ] },
+  { url = "*.pptx", use = [ "office" ] },
+  { url = "*.ppt", use = [ "office" ] },
   # Image
   { mime = "image/*", use = [
     "open",
@@ -86,7 +86,7 @@ rules = [
     "reveal",
   ] },
   # Fallback
-  { name = "*", use = [
+  { url = "*", use = [
     "open",
     "reveal",
   ] },

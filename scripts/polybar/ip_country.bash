@@ -9,6 +9,7 @@ ip monitor address link route | while read -r _; do
 	# Get current public IP
 	current_ip=$(curl -fsS https://api.ipify.org) || {
 		echo "err(ip)"
+		sleep 3600 # delay cuz the error is most likely a rate limit
 		continue
 	}
 

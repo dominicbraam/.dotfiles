@@ -1,113 +1,122 @@
 return {
-    {
-        "stevearc/conform.nvim",
-        event = "BufWritePre", -- uncomment for format on save
-        config = function()
-            require("configs.conform")
-        end,
-    },
-    {
-        "neovim/nvim-lspconfig",
-        config = function()
-            require("configs.lspconfig")
-        end,
-    },
-    {
-        "nvim-treesitter/nvim-treesitter",
-        event = { "BufReadPre", "BufNewFile" },
-        config = function()
-            require("configs.treesitter")
-        end,
-    },
-    {
-        "kdheepak/lazygit.nvim",
-        cmd = {
-            "LazyGit",
-            "LazyGitConfig",
-            "LazyGitCurrentFile",
-            "LazyGitFilter",
-            "LazyGitFilterCurrentFile",
-        },
-        -- optional for floating window border decoration
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-    },
-    {
-        "R-nvim/R.nvim",
-        -- Only required if you also set defaults.lazy = true
-        lazy = false,
-        -- R.nvim is still young and we may make some breaking changes from time
-        -- to time. For now we recommend pinning to the latest minor version
-        -- like so:
-        version = "~0.1.0",
-    },
-    {
-        "danymat/neogen",
-        config = true,
-        -- Uncomment next line if you want to follow only stable versions
-        -- version = "*"
-    },
-    {
-        "dustinblackman/oatmeal.nvim",
-        cmd = { "Oatmeal" },
-        config = function()
-            require("configs.oatmeal")
-        end,
-    },
-    {
-        "mikavilpas/yazi.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            "folke/snacks.nvim",
-        },
-    },
-    {
-        "nvim-telescope/telescope.nvim",
-        config = function()
-            require("configs.telescope")
-        end,
-    },
-    {
-        "rachartier/tiny-inline-diagnostic.nvim",
-        event = "VeryLazy",
-        priority = 1000,
-        config = function()
-            require("tiny-inline-diagnostic").setup()
-            vim.diagnostic.config({ virtual_text = false }) -- Disable Neovim's default virtual text diagnostics
-        end,
-    },
-    {
-        "Fildo7525/pretty_hover",
-        event = "LspAttach",
-        opts = {},
-    },
-    -- These are some examples, uncomment them if you want to see them work!
-    -- {
-    --   "neovim/nvim-lspconfig",
-    --   config = function()
-    --     require("nvchad.configs.lspconfig").defaults()
-    --     require "configs.lspconfig"
-    --   end,
-    -- },
-    --
-    -- {
-    -- 	"williamboman/mason.nvim",
-    -- 	opts = {
-    -- 		ensure_installed = {
-    -- 			"lua-language-server", "stylua",
-    -- 			"html-lsp", "css-lsp" , "prettier"
-    -- 		},
-    -- 	},
-    -- },
-    --
-    -- {
-    -- 	"nvim-treesitter/nvim-treesitter",
-    -- 	opts = {
-    -- 		ensure_installed = {
-    -- 			"vim", "lua", "vimdoc",
-    --      "html", "css"
-    -- 		},
-    -- 	},
-    -- },
+	{
+		"stevearc/conform.nvim",
+		event = "BufWritePre", -- uncomment for format on save
+		config = function()
+			require("configs.conform")
+		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			require("configs.lspconfig")
+		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		branch = "main",
+		lazy = false,
+		build = ":TSUpdate",
+		config = function()
+			require("configs.treesitter")
+		end,
+	},
+	{
+		"kdheepak/lazygit.nvim",
+		cmd = {
+			"LazyGit",
+			"LazyGitConfig",
+			"LazyGitCurrentFile",
+			"LazyGitFilter",
+			"LazyGitFilterCurrentFile",
+		},
+		-- optional for floating window border decoration
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+	},
+	{
+		"R-nvim/R.nvim",
+		-- Only required if you also set defaults.lazy = true
+		lazy = false,
+		-- R.nvim is still young and we may make some breaking changes from time
+		-- to time. For now we recommend pinning to the latest minor version
+		-- like so:
+		version = "~0.1.0",
+	},
+	{
+		"danymat/neogen",
+		config = true,
+		-- Uncomment next line if you want to follow only stable versions
+		-- version = "*"
+	},
+	{
+		"dustinblackman/oatmeal.nvim",
+		cmd = { "Oatmeal" },
+		config = function()
+			require("configs.oatmeal")
+		end,
+	},
+	{
+		"mikavilpas/yazi.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"folke/snacks.nvim",
+		},
+	},
+	{
+		"nvim-telescope/telescope.nvim",
+		config = function()
+			require("configs.telescope")
+		end,
+	},
+	{
+		"rachartier/tiny-inline-diagnostic.nvim",
+		event = "VeryLazy",
+		priority = 1000,
+		config = function()
+			require("tiny-inline-diagnostic").setup()
+			vim.diagnostic.config({ virtual_text = false }) -- Disable Neovim's default virtual text diagnostics
+		end,
+	},
+	{
+		"Fildo7525/pretty_hover",
+		event = "LspAttach",
+		opts = {},
+	},
+	{
+		"OXY2DEV/markview.nvim",
+		lazy = false,
+
+		-- Completion for `blink.cmp`
+		-- dependencies = { "saghen/blink.cmp" },
+	},
+	-- These are some examples, uncomment them if you want to see them work!
+	-- {
+	--   "neovim/nvim-lspconfig",
+	--   config = function()
+	--     require("nvchad.configs.lspconfig").defaults()
+	--     require "configs.lspconfig"
+	--   end,
+	-- },
+	--
+	-- {
+	-- 	"williamboman/mason.nvim",
+	-- 	opts = {
+	-- 		ensure_installed = {
+	-- 			"lua-language-server", "stylua",
+	-- 			"html-lsp", "css-lsp" , "prettier"
+	-- 		},
+	-- 	},
+	-- },
+	--
+	-- {
+	-- 	"nvim-treesitter/nvim-treesitter",
+	-- 	opts = {
+	-- 		ensure_installed = {
+	-- 			"vim", "lua", "vimdoc",
+	--      "html", "css"
+	-- 		},
+	-- 	},
+	-- },
 }

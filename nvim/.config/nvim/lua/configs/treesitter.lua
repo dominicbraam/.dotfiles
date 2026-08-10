@@ -1,29 +1,26 @@
 pcall(function()
-    dofile(vim.g.base46_cache .. "syntax")
-    dofile(vim.g.base46_cache .. "treesitter")
+	dofile(vim.g.base46_cache .. "syntax")
+	dofile(vim.g.base46_cache .. "treesitter")
 end)
 
-return {
-    ensure_installed = {
-        "bash",
-        "lua",
-        "luadoc",
-        "markdown",
-        "python",
-        "printf",
-        "r",
-        "rust",
-        "onoweb",
-        "sql",
-        "vim",
-        "vimdoc",
-        "yaml",
-    },
+local treesitter = require("nvim-treesitter")
 
-    highlight = {
-        enable = true,
-        use_languagetree = true,
-    },
+treesitter.setup({
+	install_dir = vim.fn.stdpath("data") .. "/site",
+})
 
-    indent = { enable = true },
-}
+treesitter.install({
+	"bash",
+	"lua",
+	"luadoc",
+	"markdown",
+	"markdown_inline",
+	"python",
+	"printf",
+	"r",
+	"rust",
+	"sql",
+	"vim",
+	"vimdoc",
+	"yaml",
+})

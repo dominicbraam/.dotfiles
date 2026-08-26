@@ -8,29 +8,29 @@ image_quality = 50
 
 [opener]
 edit = [
-  { run = 'nvim "$@"', desc = "Edit (nvim)", block = true, for = "unix" },
+  { run = "nvim %s", desc = "Edit (nvim)", block = true, for = "unix" },
 ]
 open = [
-  { run = '$HOME/.dotfiles/scripts/yazi/hide_open_unhide xdg-open "$@"', block = true, desc = "Open (default)", for = "unix" },
+  { run = "$HOME/.dotfiles/scripts/yazi/hide_open_unhide xdg-open %s1", block = true, desc = "Open (default)", for = "unix" },
 ]
 reveal = [
-  { run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux" },
-  { run = 'exiftool "$1"; echo "Press enter to exit"; read _', block = true, desc = "Show EXIF", for = "unix" },
+  { run = "xdg-open %d1", desc = "Reveal", for = "linux" },
+  { run = 'exiftool %s1; echo "Press enter to exit"; read _', block = true, desc = "Show EXIF", for = "unix" },
 ]
 extract = [
-  { run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
+  { run = "ya pub extract --list %s", desc = "Extract here", for = "unix" },
 ]
 play = [
-  { run = '$HOME/.dotfiles/scripts/yazi/hide_open_unhide mpv "$@"', block = true, desc = "Play", for = "unix" },
-  { run = 'mediainfo "$1"; echo "Press enter to exit"; read _', block = true, desc = "Show media info", for = "unix" },
+  { run = "$HOME/.dotfiles/scripts/yazi/hide_open_unhide mpv %s", block = true, desc = "Play", for = "unix" },
+  { run = 'mediainfo %s1; echo "Press enter to exit"; read _', block = true, desc = "Show media info", for = "unix" },
 ]
 pdf = [
-  { run = '$HOME/.dotfiles/scripts/yazi/hide_open_unhide libreoffice "$@"', block = true, desc = "Open (libreoffice)", for = "unix" },
-  { run = '$HOME/.dotfiles/scripts/yazi/hide_open_unhide xournalpp "$@"', block = true, desc = "Open (xournalpp)", for = "unix" },
-  { run = '$HOME/.dotfiles/scripts/yazi/hide_open_unhide zathura "$@"', block = true, desc = "Open (zathura)", for = "unix" },
+  { run = "$HOME/.dotfiles/scripts/yazi/hide_open_unhide libreoffice %s", block = true, desc = "Open (libreoffice)", for = "unix" },
+  { run = "$HOME/.dotfiles/scripts/yazi/hide_open_unhide xournalpp %s", block = true, desc = "Open (xournalpp)", for = "unix" },
+  { run = "$HOME/.dotfiles/scripts/yazi/hide_open_unhide zathura %s1", block = true, desc = "Open (zathura)", for = "unix" },
 ]
 office = [
-  { run = '$HOME/.dotfiles/scripts/yazi/hide_open_unhide libreoffice "$@"', block = true, desc = "Open (libreoffice)", for = "unix" },
+  { run = "$HOME/.dotfiles/scripts/yazi/hide_open_unhide libreoffice %s", block = true, desc = "Open (libreoffice)", for = "unix" },
 ]
 
 [open]
